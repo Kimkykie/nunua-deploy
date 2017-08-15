@@ -1,0 +1,68 @@
+mixin predictionForm(prediction = {})
+  form.ui.form.segment.equal.width.unstackable(action='/add' method='POST')
+    #fields
+      - for(var i = 0; i < 5; i++)
+        .fields
+          .field
+            label Date
+            |
+            .ui.calendar.date-picker     
+              .ui.left.labeled.icon.input
+                input(type='text', placeholder='Date', name='date[]')
+                |       
+                i.calendar.icon
+          .field
+            label Time
+            |
+            .ui.calendar.time-picker     
+              .ui.left.labeled.icon.input
+                input(type='text', placeholder='Time', name='time[]')
+                |       
+                i.wait.icon
+          .field
+            label Team 1
+            |     
+            .ui.left.labeled.icon.input
+              input(type='text', placeholder='Team 1', name='team1[]')
+              |       
+              i.soccer.icon
+          .field
+            label Team 2
+            |     
+            .ui.left.labeled.icon.input
+              input(type='text', placeholder='Team 2', name='team2[]')
+              |       
+              i.soccer.icon
+          .field
+            label Prediction
+            |
+            .ui.selection.dropdown
+              input(type="hidden", name="prediction[]")
+              i.dropdown.icon
+              .default.text Prediction
+              .menu
+                .item(data-value="GG") GG
+                .item(data-value="Home Win (1)") Home Win (1)
+                .item(data-value="Draw") Draw
+                .item(data-value="Over (2.5)(1.5)") Over (2.5)(1.5)
+                .item(data-value="Away Win (1)") Away Win (1)
+                .item(data-value="Over/Under 1.5") Over/Under 1.5
+                
+                  
+			        
+    button.ui.button.fluid(type='submit') Save
+    button.ui.button(id='addFields') Add
+    script.
+      $('.date-picker').calendar({
+        type: 'date'
+      });
+      $('#date-picker').calendar({
+        type: 'date'
+      });
+      
+      $('.time-picker').calendar({
+        type: 'time'
+      });
+      
+      $('.ui.dropdown').dropdown();
+  

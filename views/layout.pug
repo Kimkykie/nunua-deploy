@@ -1,0 +1,71 @@
+doctype html
+html
+  head
+    title= `${title} | ${h.siteName}`
+    link(rel='stylesheet', href='/semantic/out/semantic.min.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui-calendar/0.0.8/calendar.css')
+    link(rel='stylesheet', href='/dist/style.css')
+    link(rel="shortcut icon" type="image/png" href="/images/icons/doughnut.png")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='/semantic/out/semantic.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui-calendar/0.0.8/calendar.min.js')
+
+
+  body
+    block header
+      .ui.sidebar.vertical.menu.left#sidebar-menu
+        if user
+          .item
+            img.ui.avatar.image(src=user.gravatar + '&d=wavatar')
+            p=user.username  
+        a.item
+          | 2   
+        a.item
+          | 3
+      .ui.menu.top.fixed.borderless#fixed-menu
+        a.item#toggle
+          i.sidebar.icon
+        a.item.centered#logo(href='/')
+          p NUNUABET
+        //- .right.menu
+          .item
+            .ui.icon.input
+              input(type='text', placeholder='Search...')
+              |         
+              i.search.link.icon 
+        .right.menu 
+          a.ui.item
+            i.shop.outline.icon
+            p CART
+          .ui.item.dropdown.simple
+            i.user.outline.icon
+            p USER
+            .menu
+              if user
+                .item
+                  a(href='/logout') Logout
+              else
+                
+                .item
+                  a(href='/register') Register
+                .item
+                  a(href='/login') Login
+      .pusher
+        block messages
+          if locals.flashes
+            .inner
+              .flash-messages
+                - const categories = Object.keys(locals.flashes)
+                  each category in categories
+                    each message in flashes[category]
+                        .flash(class=`flash--${category}`)
+                          p.flash__text!= message
+                          button.flash__remove(onClick="this.parentElement.remove()") &times;
+           
+        block content
+      
+    block scripts
+      script(src=`https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_KEY}&libraries=places`)
+      script(src="/javascripts/layout.js")
+      script(src="/dist/App.bundle.js")

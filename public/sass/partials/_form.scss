@@ -1,0 +1,15 @@
+#register-container {
+  #register-form {
+    font-size: 1em;
+    box-shadow: $grad;
+    .button{
+      font-size: 1em;
+    }
+  }
+}
+@media only screen and (min-width : 1224px) {
+  #register-form {
+    width: 60%;
+    margin: 0 auto;
+  }
+}

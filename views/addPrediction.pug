@@ -1,0 +1,10 @@
+extends layout
+
+include mixins/_predictionForm
+
+block content
+  .ui.container
+    h3= title
+    +predictionForm()
+  
+    

@@ -1,0 +1,197 @@
+@font-face {
+  font-family: 'panama';
+  src: url("/fonts/panama-bold-webfont.woff2") format("woff2"), url("/fonts/panama-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+html {
+  font-size: 10px; }
+
+body {
+  font-size: 1.5rem;
+  color: #303030; }
+
+h1, h2 {
+  font-size: 5rem;
+  font-family: 'Panama';
+  font-weight: 600;
+  letter-spacing: -1px; }
+
+h3, h4, h5, h6 {
+  font-size: 3rem;
+  font-family: 'Panama';
+  font-weight: 600;
+  letter-spacing: -1px; }
+
+a {
+  text-decoration: none;
+  color: #303030; }
+
+p a {
+  border-bottom: 2px solid #FFC40E; }
+
+p {
+  line-height: 2;
+  font-size: 1.6rem; }
+
+.title {
+  word-wrap: break-word;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-size: 40px;
+  z-index: 2;
+  line-height: 1.1;
+  -ms-transform: skew(0, -3deg);
+      transform: skew(0, -3deg);
+  line-height: 1.1; }
+  .title--long {
+    font-size: 30px; }
+  .title:before {
+    content: '';
+    width: 50px;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: block;
+    position: absolute;
+    z-index: -1;
+    -ms-transform: skew(-5deg);
+        transform: skew(-5deg); }
+  .title a {
+    border-bottom: 0;
+    background-image: linear-gradient(to right, rgba(255, 196, 14, 0.8) 100%, rgba(255, 196, 14, 0.8) 50%); }
+
+.title--single {
+  max-width: 600px;
+  margin-top: -9rem;
+  font-size: 10rem;
+  text-align: center; }
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-10px); }
+  50% {
+    transform: translateX(10px); }
+  100% {
+    transform: translateX(0px); } }
+
+.flash-messages {
+  padding-top: 8em; }
+
+.flash {
+  background: white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  margin-bottom: 2rem;
+  padding: 1rem;
+  position: relative;
+  z-index: 1;
+  border-radius: 2px;
+  display: -ms-flexbox;
+  display: flex;
+  animation: slideIn forwards .1s ease-in-out 2;
+  animation-timing-function: cubic-bezier(0.01, 1.68, 0.58, 1); }
+  .flash + .flash {
+    animation-delay: 0.55s; }
+    .flash + .flash + .flash {
+      animation-delay: 0.6s; }
+  .flash__text {
+    -ms-flex: 1;
+        flex: 1; }
+  .flash__remove {
+    background: none;
+    border: 0; }
+    .flash__remove:hover {
+      color: #FFC40E; }
+  .flash:after {
+    content: '';
+    display: block;
+    background: white;
+    position: absolute;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    top: 8px;
+    left: 8px;
+    z-index: -1;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 3px; }
+  .flash--success {
+    background: linear-gradient(135deg, #d2ff52 0%, #91e842 100%); }
+  .flash--error {
+    background: linear-gradient(20deg, red 0%, #c80000 100%); }
+  .flash--info {
+    background: linear-gradient(35deg, #f1e767 0%, #feb645 100%); }
+  .flash p {
+    margin: 0; }
+
+#phone-auth-container .phone-header {
+  max-width: 800px;
+  height: 10rem;
+  background: linear-gradient(90deg, #A544B3 0%, #B4319C 20%, #CD1478 60%, #D21274 85%, #e82c75 95%);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center; }
+
+#phone-auth-container #firebaseui-auth-container {
+  position: relative;
+  top: -20px; }
+  #phone-auth-container #firebaseui-auth-container .firebaseui-title {
+    text-align: center; }
+  #phone-auth-container #firebaseui-auth-container .firebaseui-container {
+    max-width: 800px !important; }
+  #phone-auth-container #firebaseui-auth-container .firebaseui-tos {
+    font-family: 'Panama';
+    text-align: center; }
+
+#phone-auth-container i {
+  font-size: 25px;
+  color: #f6f6f6; }
+
+iframe {
+  -ms-transform: scale(0.77);
+      transform: scale(0.77);
+  -webkit-transform: scale(0.77);
+  -ms-transform-origin: 0 0;
+      transform-origin: 0 0;
+  -webkit-transform-origin: 0 0; }
+
+h3 {
+  text-align: center; }
+
+#fixed-menu {
+  background: linear-gradient(90deg, #A544B3 0%, #B4319C 20%, #CD1478 60%, #D21274 85%, #e82c75 95%);
+  font-size: 2rem; }
+  #fixed-menu .icon {
+    color: #f6f6f6; }
+  #fixed-menu .ui.item {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    color: #f6f6f6; }
+  #fixed-menu #logo {
+    text-align: center; }
+
+#sidebar-menu {
+  background: linear-gradient(90deg, #A544B3 0%, #B4319C 20%, #CD1478 60%, #D21274 85%, #e82c75 95%);
+  font-size: 2rem; }
+
+@media only screen and (max-width: 480px) {
+  #fixed-menu {
+    font-size: 1.5rem; } }
+
+#register-container #register-form {
+  font-size: 1em;
+  box-shadow: linear-gradient(90deg, #A544B3 0%, #B4319C 20%, #CD1478 60%, #D21274 85%, #e82c75 95%); }
+  #register-container #register-form .button {
+    font-size: 1em; }
+
+@media only screen and (min-width: 1224px) {
+  #register-form {
+    width: 60%;
+    margin: 0 auto; } }
+
+/*# sourceMappingURL=style.css.map*/

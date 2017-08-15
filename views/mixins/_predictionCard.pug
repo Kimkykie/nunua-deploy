@@ -1,0 +1,28 @@
+mixin predictionCard(prediction = {})
+  .column
+    .ui.fluid.card
+      .content
+        .right.floated.meta
+          a(href=`/predictions/${prediction.slug}`) #{prediction.team.length}
+        img.ui.avatar.image(src='http://lorempixel.com/400/200/') 
+        span #{prediction.author.username}
+      .content
+        table.ui.celled.table.unstackable
+          thead
+            tr
+              th Date
+              th Team 1
+              th Team 2
+              th Time
+          tbody
+          for team in prediction.team.slice(0,3)
+            tr
+              td #{team.date.toISOString().slice(0,10)}
+              td #{team.team1}
+              td #{team.team2}
+              td #{team.time}
+            
+      .content
+        button.ui.fluid.button BUY
+ 
+        

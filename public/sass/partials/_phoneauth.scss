@@ -1,0 +1,44 @@
+#phone-auth-container {
+  .phone-header {
+    max-width: 800px;
+    height: 10rem;
+    background: $grad;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #firebaseui-auth-container {
+    position: relative;
+    top: -20px;
+
+    .firebaseui-title {
+      text-align: center;
+    }
+
+    .firebaseui-container {
+      max-width: 800px !important;
+    }
+
+    .firebaseui-tos {
+      font-family: 'Panama';
+      text-align: center;
+    }
+  }
+
+  i {
+    font-size: 25px;
+    color: $white;
+  }
+}
+
+iframe {
+  transform: scale(0.77);
+  -webkit-transform: scale(0.77);
+  transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+}
+
+h3{
+  text-align: center;
+}

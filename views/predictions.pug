@@ -1,0 +1,16 @@
+extends layout
+
+include mixins/_predictionCard
+
+block content
+  h3= title
+  .ui.container
+    .ui.stackable.three.column.grid
+      each prediction in predictions
+        +predictionCard(prediction)
+    a.ui.circular.button.icon.right.floated.huge.purple(href='/add')
+      i.icon.add
+        
+            
+    
+    

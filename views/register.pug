@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  .ui.container#register-container
+    form.ui.form.segment#register-form(action='/register' method='POST')
+        h3 Register
+        .field.required
+          label Username
+          |     
+          .ui.left.labeled.icon.input
+            input(type='text', placeholder='Username', name='username')
+            |       
+            i.user.icon
+        .field.required
+          label Email
+          |     
+          .ui.left.labeled.icon.input
+            input(type='email', placeholder='Email', name='email')
+            |       
+            i.email.icon
+        .field.required
+          label Phone
+          |     
+          .ui.left.labeled.icon.input
+            input(type='text', placeholder='Phone', name='phone')
+            |       
+            i.phone.icon
+        .field.required
+          label Password
+          |     
+          .ui.left.labeled.icon.input
+            input(type='password', name='password')
+            |       
+            i.lock.icon
+        .field.required
+            label Confirm password
+            |     
+            .ui.left.labeled.icon.input
+              input(type='password', name='password-confirm')
+              |       
+              i.lock.icon 
+        .ui.error.message
+          .header We noticed some issues
+        |   
+        button.ui.button.fluid(type='submit') Login

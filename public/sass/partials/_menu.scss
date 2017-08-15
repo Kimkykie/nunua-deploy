@@ -1,0 +1,30 @@
+#fixed-menu {
+  background: $grad;
+  font-size: 2rem;
+
+  .icon {
+    color: $white;
+  }
+
+  .ui.item{
+    display: flex;
+    flex-direction: column;
+    color: $white;
+  }
+
+  #logo{
+    text-align: center;
+  }
+}
+
+#sidebar-menu {
+  background: $grad;
+  font-size: 2rem;
+}
+
+
+@media only screen and (max-width : 480px) {
+  #fixed-menu {
+    font-size: 1.5rem;
+  }
+}
