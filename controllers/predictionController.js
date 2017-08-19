@@ -22,13 +22,16 @@ exports.createPrediction = async(req, res) => {
     })
 
     for (var i = 0; i < req.body.team1.length; i++) {
-      prediction.team.push({
-        team1: req.body.team1[i],
-        team2: req.body.team2[i],
-        prediction: req.body.prediction[i],
-        date: req.body.date[i],
-        time: req.body.time[i]
-      })
+      //  If all the required inputs are filled save to database else ignore the incomplete fields
+      if (req.body.team1[i] !== '' && req.body.team2[i] !== '' && req.body.prediction[i] !== '' && req.body.time[i] !== '' && req.body.date[i] !== null) {
+        prediction.team.push({
+          team1: req.body.team1[i],
+          team2: req.body.team2[i],
+          prediction: req.body.prediction[i],
+          date: req.body.date[i],
+          time: req.body.time[i]
+        })
+      }
     }
     await prediction.save()
     req.flash('success', 'Succesfully created prediction')
@@ -50,4 +53,11 @@ exports.getPredictionBySlug = async(req, res, next) => {
   const prediction = await Prediction.findOne({ slug: req.params.slug }).populate('author')
   if (!prediction) return next()
   res.render('prediction', { prediction, title: 'Prediction' })
+}
+
+exports.getUserPredictions = async(req, res) => {
+  // 1. Query database for list of all stores
+  const predictions = await Prediction.find({author: req.user}).populate('author')
+  console.log(predictions)
+  res.render('userpredictions', { title: 'My Predictions', predictions: predictions })
 }

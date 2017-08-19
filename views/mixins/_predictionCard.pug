@@ -4,8 +4,12 @@ mixin predictionCard(prediction = {})
       .content
         .right.floated.meta
           a(href=`/predictions/${prediction.slug}`) #{prediction.team.length}
-        img.ui.avatar.image(src='http://lorempixel.com/400/200/') 
-        span #{prediction.author.username}
+        if prediction.author.avatar
+          img.ui.avatar.image(src=`/uploads/${prediction.author.avatar}`)
+          span #{prediction.author.username} 
+        else
+          img.ui.avatar.image(src=prediction.author.gravatar + '&d=wavatar')
+          span #{prediction.author.username}
       .content
         table.ui.celled.table.unstackable
           thead
@@ -21,8 +25,18 @@ mixin predictionCard(prediction = {})
               td #{team.team1}
               td #{team.team2}
               td #{team.time}
+          for team in prediction.team.slice(3)
+            tr.more.show-more
+              td #{team.date.toISOString().slice(0,10)}
+              td #{team.team1}
+              td #{team.team2}
+              td #{team.time}
             
       .content
-        button.ui.fluid.button BUY
+        a.ui.left.floated.button BUY
+        button.ui.right.floated.button.more-predictions
+          span.view-more #{`VIEW ${prediction.team.length - 3} `}
+          span.more-less MORE
+
  
         

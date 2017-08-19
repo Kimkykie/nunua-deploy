@@ -1,28 +1,44 @@
-  $('#toggle').click(function () {
-    $('.ui.sidebar').sidebar('toggle')
-  })
-
-  /* $('.ui.left.sidebar').sidebar({
-   dimPage: true,
-   transition: 'slide left',
-   exclusive: false,
-   closable: true
- }); */
-
-  if ($('.ui.left.sidebar').hasClass('hidden')) {
-    $('.ui.left.sidebar').transition('fade')
-  } else {
-    $('.ui.left.sidebar').transition('fade out')
-  }
-
-  $(document).ready(function () {
-    var addFields = $('#addFields')
-    var fieldWrapper = $('#fields')
-    var fieldHtml =
-     `<div class="fields">
+ $(document).ready(function () {
+  // Toggle the sidebar to show and hide
+   $('#toggle').click(function () {
+     $('.ui.sidebar').sidebar('toggle')
+   })
+  // Sidebar transitions
+   if ($('.ui.left.sidebar').hasClass('hidden')) {
+     $('.ui.left.sidebar').transition('fade')
+   } else {
+     $('.ui.left.sidebar').transition('fade out')
+   }
+  // Action to show extra prediction in cards
+   $('.more-predictions').on('click', function () {
+     $el = $(this)
+     $p = $el.parent()
+     $up = $p.parent()
+     $upbtn = $up.find('.more-predictions')
+     $moreLess = $upbtn.find('.more-less')
+     $viewMore = $upbtn.find('.view-more')
+     $ups = $up.find('.more')
+     if ($ups.hasClass('show-more')) {
+       $viewMore.hide()
+       $moreLess.text('LESS')
+       $ups.transition('fade down')
+       $ups.removeClass('show-more')
+     } else {
+       $viewMore.show()
+       $moreLess.text('MORE')
+       $ups.transition('fade up')
+       $ups.addClass('show-more')
+     }
+     console.log()
+   })
+  // Action to dynamically add input fields to enter prediction data
+   var addFields = $('#addFields')
+   var fieldWrapper = $('#fields')
+   var fieldHtml =
+     `<div class="five fields">
           <div class="field">
             <label>Date</label>
-            <div class="ui calendar" id='date-picker'>
+            <div class='ui calendar date-picker'>
                <div class="ui left labeled icon input">
                    <input type="text" placeholder="Date" name="date[]"> <i class="calendar icon"></i>
                </div>
@@ -48,10 +64,10 @@
         </div>
         <div class="field">
           <label>Prediction</label>
-          <div class="ui selection dropdown upward active visible" tabindex="0">
+          <div class="ui selection dropdown">
               <input type="hidden" name="prediction[]"><i class="dropdown icon"></i>
               <div class="default text">Prediction</div>
-              <div class="menu transition visible" tabindex="-1" style="display: block !important;">
+              <div class="menu">
                   <div class="item" data-value="GG">GG</div>
                   <div class="item" data-value="Home Win (1)">Home Win (1)</div>
                   <div class="item" data-value="Draw">Draw</div>
@@ -63,8 +79,18 @@
         </div>
 </div>`
 
-    $(addFields).click(function (e) {
-      e.preventDefault()
-      $(fieldWrapper).append(fieldHtml)
-    })
-  })
+   $(addFields).click(function (e) {
+     e.preventDefault()
+     $(fieldWrapper).append(fieldHtml).each(function () {
+      // Activate dropdown and calendar options for added input fields
+       $('.ui.dropdown').dropdown({
+         on: 'hover'})
+       $('.date-picker').calendar({
+         type: 'date'
+       })
+       $('.time-picker').calendar({
+         type: 'time'
+       })
+     })
+   })
+ })

@@ -189,9 +189,18 @@ h3 {
   #register-container #register-form .button {
     font-size: 1em; }
 
+.add-prediction-form .ui.divider {
+  margin: 5px 0px 5px 0px; }
+
 @media only screen and (min-width: 1224px) {
   #register-form {
     width: 60%;
     margin: 0 auto; } }
+
+table.ui th, table.ui tr, table.ui td {
+  font-size: 10px; }
+
+table.ui .show-more {
+  display: none !important; }
 
 /*# sourceMappingURL=style.css.map*/

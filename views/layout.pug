@@ -16,9 +16,14 @@ html
     block header
       .ui.sidebar.vertical.menu.left#sidebar-menu
         if user
-          .item
-            img.ui.avatar.image(src=user.gravatar + '&d=wavatar')
-            p=user.username  
+          if user.avatar
+            .item
+              img.ui.avatar.image(src=`/uploads/${user.avatar}`, alt=user.username)
+              p=user.username 
+          else
+            .item
+              img.ui.avatar.image(src=user.gravatar + '&d=wavatar')
+              p=user.username
         a.item
           | 2   
         a.item

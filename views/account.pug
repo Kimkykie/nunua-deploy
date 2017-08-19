@@ -1,0 +1,30 @@
+extends layout
+
+block content
+	.ui.container
+		h3 EDIT YOUR ACCOUNT
+		form.ui.form.segment#register-form(action='/account' method='POST' enctype='multipart/form-data')
+			if user.avatar
+				img.ui.bordered.image.small.centered.circular(src=`/uploads/${user.avatar}`, alt=user.username)
+			else
+				img.ui.bordered.image.small.centered.circular(src=user.gravatar + '&d=wavatar')
+			.field.required
+				label Avatar
+				|
+				.ui.left.labeled.input
+					input(type='file' name='avatar' id='avatar' accept='image/gif, image/png, image/jpeg')
+			.field.required
+				label Username
+				|
+				.ui.left.labeled.icon.input
+					input(type='text', value=user.username, name='username')
+					|
+					i.user.icon
+			.field.required
+				label Email
+				|
+				.ui.left.labeled.icon.input
+					input(type='email', value=user.email, name='email')
+					|
+					i.email.icon
+			button.ui.button.fluid(type='submit') UPDATE ACCOUNT

@@ -1,0 +1,15 @@
+extends layout
+
+include mixins/_predictionCard
+
+block content
+  if predictions.length >=1
+    h3= title
+    .ui.container
+      .ui.stackable.three.column.grid
+        each prediction in predictions
+          +predictionCard(prediction)
+      a.ui.circular.button.icon.right.floated.huge.purple(href='/add')
+        i.icon.add
+  else
+    h3 YOU HAVE NO PREDICTIONS
