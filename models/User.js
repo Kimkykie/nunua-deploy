@@ -35,6 +35,13 @@ const userSchema = new Schema({
     } */
   },
   avatar: String
+}, {
+  toObject: {
+    virtuals: true
+  },
+  toJSON: {
+    virtuals: true
+  }
 })
 
 userSchema.virtual('gravatar').get(function () {

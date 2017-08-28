@@ -41,5 +41,8 @@ router.post('/account',
   catchErrors(userController.resize),
   catchErrors(userController.updateAccount))
 
+// Shopping Cart
+router.get('/shopping-cart', cartController.getShoppingCart)
 router.post('/api/add-to-cart/:id', cartController.addToCart)
+router.post('/api/remove-from-cart/:id', cartController.removeFromCart)
 module.exports = router

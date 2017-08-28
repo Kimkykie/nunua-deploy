@@ -1792,10 +1792,54 @@ var _cart = __webpack_require__(9);
 
 var _cart2 = _interopRequireDefault(_cart);
 
+var _removecart = __webpack_require__(36);
+
+var _removecart2 = _interopRequireDefault(_removecart);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var cardForms = (0, _bling.$$)('.card-form');
+var cartItems = (0, _bling.$$)('.cart-item');
 cardForms.on('submit', _cart2.default);
+cartItems.on('submit', _removecart2.default);
+
+/***/ }),
+/* 30 */,
+/* 31 */,
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _axios = __webpack_require__(11);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _bling = __webpack_require__(2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function removeCart(e) {
+  var _this = this;
+
+  e.preventDefault();
+  _axios2.default.post(this.action).then(function (res) {
+    (0, _bling.$)('.cart-length').textContent = res.data.content.length;
+    (0, _bling.$)('.total-price').textContent = 'KES ' + res.data.totalPrice;
+    _this.remove(_this);
+  }).catch(console.error);
+}
+
+exports.default = removeCart;
 
 /***/ })
 /******/ ]);
