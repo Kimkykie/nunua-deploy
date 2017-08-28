@@ -11,32 +11,40 @@ mixin predictionCard(prediction = {})
           img.ui.avatar.image(src=prediction.author.gravatar + '&d=wavatar')
           span #{prediction.author.username}
       .content
-        table.ui.celled.table.unstackable
-          thead
-            tr
-              th Date
-              th Team 1
-              th Team 2
-              th Time
-          tbody
-          for team in prediction.team.slice(0,3)
-            tr
-              td #{team.date.toISOString().slice(0,10)}
-              td #{team.team1}
-              td #{team.team2}
-              td #{team.time}
-          for team in prediction.team.slice(3)
-            tr.more.show-more
-              td #{team.date.toISOString().slice(0,10)}
-              td #{team.team1}
-              td #{team.team2}
-              td #{team.time}
-            
-      .content
-        a.ui.left.floated.button BUY
-        button.ui.right.floated.button.more-predictions
-          span.view-more #{`VIEW ${prediction.team.length - 3} `}
-          span.more-less MORE
+        form.ui.form.card-form(method="POST" action=`/api/add-to-cart/${prediction._id}`)
+          table.ui.celled.table.unstackable
+            thead
+              tr
+                th Date
+                th Team 1
+                th Team 2
+                th Time
+            tbody
+            for team in prediction.team.slice(0,3)
+              tr
+                td #{team.date.toISOString().slice(0,10)}
+                td #{team.team1}
+                td #{team.team2}
+                td #{team.time}
+            for team in prediction.team.slice(3)
+              tr.more.show-more
+                td #{team.date.toISOString().slice(0,10)}
+                td #{team.team1}
+                td #{team.team2}
+                td #{team.time}
+          if session.cart
+            - const boughtClass = session.cart.content.includes(prediction.id) ? 'disabled' : ''
+              .content
+                button.ui.button.left(type='submit' name='buy' data-index=`${i}` class=boughtClass) BUY
+                button.ui.right.floated.button.more-predictions
+                  span.view-more #{`VIEW ${prediction.team.length - 3} `}
+                  span.more-less MORE
+          else
+            .content
+                button.ui.button.left(type='submit' name='buy' data-index=`${i}`) BUY
+                button.ui.right.floated.button.more-predictions
+                  span.view-more #{`VIEW ${prediction.team.length - 3} `}
+                  span.more-less MORE
 
- 
-        
+   
+          

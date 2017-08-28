@@ -3,9 +3,9 @@ const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn
 
 exports.login = passport.authenticate('local', {
   successReturnToOrRedirect: '/',
+  successFlash: 'You are now logged in!',
   failureRedirect: '/login',
-  failureFlash: 'Failed Login!',
-  successFlash: 'You are now logged in!'
+  failureFlash: 'Failed Login!'
 })
 
 exports.logout = (req, res) => {

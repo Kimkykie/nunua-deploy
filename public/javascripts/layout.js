@@ -5,9 +5,9 @@
    })
   // Sidebar transitions
    if ($('.ui.left.sidebar').hasClass('hidden')) {
-     $('.ui.left.sidebar').transition('fade')
+     $('.ui.left.sidebar').show()
    } else {
-     $('.ui.left.sidebar').transition('fade out')
+     $('.ui.left.sidebar').hide()
    }
   // Action to show extra prediction in cards
    $('.more-predictions').on('click', function () {
@@ -21,16 +21,30 @@
      if ($ups.hasClass('show-more')) {
        $viewMore.hide()
        $moreLess.text('LESS')
-       $ups.transition('fade down')
+       $ups.show()
        $ups.removeClass('show-more')
      } else {
        $viewMore.show()
        $moreLess.text('MORE')
-       $ups.transition('fade up')
+       $ups.hide()
        $ups.addClass('show-more')
      }
      console.log()
    })
+
+   // Buy Action
+   // $('.buy-button').on('click', function (e) {
+   //   $el = $(this)
+   //   $p = $el.parent()
+   //   $up = $p.parent()
+   //   $buybtn = $up.find('.buy-button')
+   //   if ($buybtn.hasClass('disabled')) {
+   //     $buybtn.removeClass('hidden')
+   //   } else {
+   //     $buybtn.addClass('disabled')
+   //   }
+   // })
+
   // Action to dynamically add input fields to enter prediction data
    var addFields = $('#addFields')
    var fieldWrapper = $('#fields')

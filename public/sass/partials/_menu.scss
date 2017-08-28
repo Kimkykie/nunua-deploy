@@ -1,6 +1,6 @@
 #fixed-menu {
   background: $grad;
-  font-size: 2rem;
+  font-size: 1.5rem;
 
   .icon {
     color: $white;
@@ -11,7 +11,11 @@
     flex-direction: column;
     color: $white;
   }
-
+  
+  .cart-icon{
+    display: flex;
+    flex-direction: column;
+  }
   #logo{
     text-align: center;
   }

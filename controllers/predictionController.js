@@ -18,7 +18,8 @@ exports.createPrediction = async(req, res) => {
   // Only push data to model if more than 5
   if (team1arr.length >= 5 && team2arr.length >= 5 && predictionarr.length >= 5) {
     const prediction = new Prediction({
-      author: req.user._id
+      author: req.user._id,
+      price: 10
     })
 
     for (var i = 0; i < req.body.team1.length; i++) {

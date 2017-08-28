@@ -24,8 +24,8 @@ html
             .item
               img.ui.avatar.image(src=user.gravatar + '&d=wavatar')
               p=user.username
-        a.item
-          | 2   
+        a.item(href='/account') Account
+          i.user.left.icon
         a.item
           | 3
       .ui.menu.top.fixed.borderless#fixed-menu
@@ -40,9 +40,13 @@ html
               |         
               i.search.link.icon 
         .right.menu 
-          a.ui.item
+          a.ui.item.cart-icon
             i.shop.outline.icon
             p CART
+            if session.cart
+              .ui.grey.circular.large.label.cart-length #{session.cart.content.length}
+            else
+              .ui.grey.circular.large.label.cart-length 0
           .ui.item.dropdown.simple
             i.user.outline.icon
             p USER

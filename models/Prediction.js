@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
-const uuid = require('uuid');
-mongoose.Promise = global.Promise;
+const mongoose = require('mongoose')
+const uuid = require('uuid')
+mongoose.Promise = global.Promise
 
-const slug = require('slugs');
+const slug = require('slugs')
 
 const teamSchema = new mongoose.Schema({
-  date:{
+  date: {
     type: Date
   },
   team1: {
@@ -16,29 +16,31 @@ const teamSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
-  prediction:{
+  prediction: {
     type: String,
     trim: true
   },
   time: {
     type: String
   }
-});
+})
 
 const predictionSchema = new mongoose.Schema({
-  author:{
+  author: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
     required: 'You must supply an author!'
   },
   slug: String,
-  team: [ teamSchema ]
-});
-
+  team: [ teamSchema ],
+  price: {
+    type: Number
+  }
+})
 
 predictionSchema.pre('save', function (next) {
-  this.slug = slug(uuid.v4());
-  next();
-});
+  this.slug = slug(uuid.v4())
+  next()
+})
 
-module.exports = mongoose.model('Prediction', predictionSchema);
+module.exports = mongoose.model('Prediction', predictionSchema)

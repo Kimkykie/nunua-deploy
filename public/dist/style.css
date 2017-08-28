@@ -81,8 +81,8 @@ p {
 
 .flash {
   background: white;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
   margin-bottom: 2rem;
+  text-align: center;
   padding: 1rem;
   position: relative;
   z-index: 1;
@@ -116,9 +116,11 @@ p {
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
     border-radius: 3px; }
   .flash--success {
-    background: linear-gradient(135deg, #d2ff52 0%, #91e842 100%); }
+    background-color: #fcfff5;
+    color: #2c662d; }
   .flash--error {
-    background: linear-gradient(20deg, red 0%, #c80000 100%); }
+    background-color: #fff6f6;
+    color: #9f3a38; }
   .flash--info {
     background: linear-gradient(35deg, #f1e767 0%, #feb645 100%); }
   .flash p {
@@ -163,7 +165,7 @@ h3 {
 
 #fixed-menu {
   background: linear-gradient(90deg, #A544B3 0%, #B4319C 20%, #CD1478 60%, #D21274 85%, #e82c75 95%);
-  font-size: 2rem; }
+  font-size: 1.5rem; }
   #fixed-menu .icon {
     color: #f6f6f6; }
   #fixed-menu .ui.item {
@@ -172,6 +174,11 @@ h3 {
     -ms-flex-direction: column;
         flex-direction: column;
     color: #f6f6f6; }
+  #fixed-menu .cart-icon {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column; }
   #fixed-menu #logo {
     text-align: center; }
 
@@ -202,5 +209,35 @@ table.ui th, table.ui tr, table.ui td {
 
 table.ui .show-more {
   display: none !important; }
+
+.zoom {
+  position: fixed;
+  bottom: 45px;
+  right: 24px;
+  height: 70px; }
+
+.zoom-fab {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  background-color: #B90E71;
+  vertical-align: middle;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.2s ease-out;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  color: #FFF; }
+
+.zoom-fab:hover {
+  background-color: #A2214F;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
+
+.zoom-btn-large {
+  width: 60px;
+  height: 60px;
+  line-height: 60px; }
 
 /*# sourceMappingURL=style.css.map*/

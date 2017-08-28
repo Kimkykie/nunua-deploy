@@ -3,6 +3,7 @@ const router = express.Router()
 const predictionController = require('../controllers/predictionController')
 const userController = require('../controllers/userController')
 const authController = require('../controllers/authController')
+const cartController = require('../controllers/cartController')
 
 const { catchErrors } = require('../handlers/errorHandlers')
 
@@ -39,4 +40,6 @@ router.post('/account',
   userController.upload,
   catchErrors(userController.resize),
   catchErrors(userController.updateAccount))
+
+router.post('/api/add-to-cart/:id', cartController.addToCart)
 module.exports = router

@@ -6,10 +6,11 @@ block content
   h3= title
   .ui.container
     .ui.stackable.three.column.grid
-      each prediction in predictions
-        +predictionCard(prediction)
-    a.ui.circular.button.icon.right.floated.huge.purple(href='/add')
-      i.icon.add
+      - for( var i = 0; i < predictions.length; i++)
+        +predictionCard(predictions[i])
+    .zoom
+      a#zoomBtn.zoom-fab.zoom-btn-large(href='/add')
+        i.icon.add
         
             
     
