@@ -24,10 +24,15 @@ html
             .item
               img.ui.avatar.image(src=user.gravatar + '&d=wavatar')
               p=user.username
-        a.item(href='/account') Account
+        else
+          .item
+            img.ui.avatar.image(src='http://via.placeholder.com/350x150')
+            a.ui.item(href='/login') LOGIN
+            a.ui.item(href='/register') REGISTER
+        a.item(href='/user/account') Account
           i.user.left.icon
-        a.item
-          | 3
+        a.item(href='/user/orders') My Orders
+          i.user.left.icon
       .ui.menu.top.fixed.borderless#fixed-menu
         a.item#toggle
           i.sidebar.icon

@@ -1,54 +1,42 @@
- $(document).ready(function () {
+$(document).ready(() => {
   // Toggle the sidebar to show and hide
-   $('#toggle').click(function () {
-     $('.ui.sidebar').sidebar('toggle')
-   })
+  $('#toggle').click(() => {
+    $('.ui.sidebar').sidebar('toggle');
+  });
   // Sidebar transitions
-   if ($('.ui.left.sidebar').hasClass('hidden')) {
-     $('.ui.left.sidebar').show()
-   } else {
-     $('.ui.left.sidebar').hide()
-   }
+  if ($('.ui.left.sidebar').hasClass('hidden')) {
+    $('.ui.left.sidebar').show();
+  } else {
+    $('.ui.left.sidebar').hide();
+  }
   // Action to show extra prediction in cards
-   $('.more-predictions').on('click', function () {
-     $el = $(this)
-     $p = $el.parent()
-     $up = $p.parent()
-     $upbtn = $up.find('.more-predictions')
-     $moreLess = $upbtn.find('.more-less')
-     $viewMore = $upbtn.find('.view-more')
-     $ups = $up.find('.more')
-     if ($ups.hasClass('show-more')) {
-       $viewMore.hide()
-       $moreLess.text('LESS')
-       $ups.show()
-       $ups.removeClass('show-more')
-     } else {
-       $viewMore.show()
-       $moreLess.text('MORE')
-       $ups.hide()
-       $ups.addClass('show-more')
-     }
-     console.log()
-   })
+  $('.more-predictions').on('click', function (e) {
+    e.preventDefault();
+    $el = $(this);
+    $p = $el.parent();
+    $up = $p.parent();
+    $upbtn = $up.find('.more-predictions');
+    $moreLess = $upbtn.find('.more-less');
+    $viewMore = $upbtn.find('.view-more');
+    $ups = $up.find('.more');
+    if ($ups.hasClass('show-more')) {
+      $viewMore.hide();
+      $moreLess.text('LESS');
+      $ups.show();
+      $ups.removeClass('show-more');
+    } else {
+      $viewMore.show();
+      $moreLess.text('MORE');
+      $ups.hide();
+      $ups.addClass('show-more');
+    }
+  });
 
-   // Buy Action
-   // $('.buy-button').on('click', function (e) {
-   //   $el = $(this)
-   //   $p = $el.parent()
-   //   $up = $p.parent()
-   //   $buybtn = $up.find('.buy-button')
-   //   if ($buybtn.hasClass('disabled')) {
-   //     $buybtn.removeClass('hidden')
-   //   } else {
-   //     $buybtn.addClass('disabled')
-   //   }
-   // })
 
   // Action to dynamically add input fields to enter prediction data
-   var addFields = $('#addFields')
-   var fieldWrapper = $('#fields')
-   var fieldHtml =
+  const addFields = $('#addFields');
+  const fieldWrapper = $('#fields');
+  const fieldHtml =
      `<div class="five fields">
           <div class="field">
             <label>Date</label>
@@ -91,20 +79,20 @@
               </div>
           </div>
         </div>
-</div>`
+</div>`;
 
-   $(addFields).click(function (e) {
-     e.preventDefault()
-     $(fieldWrapper).append(fieldHtml).each(function () {
+  $(addFields).click((e) => {
+    e.preventDefault();
+    $(fieldWrapper).append(fieldHtml).each(() => {
       // Activate dropdown and calendar options for added input fields
-       $('.ui.dropdown').dropdown({
-         on: 'hover'})
-       $('.date-picker').calendar({
-         type: 'date'
-       })
-       $('.time-picker').calendar({
-         type: 'time'
-       })
-     })
-   })
- })
+      $('.ui.dropdown').dropdown({
+        on: 'hover' });
+      $('.date-picker').calendar({
+        type: 'date',
+      });
+      $('.time-picker').calendar({
+        type: 'time',
+      });
+    });
+  });
+});

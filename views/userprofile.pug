@@ -1,0 +1,28 @@
+extends layout
+
+block content
+	.ui.container
+		.ui.grid.centered
+			.eight.wide.column
+				form.ui.form.follow-form(method='POST' action=`/api/user/${analyst._id}/follow`)
+					.ui.card.fluid
+						.content
+							if analyst.avatar
+								img.left.floated.mini.ui.image(src=`/uploads/${analyst.avatar}`)
+							else
+								img.left.floated.mini.ui.image(src=analyst.gravatar + '&d=wavatar')
+							div.header= analyst.username
+						.content
+							div.header.followers-count= `${analyst.followers.length} Followers`
+					if !user
+						p Login to Follow
+					else
+						- const followerString = user.following.map(obj => obj.toString())
+						- const followerValue = followerString.includes(analyst._id.toString()) ? 'Following' : 'Follow'
+						- const followerClass = followerValue.toLowerCase()
+							if user._id.toString() === analyst._id.toString()
+								pre= h.dump(analyst)
+							else
+								input.ui.button.attached.bottom(type='submit' name='follow' class=followerClass value=followerValue)
+
+

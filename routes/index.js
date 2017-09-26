@@ -35,8 +35,8 @@ router.post('/register',
 )
 router.get('/logout', authController.logout)
 
-router.get('/account', authController.isLoggedIn, userController.account)
-router.post('/account',
+router.get('/user/account', authController.isLoggedIn, userController.account)
+router.post('/user/account',
   userController.upload,
   catchErrors(userController.resize),
   catchErrors(userController.updateAccount))
@@ -45,4 +45,17 @@ router.post('/account',
 router.get('/shopping-cart', cartController.getShoppingCart)
 router.post('/api/add-to-cart/:id', cartController.addToCart)
 router.post('/api/remove-from-cart/:id', cartController.removeFromCart)
-module.exports = router
+
+// Checkout
+router.get('/checkout', authController.isLoggedIn, cartController.getCheckout)
+router.post('/checkout', authController.isLoggedIn, cartController.saveOrder)
+
+// Orders
+router.get('/user/orders', authController.isLoggedIn, userController.getUserOrders)
+
+// User Profile
+
+router.get('/user/profile/:id', userController.getUserProfile)
+router.post('/api/user/:id/follow', catchErrors(userController.followUser))
+router.get('/api/search', catchErrors(userController.searchUsers))
+module.exports = router;

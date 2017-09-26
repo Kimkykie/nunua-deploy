@@ -23,6 +23,7 @@ mongoose.connection.on('error', (err) => {
 require('./models/User')
 require('./models/Prediction')
 require('./models/Cart')
+require('./models/Order')
 
 // Start our app!
 const app = require('./app')

@@ -1,15 +1,16 @@
-import axios from 'axios'
-import { $ } from './bling'
+import axios from 'axios';
+import { $ } from './bling';
 
-function cartUpdate (e) {
-  e.preventDefault()
+function cartUpdate(e) {
+  e.preventDefault();
   axios
     .post(this.action)
-    .then(res => {
-    	const isBought = this.buy.classList.add('disabled')
-      $('.cart-length').textContent = res.data.content.length
+    .then((res) => {
+      this.buy.classList.add('disabled');
+      this.children.preditable.classList.add('ui', 'inverted', 'pink');
+      $('.cart-length').textContent = res.data.content.length;
     })
-    .catch(console.error)
+    .catch(console.error);
 }
 
-export default cartUpdate
+export default cartUpdate;

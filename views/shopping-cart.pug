@@ -9,33 +9,34 @@ block content
 			.ui.middle.aligned.divided.list
 				each prediction in predictions
 					form.form.ui.cart-item(method="POST" action=`/api/remove-from-cart/${prediction.item._id}`)
-						.item.ui.card.fluid
-							.content
-								.right.floated.meta
-									p= `KES ${prediction.item.price}`
-								if prediction.item.author.avatar
-									img.ui.avatar.image(src=`/uploads/${prediction.item.author.avatar}`)
-									span #{prediction.item.author.username}
-								else
-									img.ui.avatar.image(src=prediction.item.author.gravatar+ '&d=wavatar')
-									span #{prediction.item.author.username}
-							table.ui.three.column.table.celled.unstackable
-								thead
-									tr
-										th Date
-										th Team1
-										th Team2
-								tbody
-								for team in prediction.item.team.slice(0,2)
-									tr
-										td #{team.date.slice(0,10)}
-										td #{team.team1}
-										td #{team.team2}
-							.content
-								span= `${prediction.item.team.length} Predictions`
-								button.ui.button.labeled.icon.right.floated(type='submit')
-									i.icon.remove
-									|	REMOVE
+						.ui.cards
+							.ui.card.fluid
+								.content
+									.right.floated.meta
+										p= `KES ${prediction.item.price}`
+									if prediction.item.author.avatar
+										img.ui.avatar.image(src=`/uploads/${prediction.item.author.avatar}`)
+										span #{prediction.item.author.username}
+									else
+										img.ui.avatar.image(src=prediction.item.author.gravatar+ '&d=wavatar')
+										span #{prediction.item.author.username}
+								table.ui.three.column.table.celled.unstackable
+									thead
+										tr
+											th Date
+											th Team1
+											th Team2
+									tbody
+									for team in prediction.item.team.slice(0,2)
+										tr
+											td #{team.date.slice(0,10)}
+											td #{team.team1}
+											td #{team.team2}
+								.content
+									span= `${prediction.item.team.length} Predictions`
+									button.ui.button.labeled.icon.right.floated(type='submit')
+										i.icon.remove
+										|	REMOVE
 
 			.ui.grid
 				.ui.row
@@ -44,7 +45,7 @@ block content
 			hr
 			.ui.grid
 				.ui.row
-					button.ui.button.large CHECKOUT
+					a.button.ui.button.large(href='/checkout') CHECKOUT
 		else
 			.ui.piled.segment
 				h1.ui.header NO ITEMS IN CART
