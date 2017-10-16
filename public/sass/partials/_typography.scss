@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two');
 @font-face {
     font-family: 'panama';
     src: url('/fonts/panama-bold-webfont.woff2') format('woff2'),
@@ -81,4 +82,10 @@ p {
   margin-top: -9rem;
   font-size: 10rem;
   text-align: center;
+}
+
+#logo{
+  font-family: 'Lobster Two', cursive;
+  color: whitesmoke;
+  font-weight: bold;
 }

@@ -5,12 +5,11 @@ include mixins/_orderCard
 block content
 	h3= title
 	.ui.container
-		if orders
-			each item in orders
-				.ui.stackable.two.column.grid
+		.ui.stackable.two.column.grid
+			if orders
+				each item in orders
 					each order in item.cart.items
 						+orderCard(order)
-		else
-			.ui.piled.segment
-				h3 YOU HAVE NO ORDERS
-				
+			else
+				.ui.piled.segment
+					h3 YOU HAVE NO ORDERS

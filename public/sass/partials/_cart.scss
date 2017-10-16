@@ -5,3 +5,22 @@
   font-weight: 700;
   text-transform: none;
 }
+
+.checkout_btn{
+  font-size: 1.5rem !important;
+  font-weight: bold !important;
+}
+
+.cart_item_info{
+  display: flex;
+  justify-content: space-between;
+
+  div{
+    font-size: 1.2rem;
+    width: 40%;
+    color: rgb(117, 25, 148);
+  }
+  .cart_item_price{
+    text-align: right;
+  }
+}

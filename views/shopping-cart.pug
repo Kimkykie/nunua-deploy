@@ -3,9 +3,14 @@ extends layout
 block content
 	.ui.container
 		if predictions && predictions.length >= 1
-			h2.ui.center.aligned.icon.header
-				i.circular.icon.users
+			h3.ui.center.aligned
 				span Cart
+			.ui.grid.centered
+				.ui.row
+					span.total-price= `Total: KES ${totalPrice}`
+			.ui.grid.centered
+				.ui.row
+					a.button.ui.button.large.basic.purple.checkout_btn(href='/checkout') CHECKOUT
 			.ui.middle.aligned.divided.list
 				each prediction in predictions
 					form.form.ui.cart-item(method="POST" action=`/api/remove-from-cart/${prediction.item._id}`)
@@ -13,7 +18,8 @@ block content
 							.ui.card.fluid
 								.content
 									.right.floated.meta
-										p= `KES ${prediction.item.price}`
+										button.ui.button.icon.right.floated(type='submit')
+											i.icon.remove
 									if prediction.item.author.avatar
 										img.ui.avatar.image(src=`/uploads/${prediction.item.author.avatar}`)
 										span #{prediction.item.author.username}
@@ -27,26 +33,15 @@ block content
 											th Team1
 											th Team2
 									tbody
-									for team in prediction.item.team.slice(0,2)
+									for team in prediction.item.team
 										tr
 											td #{team.date.slice(0,10)}
 											td #{team.team1}
 											td #{team.team2}
-								.content
-									span= `${prediction.item.team.length} Predictions`
-									button.ui.button.labeled.icon.right.floated(type='submit')
-										i.icon.remove
-										|	REMOVE
+								.content.cart_item_info
+									div= `${prediction.item.team.length} Predictions`
+									div.cart_item_price= `KES ${prediction.item.price}`
 
-			.ui.grid
-				.ui.row
-					h1.ui.header Total: 
-					span.total-price= ` KES ${totalPrice}`
-			hr
-			.ui.grid
-				.ui.row
-					a.button.ui.button.large(href='/checkout') CHECKOUT
 		else
 			.ui.piled.segment
 				h1.ui.header NO ITEMS IN CART
-

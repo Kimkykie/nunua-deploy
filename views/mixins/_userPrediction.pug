@@ -1,0 +1,34 @@
+include _rating
+
+mixin userPrediction(prediction = {})
+  .column
+    .ui.fluid.card
+      .content
+        .right.floated.meta
+          +rating(prediction.author)
+        if prediction.author.avatar
+          img.ui.avatar.image(src=`/uploads/${prediction.author.avatar}`)
+          a(href=`/user/profile/${prediction.author.username}`) #{prediction.author.username}
+        else
+          img.ui.avatar.image(src=prediction.author.gravatar + '&d=wavatar')
+          a(href=`/user/profile/${prediction.author.username}`) #{prediction.author.username}
+      .content
+        form.ui.form.card-form
+            table.ui.celled.table.unstackable(class=bought name='preditable')
+              thead
+                tr
+                  th Date
+                  th Time
+                  th Home
+                  th Away
+                  if user && user.id.toString() === prediction.author.id.toString()
+                    th Prediction
+              tbody
+              for team in prediction.team
+                tr
+                  td #{team.date.toISOString().slice(0,10).replace(/-/g,"/")}
+                  td #{team.date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+                  td #{team.home}
+                  td #{team.away}
+                  if user && user.id.toString() === prediction.author.id.toString()
+                    td #{team.prediction}

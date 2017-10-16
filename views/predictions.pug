@@ -1,17 +1,19 @@
 extends layout
 
 include mixins/_predictionCard
+include mixins/_searchForm
 
 block content
-  h3= title
   .ui.container
-    .ui.stackable.three.column.grid
-      - for( var i = 0; i < predictions.length; i++)
-        +predictionCard(predictions[i])
+    .user__search
+      +searchForm()
+    h3= title
+    .ui.stackable.three.column.grid.doubling
+      each prediction in predictions
+        if user && !(user.id === prediction.author.id)
+          +predictionCard(prediction)
+        else if !user
+          +predictionCard(prediction)
     .zoom
       a#zoomBtn.zoom-fab.zoom-btn-large(href='/add')
         i.icon.add
-        
-            
-    
-    

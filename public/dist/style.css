@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Lobster+Two);@charset "UTF-8";
 @font-face {
   font-family: 'panama';
   src: url("/fonts/panama-bold-webfont.woff2") format("woff2"), url("/fonts/panama-bold-webfont.woff") format("woff");
@@ -28,7 +29,7 @@ a {
   color: #303030; }
 
 p a {
-  border-bottom: 2px solid #FFC40E; }
+  border-bottom: 2px solid #FABB00; }
 
 p {
   line-height: 2;
@@ -60,13 +61,18 @@ p {
         transform: skew(-5deg); }
   .title a {
     border-bottom: 0;
-    background-image: linear-gradient(to right, rgba(255, 196, 14, 0.8) 100%, rgba(255, 196, 14, 0.8) 50%); }
+    background-image: linear-gradient(to right, rgba(250, 187, 0, 0.8) 100%, rgba(250, 187, 0, 0.8) 50%); }
 
 .title--single {
   max-width: 600px;
   margin-top: -9rem;
   font-size: 10rem;
   text-align: center; }
+
+#logo {
+  font-family: 'Lobster Two', cursive;
+  color: whitesmoke;
+  font-weight: bold; }
 
 @keyframes slideIn {
   0% {
@@ -102,7 +108,7 @@ p {
     background: none;
     border: 0; }
     .flash__remove:hover {
-      color: #FFC40E; }
+      color: #FABB00; }
   .flash:after {
     content: '';
     display: block;
@@ -164,10 +170,10 @@ h3 {
   text-align: center; }
 
 #fixed-menu {
-  background: linear-gradient(90deg, #A544B3 0%, #B4319C 20%, #CD1478 60%, #D21274 85%, #e82c75 95%);
-  font-size: 1.5rem; }
+  background: linear-gradient(90deg, #A544B3 0%, #B4319C 20%, #CD1478 60%, #D21274 85%, #e82c75 95%); }
   #fixed-menu .icon {
-    color: #f6f6f6; }
+    color: #f6f6f6;
+    font-size: 2.5rem !important; }
   #fixed-menu .ui.item {
     display: -ms-flexbox;
     display: flex;
@@ -180,11 +186,56 @@ h3 {
     -ms-flex-direction: column;
         flex-direction: column; }
   #fixed-menu #logo {
-    text-align: center; }
+    font-size: 2rem !important; }
 
 #sidebar-menu {
-  background: linear-gradient(90deg, #A544B3 0%, #B4319C 20%, #CD1478 60%, #D21274 85%, #e82c75 95%);
-  font-size: 2rem; }
+  background: white; }
+  #sidebar-menu .review__stars {
+    font-size: 18px;
+    position: relative;
+    top: -2em;
+    right: 0.2em; }
+  #sidebar-menu .ui.avatar {
+    width: 6rem;
+    height: 6rem; }
+  #sidebar-menu .username {
+    color: #303030;
+    font-size: 1.5rem;
+    height: 24px;
+    line-height: 24px;
+    position: relative;
+    top: -0.5em;
+    margin-left: 1.5em; }
+  #sidebar-menu .review__header {
+    margin-top: 1.5em; }
+  #sidebar-menu .user__avatar {
+    margin-top: 1em; }
+  #sidebar-menu .view__profile__btn {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+    margin-top: -1em; }
+  #sidebar-menu .menu_login {
+    font-size: 1.5rem;
+    margin: 5px; }
+    #sidebar-menu .menu_login .button {
+      font-size: 1.5rem;
+      width: 80%;
+      margin: 0 auto; }
+
+#menu_options {
+  border-bottom: none;
+  box-shadow: none; }
+  #menu_options a.item {
+    color: #303030;
+    font-size: 1.5rem;
+    padding: 1.5em 2em 1.5em 2em; }
+
+.pusher {
+  margin-top: -2em; }
 
 @media only screen and (max-width: 480px) {
   #fixed-menu {
@@ -196,8 +247,23 @@ h3 {
   #register-container #register-form .button {
     font-size: 1em; }
 
+.prediction_input {
+  border: 1px solid lightgray;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 0.36em;
+  border-radius: 0.2em;
+  width: 100%; }
+
 .add-prediction-form .ui.divider {
   margin: 5px 0px 5px 0px; }
+
+.add_divider {
+  color: #303030 !important; }
+
+td {
+  padding-left: 2px !important;
+  padding-right: 4px !important; }
 
 @media only screen and (min-width: 1224px) {
   #register-form {
@@ -210,9 +276,25 @@ table.ui th, table.ui tr, table.ui td {
 table.ui .show-more {
   display: none !important; }
 
+.card-form .ui.basic.button {
+  font-weight: bolder; }
+
+.card-form .games_control {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: justify;
+      justify-content: space-between; }
+  .card-form .games_control .game_length {
+    font-size: 1.5rem;
+    color: #a333c8; }
+
 .zoom {
   position: fixed;
-  bottom: 40px;
+  bottom: 10px;
   right: 10px;
   height: 70px; }
 
@@ -232,7 +314,7 @@ table.ui .show-more {
   color: #FFF; }
 
 .zoom-fab:hover {
-  background-color: #A201B4;
+  background-color: #a333c8;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
 
 .zoom-btn-large {
@@ -247,7 +329,295 @@ table.ui .show-more {
   font-weight: 700;
   text-transform: none; }
 
-.following {
-  background-color: #A544B3 !important; }
+.checkout_btn {
+  font-size: 1.5rem !important;
+  font-weight: bold !important; }
+
+.cart_item_info {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between; }
+  .cart_item_info div {
+    font-size: 1.2rem;
+    width: 40%;
+    color: #751994; }
+  .cart_item_info .cart_item_price {
+    text-align: right; }
+
+.follow-form {
+  padding-top: 1em; }
+  .follow-form #follow__btn {
+    font-size: 14px;
+    box-shadow: 0 0 0 1px #a333c8 inset;
+    box-shadow: 0 0 0 1px #a333c8 inset;
+    color: #a333c8;
+    background: transparent none;
+    border-radius: 2em;
+    padding-right: 2em;
+    padding-left: 2em; }
+  .follow-form .following {
+    background-color: #A544B3 !important;
+    color: white !important; }
+  .follow-form .edit_profile_btn {
+    margin-left: 1em; }
+
+.review {
+  background: white;
+  border: 1px solid #e6e6e6;
+  border-bottom: 0;
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding-left: 5px; }
+  .review:before {
+    width: 5px;
+    left: 0;
+    content: '';
+    display: block;
+    background: linear-gradient(0, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FABB00 85%, #48ded4 95%);
+    position: absolute;
+    height: 100%;
+    background-attachment: fixed; }
+  .review__header {
+    display: -ms-flexbox;
+    display: flex; }
+    .review__header > * {
+      border-right: 1px solid #e6e6e6;
+      padding: 0.2rem;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex: 1;
+          flex: 1;
+      -ms-flex-pack: center;
+          justify-content: center; }
+      .review__header > *:last-child {
+        border-right: 0; }
+  .review__author {
+    -ms-flex-pack: start;
+        justify-content: flex-start;
+    padding-left: 2rem;
+    display: -ms-flexbox;
+    display: flex; }
+    .review__author .avatar {
+      margin-right: 2rem; }
+  .review__time {
+    font-size: 1.2rem;
+    color: #999999; }
+  .review__stars {
+    color: #FABB00; }
+  .review__body {
+    padding: 2rem; }
+  .review p {
+    white-space: pre-wrap; }
+
+/*
+  Reviewer Form
+ */
+.reviewer {
+  position: relative;
+  margin-bottom: 2rem; }
+  .reviewer__stars {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center; }
+    .reviewer__stars input {
+      display: none; }
+      .reviewer__stars input:checked ~ label {
+        color: #FABB00; }
+      .reviewer__stars input + label {
+        font-size: 0;
+        /* These are in the opposite DOM order
+           re-order them to be visually in normal order
+           This is fine for accessibility because our labels have for()
+         */ }
+        .reviewer__stars input + label:before {
+          content: '\2605';
+          font-size: 3rem; }
+        .reviewer__stars input + label[for="star5"] {
+          -ms-flex-order: 5;
+              order: 5; }
+        .reviewer__stars input + label[for="star4"] {
+          -ms-flex-order: 4;
+              order: 4; }
+        .reviewer__stars input + label[for="star3"] {
+          -ms-flex-order: 3;
+              order: 3; }
+        .reviewer__stars input + label[for="star2"] {
+          -ms-flex-order: 2;
+              order: 2; }
+        .reviewer__stars input + label[for="star1"] {
+          -ms-flex-order: 1;
+              order: 1; }
+        .reviewer__stars input + label:hover, .reviewer__stars input + label:hover ~ label {
+          color: #ffd761; }
+  .reviewer textarea {
+    border: 0;
+    outline: 0;
+    font-size: 2rem;
+    padding: 2rem;
+    height: 200px; }
+  .reviewer__meta {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center; }
+    .reviewer__meta > * {
+      -ms-flex: 1;
+          flex: 1; }
+
+.rating_heading {
+  text-align: center;
+  font-size: 2rem !important; }
+
+.rate_btn {
+  font-size: 1.2rem !important; }
+
+#submit_rating {
+  width: 50%;
+  margin: auto;
+  font-size: 1.2rem;
+  margin-bottom: 0.5em; }
+
+.order_card {
+  margin-bottom: 1em !important; }
+
+.user__prof {
+  height: 20em !important;
+  width: 20em !important; }
+
+.search__results {
+  width: 80% !important;
+  background: white;
+  display: none;
+  position: absolute;
+  top: 100%;
+  box-shadow: 0 2px 4px 0 rgba(34, 36, 38, 0.12), 0 2px 10px 0 rgba(34, 36, 38, 0.15);
+  border: 1px solid #d4d4d5;
+  z-index: 998; }
+
+.ui.icon.input {
+  width: 80%; }
+
+.ui.search {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center; }
+
+.search__result {
+  padding: 10px;
+  display: block;
+  border-bottom: 1px solid #ececec; }
+  .search__result--active {
+    background: #f1f1f1; }
+
+#profile__avatar {
+  width: 8em;
+  height: 8em;
+  border-radius: 50%;
+  border: 1px solid #A544B3;
+  box-shadow: 0 0 0 1px #a333c8; }
+
+#user__grid {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  padding-top: 0.5em; }
+  #user__grid .review__stars {
+    font-size: 24px; }
+  #user__grid #profile__info {
+    margin-left: 2em; }
+  #user__grid #profile__name {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: -0.1em; }
+
+#profile__stats {
+  margin-top: 0.5em;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  padding-right: 1em;
+  padding-left: 1em; }
+  #profile__stats .stats__length {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: -0.5em;
+    font-weight: bold; }
+
+.profile__btn {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  font-size: 14px !important;
+  margin: 0 auto !important; }
+
+@media only screen and (min-width: 1224px) {
+  #profile__stats {
+    max-width: 60%;
+    margin: 0 auto;
+    margin-top: 1em; } }
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */ }
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */ }
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold; }
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map*/

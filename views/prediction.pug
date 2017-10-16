@@ -1,34 +1,44 @@
 extends layout
 
+include mixins/_reviewForm
+include mixins/_rating
+
 block content
   h3= title
   .ui.container
     .column
-      .ui.fluid.card
+      .ui.fluid.card.order_card
         .content
           .right.floated.meta
-            a(href=`/predictions/${prediction.slug}`) #{prediction.team.length}
+            +rating(prediction.author)
           if prediction.author.avatar
-            img.ui.avatar.image(src=`/uploads/${prediction.author.avatar}`) 
-            span #{prediction.author.username}
+            img.ui.avatar.image(src=`/uploads/${prediction.author.avatar}`)
+            a(href=`/user/profile/${prediction.author.username}`) #{prediction.author.username}
           else
             img.ui.avatar.image(src=prediction.author.gravatar + '&d=wavatar')
-            span #{prediction.author.username}
+            a(href=`/user/profile/${prediction.author.username}`) #{prediction.author.username}
 
         .content
           table.ui.celled.table.unstackable
             thead
               tr
                 th Date
-                th Team 1
-                th Team 2
                 th Time
+                th Home
+                th Away
+                th Prediction
             tbody
             for team in prediction.team
               tr
-                td #{team.date.toISOString().slice(0,10)}
-                td #{team.team1}
-                td #{team.team2}
-                td #{team.time}
-        .content
-          button.ui.fluid.button BUY
+                td #{team.date.toISOString().slice(0,10).replace(/-/g,"/")}
+                td #{team.date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+                td #{team.home}
+                td #{team.away}
+                td #{team.prediction}
+
+        - const ratedString = user.rated.map(obj => obj.toString())
+        - const isRated = ratedString.includes(prediction._id.toString())
+          if !isRated
+            p.rating_heading How accurate were my predictions
+            +reviewForm(prediction)
+            input.ui.basic.purple.button#submit_rating(type="submit" value="Submit Review" form='rate_form')

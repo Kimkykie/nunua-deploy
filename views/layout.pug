@@ -1,3 +1,5 @@
+include mixins/_rating
+
 doctype html
 html
   head
@@ -17,54 +19,53 @@ html
       .ui.sidebar.vertical.menu.left#sidebar-menu
         if user
           if user.avatar
-            .item
+            .item.user__avatar
               img.ui.avatar.image(src=`/uploads/${user.avatar}`, alt=user.username)
-              p=user.username 
+              span.username=user.username
+              +rating(user)
+              div.view__profile__btn
+                a.ui.purple.basic.button(href=`/user/profile/${user.username}`) VIEW PROFILE
           else
-            .item
+            .item.user__avatar
               img.ui.avatar.image(src=user.gravatar + '&d=wavatar')
-              p=user.username
-        else
-          .item
-            img.ui.avatar.image(src='http://via.placeholder.com/350x150')
-            a.ui.item(href='/login') LOGIN
-            a.ui.item(href='/register') REGISTER
-        a.item(href='/user/account') Account
-          i.user.left.icon
-        a.item(href='/user/orders') My Orders
-          i.user.left.icon
+              span.username=user.username
+              +rating(user)
+              div.view__profile__btn
+                a.ui.purple.basic.button(href=`/user/profile/${user.username}`) VIEW PROFILE
+        .ui.vertical.menu.fluid#menu_options
+          a.item(href='/') Home
+            //- i.home.left.icon
+          a.item(href='/user/account') Account
+            //- i.user.left.icon
+          a.item(href='/user/games') My games
+            //- i.user.left.icon
+          a.item(href='/user/orders') Purchases
+            //- i.user.left.icon
+          a.item(href='/user/settings') Settings
+            //- i.settings.left.icon
+          a.item(href='/help') Help
+            //- i.help.circle.left.icon
+          if user
+            a.item(href='/logout') Logout
+          else
+            div.menu_login
+              a.ui.button.fluid.basic.purple(href='/login') Log In
+            div.menu_login
+              a.ui.button.fluid.basic.purple(href='/register') Sign Up
+            //- i.sign.out.left.icon
+
       .ui.menu.top.fixed.borderless#fixed-menu
         a.item#toggle
           i.sidebar.icon
-        a.item.centered#logo(href='/')
-          p NUNUABET
-        //- .right.menu
-          .item
-            .ui.icon.input
-              input(type='text', placeholder='Search...')
-              |         
-              i.search.link.icon 
-        .right.menu 
+        a.item.centered#logo(href='/') Nunuatips
+        .right.menu
           a.ui.item.cart-icon(href='/shopping-cart')
             i.shop.outline.icon
-            p CART
             if session.cart
               .ui.grey.circular.large.label.cart-length #{session.cart.content.length}
             else
               .ui.grey.circular.large.label.cart-length 0
-          .ui.item.dropdown.simple
-            i.user.outline.icon
-            p USER
-            .menu
-              if user
-                .item
-                  a(href='/logout') Logout
-              else
-                
-                .item
-                  a(href='/register') Register
-                .item
-                  a(href='/login') Login
+
       .pusher
         block messages
           if locals.flashes
@@ -76,9 +77,9 @@ html
                         .flash(class=`flash--${category}`)
                           p.flash__text!= message
                           button.flash__remove(onClick="this.parentElement.remove()") &times;
-           
+
         block content
-      
+
     block scripts
       script(src=`https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_KEY}&libraries=places`)
       script(src="/javascripts/layout.js")

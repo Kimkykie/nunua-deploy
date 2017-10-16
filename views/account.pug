@@ -5,9 +5,9 @@ block content
 		h3 EDIT YOUR ACCOUNT
 		form.ui.form.segment#register-form(action='/account' method='POST' enctype='multipart/form-data')
 			if user.avatar
-				img.ui.bordered.image.small.centered.circular(src=`/uploads/${user.avatar}`, alt=user.username)
+				img.ui.bordered.image.small.centered.circular.user__prof(src=`/uploads/${user.avatar}`, alt=user.username)
 			else
-				img.ui.bordered.image.small.centered.circular(src=user.gravatar + '&d=wavatar')
+				img.ui.bordered.image.small.centered.circular.user__prof(src=user.gravatar + '&d=wavatar')
 			.field.required
 				label Avatar
 				|

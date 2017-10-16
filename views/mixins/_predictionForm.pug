@@ -1,24 +1,23 @@
 include _predictionFields
 
 mixin predictionForm(prediction = {})
-  form.ui.form.segment.add-prediction-form(action='/add' method='POST')
+  form.ui.form.segment.unstackable.add-prediction-form(action='/add' method='POST')
     #fields
       - for(var i = 0; i < 5; i++)
         +predictionFields()
-			        
-    button.ui.button.fluid(type='submit') Save
-    button.ui.button(id='addFields') Add
+
+    button.ui.right.floated.button.purple(type='submit') Post
+    button.ui.button.basic.purple.icon.circular(id='addFields')
+      |
+      i.icon.add
     script.
-      $('.date-picker').calendar({
-        type: 'date'
+      var today = new Date()
+      $('.ui.calendar').calendar({
+        minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        maxDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() + 14)
       });
       $('#date-picker').calendar({
         type: 'date'
       });
-      
-      $('.time-picker').calendar({
-        type: 'time'
-      });
-      
+
       $('.ui.dropdown').dropdown();
-  

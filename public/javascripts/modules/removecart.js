@@ -7,7 +7,7 @@ function removeCart (e) {
     .post(this.action)
     .then(res => {
     	$('.cart-length').textContent = res.data.content.length
-    	$('.total-price').textContent = `KES ${res.data.totalPrice}`
+    	$('.total-price').textContent = `Total: KES ${res.data.totalPrice}`
     	this.remove(this)
     })
     .catch(console.error)

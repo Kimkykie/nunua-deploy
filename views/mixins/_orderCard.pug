@@ -1,33 +1,37 @@
+include _rating
+
 mixin orderCard(order = {})
   .column
     .ui.fluid.card
       .content
         .right.floated.meta
-          a(href=`/predictions/${order.item.slug}`) #{order.item.team.length}
+          - const ratedString = user.rated.map(obj => obj.toString())
+          - const isRated = ratedString.includes(order.item._id.toString())
+          .rate_div
+            if !isRated
+              a.ui.button.basic.purple.rate_btn(href=`/predictions/${order.item.slug}`) LEAVE A REVIEW
+            else
+              p REVIEWED
         if order.item.author.avatar
           img.ui.avatar.image(src=`/uploads/${order.item.author.avatar}`)
-          span #{order.item.author.username} 
+          a(href=`/user/profile/${order.item.author.username}`) #{order.item.author.username}
         else
           img.ui.avatar.image(src=order.item.author.gravatar + '&d=wavatar')
-          span #{order.item.author.username}
+          a(href=`/user/profile/${order.item.author.username}`) #{order.item.author.username}
       .content
-        form.ui.form.card-form(method="POST" action=`/api/add-to-cart/${order._id}`)
-          table.ui.celled.table.unstackable(name='preditable')
-            thead
-              tr
-                th Date
-                th Team 1
-                th Team 2
-                th Time
-                th Prediction
-            tbody
-            for team in order.item.team
-              tr
-                td #{team.date.slice(0,10)}
-                td #{team.team1}
-                td #{team.team2}
-                td #{team.time}
-                td #{team.prediction}
-    
-   
-          
+        table.ui.celled.table.unstackable(name='preditable')
+          thead
+            tr
+              th Date
+              th Home
+              th Away
+              th Time
+              th Prediction
+          tbody
+          for team in order.item.team
+            tr
+              td #{team.date.toISOString().slice(0,10).replace(/-/g,"/")}
+              td #{team.date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+              td #{team.home}
+              td #{team.away}
+              td #{team.prediction}

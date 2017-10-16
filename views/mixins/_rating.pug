@@ -1,0 +1,10 @@
+mixin rating(user)
+  - var total = 0
+  - var average = 0
+  each review in user.reviews
+    - total += review.rating
+    - average = total/user.reviews.length || 1
+  .review__header
+    .review__stars(title=`Rated ${average} out of 5 stars`)
+      = `★`.repeat(Math.round(average))
+      = `☆`.repeat(5 - Math.round(average))

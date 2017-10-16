@@ -1,0 +1,25 @@
+mixin editAccount(user = {})
+	form.ui.form.huge(action=`/user/account/${user.id}` method='POST' enctype='multipart/form-data' id='editForm')
+		if user.avatar
+			img.ui.bordered.image.small.centered.circular.user__prof(src=`/uploads/${user.avatar}`, alt=user.username)
+		else
+			img.ui.bordered.image.small.centered.circular.user__prof(src=user.gravatar + '&d=wavatar')
+		.field
+			label Avatar
+			|
+			.ui.left.labeled.input
+				input(type='file' name='avatar' id='avatar' accept='image/gif, image/png, image/jpeg')
+		.field
+			label Username
+			|
+			.ui.left.labeled.icon.input
+				input(type='text', value=user.username, name='username')
+				|
+				i.user.icon
+		.field
+			label Email
+			|
+			.ui.left.labeled.icon.input
+				input(type='email', value=user.email, name='email')
+				|
+				i.email.icon

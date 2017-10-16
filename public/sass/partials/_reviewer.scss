@@ -1,0 +1,73 @@
+/*
+  Reviewer Form
+ */
+.reviewer {
+  position: relative;
+  margin-bottom: 2rem;
+  &__stars {
+    display: flex;
+    justify-content: center;
+    input {
+      display: none;
+      &:checked {
+        & ~ label {
+          color: $yellow;
+        }
+      }
+      & + label {
+        font-size: 0;
+        &:before {
+          content: '★';
+          font-size: 3rem;
+        }
+        /* These are in the opposite DOM order
+           re-order them to be visually in normal order
+           This is fine for accessibility because our labels have for()
+         */
+        &[for="star5"] { order: 5; }
+        &[for="star4"] { order: 4; }
+        &[for="star3"] { order: 3; }
+        &[for="star2"] { order: 2; }
+        &[for="star1"] { order: 1; }
+        &:hover, &:hover ~ label {
+          color: lighten($yellow,20%);
+        }
+      }
+    }
+  }
+  textarea {
+    border: 0;
+    outline: 0;
+    font-size: 2rem;
+    padding: 2rem;
+    height: 200px;
+  }
+  &__meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > * {
+      flex: 1;
+    }
+  }
+}
+
+.rating_heading{
+  text-align: center;
+  font-size: 2rem !important;
+}
+
+.rate_btn{
+  font-size: 1.2rem !important;
+}
+
+#submit_rating{
+  width: 50%;
+  margin: auto;
+  font-size: 1.2rem;
+  margin-bottom: 0.5em;
+}
+
+.order_card{
+  margin-bottom: 1em !important;
+}

@@ -1,15 +1,17 @@
+include _rating
+
 mixin predictionCard(prediction = {})
   .column
     .ui.fluid.card
       .content
         .right.floated.meta
-          a(href=`/predictions/${prediction.slug}`) #{prediction.team.length}
+          +rating(prediction.author)
         if prediction.author.avatar
           img.ui.avatar.image(src=`/uploads/${prediction.author.avatar}`)
-          a(href=`/user/profile/${prediction.author.username}`) #{prediction.author.username} 
+          a(href=`/user/profile/${prediction.author.username}`) #{prediction.author.username}
         else
           img.ui.avatar.image(src=prediction.author.gravatar + '&d=wavatar')
-          a(href=`/user/profile/${prediction.author.username}`) #{prediction.author.username} 
+          a(href=`/user/profile/${prediction.author.username}`) #{prediction.author.username}
       .content
         form.ui.form.card-form(method="POST" action=`/api/add-to-cart/${prediction._id}`)
           if session.cart
@@ -18,56 +20,62 @@ mixin predictionCard(prediction = {})
               thead
                 tr
                   th Date
-                  th Team 1
-                  th Team 2
                   th Time
+                  th Home
+                  th Away
               tbody
               for team in prediction.team.slice(0,3)
                 tr
-                  td #{team.date.toISOString().slice(0,10)}
-                  td #{team.team1}
-                  td #{team.team2}
-                  td #{team.time}
+                  td #{team.date.toISOString().slice(0,10).replace(/-/g,"/")}
+                  td #{team.date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+                  td #{team.home}
+                  td #{team.away}
               for team in prediction.team.slice(3)
                 tr.more.show-more
-                  td #{team.date.toISOString().slice(0,10)}
-                  td #{team.team1}
-                  td #{team.team2}
-                  td #{team.time}
+                  td #{team.date.toISOString().slice(0,10).replace(/-/g,"/")}
+                  td #{team.date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+                  td #{team.home}
+                  td #{team.away}
           else
             table.ui.celled.table.unstackable(name='preditable')
               thead
                 tr
                   th Date
-                  th Team 1
-                  th Team 2
                   th Time
+                  th Home
+                  th Away
               tbody
               for team in prediction.team.slice(0,3)
                 tr
-                  td #{team.date.toISOString().slice(0,10)}
-                  td #{team.team1}
-                  td #{team.team2}
-                  td #{team.time}
+                  td #{team.date.toISOString().slice(0,10).replace(/-/g,"/")}
+                  td #{team.date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+                  td #{team.home}
+                  td #{team.away}
               for team in prediction.team.slice(3)
                 tr.more.show-more
-                  td #{team.date.toISOString().slice(0,10)}
-                  td #{team.team1}
-                  td #{team.team2}
-                  td #{team.time}
+                  td #{team.date.toISOString().slice(0,10).replace(/-/g,"/")}
+                  td #{team.date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+                  td #{team.home}
+                  td #{team.away}
           if session.cart
             - const boughtClass = session.cart.content.includes(prediction.id) ? 'disabled' : ''
-              .content
-                button.ui.button.left(type='submit' name='buy' data-index=`${i}` class=boughtClass) BUY
-                button.ui.right.floated.button.more-predictions(name='more')
-                  span.view-more #{`VIEW ${prediction.team.length - 3} `}
+              .content.games_control
+                span.game_length #{prediction.team.length} games
+                button.ui.basic.purple.button.more-predictions(name='more')
+                  span.view-more #{`VIEW `}
                   span.more-less MORE
-          else
-            .content
-                button.ui.button.left(type='submit' name='buy' data-index=`${i}`) BUY
-                button.ui.right.floated.button.more-predictions
-                  span.view-more #{`VIEW ${prediction.team.length - 3} `}
-                  span.more-less MORE
+                if user && orders.includes(prediction._id.toString())
+                  button.ui.button.purple(class='disabled') BOUGHT
+                else
+                  button.ui.basic.purple.button.right.floated(type='submit' name='buy' data-index=`${i}` class=boughtClass) BUY
 
-   
-          
+          else
+            .content.games_control
+                span.game_length #{prediction.team.length} games
+                button.ui.basic.purple.button.more-predictions
+                  span.view-more #{`VIEW `}
+                  span.more-less MORE
+                if user && orders.includes(prediction._id.toString())
+                  button.ui.button.purple(class='disabled') BOUGHT
+                else
+                  button.ui.basic.purple.button.right.floated(type='submit' name='buy' data-index=`${i}`) BUY

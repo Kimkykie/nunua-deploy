@@ -1,47 +1,106 @@
 mixin predictionFields()
   .five.fields
-    .field
+    .field.five.fluid.wide
       label Date
       |
-      .ui.calendar.date-picker     
+      .ui.calendar.date-picker
         .ui.left.labeled.icon.input
           input(type='text', placeholder='Date', name='date[]')
-          |       
+          |
           i.calendar.icon
-    .field
-      label Time
+    .field.five.fluid.wide
+      label Home
       |
-      .ui.calendar.time-picker     
-        .ui.left.labeled.icon.input
-          input(type='text', placeholder='Time', name='time[]')
-          |       
-          i.wait.icon 
-    .field
-      label Team 1
-      |     
       .ui.left.labeled.icon.input
-        input(type='text', placeholder='Team 1', name='team1[]')
-        |       
+        input(type='text', placeholder='Home Team', name='home[]')
+        |
         i.soccer.icon
-    .field
-      label Team 2
-      |     
+    .field.five.fluid.wide
+      label Away
+      |
       .ui.left.labeled.icon.input
-        input(type='text', placeholder='Team 2', name='team2[]')
-        |       
+        input(type='text', placeholder='Away Team', name='away[]')
+        |
         i.soccer.icon
-    .field
+    .field.stackable.eight.wide.mobile
       label Prediction
       |
-      .ui.selection.dropdown
+      .ui.dropdown.prediction_input
         input(type="hidden", name="prediction[]")
-        i.dropdown.icon
         .default.text Prediction
         .menu
-          .item(data-value="GG") GG
-          .item(data-value="Home Win (1)") Home Win (1)
-          .item(data-value="Draw") Draw
-          .item(data-value="Over (2.5)(1.5)") Over (2.5)(1.5)
-          .item(data-value="Away Win (1)") Away Win (1)
-          .item(data-value="Over/Under 1.5") Over/Under 1.5
-  div.ui.section.divider 
+          .header Categories
+          .item
+            i.dropdown.icon
+            span.text 3-Way
+            .menu
+              .item(data-value="3-Way 1-Home Win") 3-Way 1-Home Win
+              .item(data-value="3-Way X-Draw") 3-Way X-Draw
+              .item(data-value="3-Way 2-Away Win") 3-Way 2-Away Win
+          .item
+            i.dropdown.icon
+            span.text Double Chance
+            .menu
+              .item(data-value="Double Chance 1X - Home/Draw") Double Chance 1X - Home/Draw
+              .item(data-value="Double Chance 12 - Home/Away") Double Chance 12 - Home/Away
+              .item(data-value="Double Chance X2 - Draw/Away") Double Chance X2 - Draw/Away
+          .item
+            i.dropdown.icon
+            span.text Over 2.5/ Under
+            .menu
+              .item(data-value="Over 2.5") Over 2.5
+              .item(data-value="Under 2.5") Under 2.5
+          .item
+            i.dropdown.icon
+            span.text Both teams to score
+            .menu
+              .item(data-value="Both teams to score - Yes") Both teams to score - Yes
+              .item(data-value="Both teams to score - No") Both teams to score - No
+          .item
+            i.dropdown.icon
+            span.text 3-Way First Half
+            .menu
+              .item(data-value="3-Way First Half - 1") 3-Way First Half - 1
+              .item(data-value="3-Way First Half - X") 3-Way First Half - X
+              .item(data-value="3-Way First Half - 2") 3-Way First Half - 2
+          .divider
+          .item
+            i.dropdown.icon
+            span.text Double Chance First Half
+            .menu
+              .item(data-value="Double Chance First Half - 1X") Double Chance First Half - 1X
+              .item(data-value="Double Chance First Half - 12") Double Chance First Half - 12
+              .item(data-value="Double Chance First Half - X2") Double Chance First Half - X2
+          .item
+            i.dropdown.icon
+            span.text Over 1.5 First Half
+            .menu
+              .item(data-value="Over 1.5 First Half - Over") Over 1.5 First Half - Over
+              .item(data-value="Over 1.5 First Half - Under") Over 1.5 First Half - Under
+          .item
+            i.dropdown.icon
+            span.text Over 2.5 First Half
+            .menu
+              .item(data-value="Over 2.5 First Half - Over") Over 2.5 First Half - Over
+              .item(data-value="Over 2.5 First Half - Under") Over 2.5 First Half - Under
+          .item
+            i.dropdown.icon
+            span.text Both teams to score
+            .menu
+              .item(data-value="Both teams to score HT - Yes") Both teams to score HT- Yes
+              .item(data-value="Both teams to score HT - No") Both teams to score HT- No
+          .item
+            i.dropdown.icon
+            span.text Half time/Full time
+            .menu
+              .item(data-value="Half time/Full time 1/1") Half time/Full time 1/1
+              .item(data-value="Half time/Full time 1/X") Half time/Full time 1/X
+              .item(data-value="Half time/Full time 1/2") Half time/Full time 1/2
+              .item(data-value="Half time/Full time X/1") Half time/Full time X/1
+              .item(data-value="Half time/Full time X/X") Half time/Full time X/X
+              .item(data-value="Half time/Full time X/2") Half time/Full time X/2
+              .item(data-value="Half time/Full time 2/1") Half time/Full time 2/1
+              .item(data-value="Half time/Full time 2/X") Half time/Full time 2/X
+              .item(data-value="Half time/Full time 2/2") Half time/Full time 2/2
+
+  hr.add_divider

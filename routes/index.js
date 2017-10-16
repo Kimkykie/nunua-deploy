@@ -4,6 +4,7 @@ const predictionController = require('../controllers/predictionController')
 const userController = require('../controllers/userController')
 const authController = require('../controllers/authController')
 const cartController = require('../controllers/cartController')
+const reviewController = require('../controllers/reviewController')
 
 const { catchErrors } = require('../handlers/errorHandlers')
 
@@ -13,7 +14,7 @@ router.get('/predictions', catchErrors(predictionController.getPredictions))
 router.get('/add', authController.isLoggedIn, predictionController.addPrediction)
 router.post('/add', catchErrors(predictionController.createPrediction))
 /* USER PREDICTION ROUTES */
-router.get('/mypredictions', catchErrors(predictionController.getUserPredictions))
+router.get('/user/games', authController.isLoggedIn, catchErrors(predictionController.getUserPredictions))
 
 router.get('/predictions/:slug', catchErrors(predictionController.getPredictionBySlug))
 
@@ -36,7 +37,7 @@ router.post('/register',
 router.get('/logout', authController.logout)
 
 router.get('/user/account', authController.isLoggedIn, userController.account)
-router.post('/user/account',
+router.post('/user/account/:id',
   userController.upload,
   catchErrors(userController.resize),
   catchErrors(userController.updateAccount))
@@ -46,6 +47,10 @@ router.get('/shopping-cart', cartController.getShoppingCart)
 router.post('/api/add-to-cart/:id', cartController.addToCart)
 router.post('/api/remove-from-cart/:id', cartController.removeFromCart)
 
+// Review
+router.post('/review/:id',
+  authController.isLoggedIn,
+  catchErrors(reviewController.addReview))
 // Checkout
 router.get('/checkout', authController.isLoggedIn, cartController.getCheckout)
 router.post('/checkout', authController.isLoggedIn, cartController.saveOrder)
@@ -58,4 +63,4 @@ router.get('/user/orders', authController.isLoggedIn, userController.getUserOrde
 router.get('/user/profile/:id', userController.getUserProfile)
 router.post('/api/user/:id/follow', catchErrors(userController.followUser))
 router.get('/api/search', catchErrors(userController.searchUsers))
-module.exports = router;
+module.exports = router

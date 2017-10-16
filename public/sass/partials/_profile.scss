@@ -1,0 +1,57 @@
+#profile__avatar{
+  width: 8em;
+  height: 8em;
+  border-radius: 50%;
+  border: 1px solid $purple;
+  box-shadow: 0 0 0 1px $purpler;
+}
+
+#user__grid{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.5em;
+  .review__stars{
+    font-size: 24px;
+  }
+  #profile__info{
+    margin-left: 2em;
+  }
+  #profile__name{
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: -0.1em;
+  }
+}
+
+#profile__stats{
+  margin-top: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 1em;
+  padding-left: 1em;
+  .stats__length{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: -0.5em;
+    font-weight: bold;
+  }
+}
+
+.profile__btn{
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  font-size: 14px !important;
+  margin: 0 auto !important;
+}
+
+@media only screen and (min-width : 1224px) {
+  #profile__stats{
+    max-width: 60%;
+    margin: 0 auto;
+    margin-top: 1em;
+  }
+}
+

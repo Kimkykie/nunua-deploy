@@ -1,28 +1,53 @@
 extends layout
 
+include mixins/_rating
+include mixins/_userPrediction
+include mixins/_editAccount
+
 block content
+	- const isProfile = user._id.toString() === analyst._id.toString()
 	.ui.container
-		.ui.grid.centered
-			.eight.wide.column
+		#user__grid
+			if analyst.avatar
+				img.ui.avatar.image#profile__avatar(src=`/uploads/${analyst.avatar}`)
+			else
+				img.ui.avatar.image#profile__avatar(src=analyst.gravatar + '&d=wavatar')
+			div#profile__info
+				p#profile__name= analyst.username
+				+rating(analyst)
 				form.ui.form.follow-form(method='POST' action=`/api/user/${analyst._id}/follow`)
-					.ui.card.fluid
-						.content
-							if analyst.avatar
-								img.left.floated.mini.ui.image(src=`/uploads/${analyst.avatar}`)
-							else
-								img.left.floated.mini.ui.image(src=analyst.gravatar + '&d=wavatar')
-							div.header= analyst.username
-						.content
-							div.header.followers-count= `${analyst.followers.length} Followers`
 					if !user
-						p Login to Follow
+						a.ui.basic.button.purple.profile__btn(href='/login') Login to Follow
 					else
 						- const followerString = user.following.map(obj => obj.toString())
 						- const followerValue = followerString.includes(analyst._id.toString()) ? 'Following' : 'Follow'
 						- const followerClass = followerValue.toLowerCase()
-							if user._id.toString() === analyst._id.toString()
-								pre= h.dump(analyst)
+							if isProfile
+								a.ui.basic.purple.button.edit_profile_btn EDIT PROFILE
 							else
-								input.ui.button.attached.bottom(type='submit' name='follow' class=followerClass value=followerValue)
-
-
+								input.ui.button#follow__btn(type='submit' name='follow' class=followerClass value=followerValue)
+		.ui.grid#profile__stats
+			div
+				p.stats__length= `${predictions.length}`
+				p= predictions.length === 1 ? `Prediction` : `Predictions`
+			div
+				p.followers-count.stats__length= `${analyst.followers.length}`
+				p= analyst.followers.length === 1 ? `Follower` : `Followers`
+			div
+				p.stats__length= `${analyst.reviews.length}`
+				p= analyst.reviews.length === 1 ? `Review` : `Reviews`
+			if isProfile
+				.ui.modal
+					i.close.icon
+					.header
+						| Edit Account
+					.content
+						+editAccount(user)
+					.actions
+						.ui.black.deny.button Close
+						input.ui.positive.right.button(type='submit' value='Update' form='editForm')
+	.ui.divider
+	.ui.container
+		.ui.stackable.three.column.grid.doubling
+			- for( var i = 0; i < predictions.length; i++)
+				+userPrediction(predictions[i])

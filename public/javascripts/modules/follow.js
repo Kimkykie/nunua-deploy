@@ -1,21 +1,20 @@
-import axios from 'axios';
-import { $ } from './bling';
+import axios from 'axios'
+import { $ } from './bling'
 
-function followUser(e) {
-  e.preventDefault();
+function followUser (e) {
+  e.preventDefault()
   axios
     .post(this.action)
     .then((res) => {
       if (this.follow.value === 'Following') {
-        this.follow.value = 'Follow';
+        this.follow.value = 'Follow'
       } else {
-        this.follow.value = 'Following';
+        this.follow.value = 'Following'
       }
-      this.follow.classList.toggle('following');
-      $('.followers-count').textContent = `${res.data.followers.length} Followers`;
+      this.follow.classList.toggle('following')
+      $('.followers-count').textContent = `${res.data.followers.length}`
     })
-    .catch(console.error);
+    .catch(console.error)
 }
 
-export default followUser;
-
+export default followUser

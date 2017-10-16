@@ -1,3 +1,20 @@
-.following{
-	background-color: $purple !important;
+.follow-form{
+	padding-top: 1em;
+	#follow__btn{
+		font-size: 14px;
+		box-shadow: 0 0 0 1px #a333c8 inset;
+    box-shadow: 0 0 0 1px #a333c8 inset;
+		color: #a333c8;
+		background: transparent none;
+		border-radius: 2em;
+		padding-right: 2em;
+		padding-left: 2em;
+	}
+	.following{
+		background-color: $purple !important;
+		color: white !important;
+	}
+	.edit_profile_btn{
+		margin-left: 1em;
+	}
 }

@@ -1,9 +1,8 @@
 #fixed-menu {
   background: $grad;
-  font-size: 1.5rem;
-
   .icon {
     color: $white;
+    font-size: 2.5rem !important;
   }
 
   .ui.item{
@@ -11,21 +10,75 @@
     flex-direction: column;
     color: $white;
   }
-  
+
   .cart-icon{
     display: flex;
     flex-direction: column;
   }
   #logo{
-    text-align: center;
+    font-size: 2rem !important;
   }
 }
 
 #sidebar-menu {
-  background: $grad;
-  font-size: 2rem;
+  background: white;
+  .review__stars{
+    font-size: 18px;
+    position: relative;
+    top: -2em;
+    right: 0.2em;
+  }
+  .ui.avatar{
+    width: 6rem;
+    height: 6rem;
+  }
+  .username{
+    color: $black;
+    font-size: 1.5rem;
+    height: 24px;
+    line-height: 24px;
+    position: relative;
+    top: -0.5em;
+    margin-left: 1.5em;
+  }
+  .review__header{
+    margin-top: 1.5em;
+  }
+  .user__avatar{
+    margin-top: 1em;
+  }
+
+  .view__profile__btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -1em;
+  }
+
+  .menu_login{
+    font-size: 1.5rem;
+    margin: 5px;
+    .button{
+      font-size: 1.5rem;
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
 }
 
+#menu_options{
+  a.item{
+    color: $black;
+    font-size: 1.5rem;
+    padding: 1.5em 2em 1.5em 2em;
+  }
+  border-bottom: none;
+  box-shadow: none;
+}
+
+.pusher{
+  margin-top: -2em;
+}
 
 @media only screen and (max-width : 480px) {
   #fixed-menu {

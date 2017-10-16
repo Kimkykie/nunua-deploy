@@ -1,0 +1,31 @@
+mixin userProfile(user = {})
+  .ui.container
+    #user__grid
+      if user.avatar
+        img.ui.avatar.image#profile__avatar(src=`/uploads/${user.avatar}`)
+      else
+        img.ui.avatar.image#profile__avatar(src=user.gravatar + '&d=wavatar')
+      div#profile__info
+        p#profile__name= user.username
+        +rating(user)
+        a.ui.basic.purple.button.edit_profile_btn EDIT PROFILE
+
+    .ui.grid#profile__stats
+      div
+        p.stats__length= `${predictions.length}`
+        p= predictions.length === 1 ? `Prediction` : `Predictions`
+      div
+        p.followers-count.stats__length= `${user.followers.length}`
+        p= user.followers.length === 1 ? `Follower` : `Followers`
+      div
+        p.stats__length= `${user.reviews.length}`
+        p= user.reviews.length === 1 ? `Review` : `Reviews`
+      if isProfile
+        .ui.modal
+          i.close.icon
+          .header Edit Account
+          .content
+            +editAccount(user)
+          .actions
+            .ui.black.deny.button Close
+            input.ui.button(type='submit' value='Update' form='editForm')

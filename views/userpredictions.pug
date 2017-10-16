@@ -1,6 +1,6 @@
 extends layout
 
-include mixins/_predictionCard
+include mixins/_userPrediction
 
 block content
   if predictions.length >=1
@@ -8,8 +8,12 @@ block content
     .ui.container
       .ui.stackable.three.column.grid
         each prediction in predictions
-          +predictionCard(prediction)
-      a.ui.circular.button.icon.right.floated.huge.purple(href='/add')
-        i.icon.add
+          +userPrediction(prediction)
+      .zoom
+        a#zoomBtn.zoom-fab.zoom-btn-large(href='/add')
+          i.icon.add
   else
     h3 YOU HAVE NO PREDICTIONS
+    .zoom
+        a#zoomBtn.zoom-fab.zoom-btn-large(href='/add')
+          i.icon.add

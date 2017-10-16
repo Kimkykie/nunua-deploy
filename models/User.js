@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const Schema = mongoose.Schema;
-mongoose.Promise = global.Promise;
-const md5 = require('md5');
-const validator = require('validator');
-const mongodbErrorHandler = require('mongoose-mongodb-errors');
-const passportLocalMongoose = require('passport-local-mongoose');
+const Schema = mongoose.Schema
+mongoose.Promise = global.Promise
+const md5 = require('md5')
+const validator = require('validator')
+const mongodbErrorHandler = require('mongoose-mongodb-errors')
+const passportLocalMongoose = require('passport-local-mongoose')
 
 const userSchema = new Schema({
   email: {
@@ -36,7 +36,9 @@ const userSchema = new Schema({
     } */
   },
   avatar: String,
-
+  rated: [
+    { type: mongoose.Schema.ObjectId, ref: 'User' }
+  ],
   followers: [
     { type: mongoose.Schema.ObjectId, ref: 'User' }
   ],
@@ -50,18 +52,31 @@ const userSchema = new Schema({
   toJSON: {
     virtuals: true
   }
-});
+})
 
 userSchema.index({
   username: 'text'
-});
+})
 
 userSchema.virtual('gravatar').get(function () {
-  const hash = md5(this.email);
-  return `https://gravatar.com/avatar/${hash}?s=200`;
-});
+  const hash = md5(this.email)
+  return `https://gravatar.com/avatar/${hash}?s=200`
+})
 
-userSchema.plugin(passportLocalMongoose, { usernameField: 'phone' });
-userSchema.plugin(mongodbErrorHandler);
+userSchema.virtual('reviews', {
+  ref: 'Review',
+  localField: '_id',
+  foreignField: 'author'
+})
 
-module.exports = mongoose.model('User', userSchema);
+function autopopulate (next) {
+  this.populate('reviews')
+  next()
+}
+
+userSchema.pre('find', autopopulate)
+userSchema.pre('findOne', autopopulate)
+userSchema.plugin(passportLocalMongoose, { usernameField: 'phone' })
+userSchema.plugin(mongodbErrorHandler)
+
+module.exports = mongoose.model('User', userSchema)

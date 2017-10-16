@@ -24,6 +24,7 @@ require('./models/User')
 require('./models/Prediction')
 require('./models/Cart')
 require('./models/Order')
+require('./models/Review')
 
 // Start our app!
 const app = require('./app')

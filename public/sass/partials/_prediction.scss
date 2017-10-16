@@ -7,3 +7,21 @@ table.ui{
 		display: none !important;
 	}
 }
+
+.card-form{
+	.ui.basic.button{
+		font-weight: bolder;
+	}
+
+	.games_control{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+
+		.game_length{
+			font-size: 1.5rem;
+			color: $purpler;
+		}
+	}
+}

@@ -8,24 +8,25 @@ const teamSchema = new mongoose.Schema({
   date: {
     type: Date
   },
-  team1: {
+  home: {
     type: String,
     trim: true
   },
-  team2: {
+  away: {
     type: String,
     trim: true
   },
   prediction: {
     type: String,
     trim: true
-  },
-  time: {
-    type: String
   }
 })
 
 const predictionSchema = new mongoose.Schema({
+  created: {
+    type: Date,
+    default: Date.now
+  },
   author: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
@@ -36,6 +37,9 @@ const predictionSchema = new mongoose.Schema({
   price: {
     type: Number
   }
+}, {
+  toJSON: { virtuals: true },
+  toObject: { virtuals: true }
 })
 
 predictionSchema.pre('save', function (next) {
