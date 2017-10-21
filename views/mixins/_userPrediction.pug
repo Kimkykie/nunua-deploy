@@ -27,7 +27,7 @@ mixin userPrediction(prediction = {})
               for team in prediction.team
                 tr
                   td #{team.date.toISOString().slice(0,10).replace(/-/g,"/")}
-                  td #{team.date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+                  td #{new Date(team.date).toLocaleTimeString([], {timeZone: 'Africa/Nairobi',hour: '2-digit', minute:'2-digit'})}
                   td #{team.home}
                   td #{team.away}
                   if user && user.id.toString() === prediction.author.id.toString()

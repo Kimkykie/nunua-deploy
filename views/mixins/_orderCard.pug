@@ -23,15 +23,15 @@ mixin orderCard(order = {})
           thead
             tr
               th Date
+              th Time
               th Home
               th Away
-              th Time
               th Prediction
           tbody
           for team in order.item.team
             tr
-              td #{team.date.toISOString().slice(0,10).replace(/-/g,"/")}
-              td #{team.date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+              td #{team.date.slice(0,10).replace(/-/g,"/")}
+              td #{new Date(team.date).toLocaleTimeString([], {timeZone: 'Africa/Nairobi', hour: '2-digit', minute:'2-digit'})}
               td #{team.home}
               td #{team.away}
               td #{team.prediction}

@@ -5,7 +5,6 @@ include mixins/_userPrediction
 include mixins/_editAccount
 
 block content
-	- const isProfile = user._id.toString() === analyst._id.toString()
 	.ui.container
 		#user__grid
 			if analyst.avatar
@@ -22,7 +21,7 @@ block content
 						- const followerString = user.following.map(obj => obj.toString())
 						- const followerValue = followerString.includes(analyst._id.toString()) ? 'Following' : 'Follow'
 						- const followerClass = followerValue.toLowerCase()
-							if isProfile
+							if user && user._id.toString() === analyst._id.toString()
 								a.ui.basic.purple.button.edit_profile_btn EDIT PROFILE
 							else
 								input.ui.button#follow__btn(type='submit' name='follow' class=followerClass value=followerValue)
@@ -36,7 +35,7 @@ block content
 			div
 				p.stats__length= `${analyst.reviews.length}`
 				p= analyst.reviews.length === 1 ? `Review` : `Reviews`
-			if isProfile
+			if user && user._id.toString() === analyst._id.toString()
 				.ui.modal
 					i.close.icon
 					.header

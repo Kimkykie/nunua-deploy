@@ -5,6 +5,7 @@ const userController = require('../controllers/userController')
 const authController = require('../controllers/authController')
 const cartController = require('../controllers/cartController')
 const reviewController = require('../controllers/reviewController')
+const mpesaController = require('../controllers/mpesaController')
 
 const { catchErrors } = require('../handlers/errorHandlers')
 
@@ -63,4 +64,11 @@ router.get('/user/orders', authController.isLoggedIn, userController.getUserOrde
 router.get('/user/profile/:id', userController.getUserProfile)
 router.post('/api/user/:id/follow', catchErrors(userController.followUser))
 router.get('/api/search', catchErrors(userController.searchUsers))
+
+// MPESA
+router.post('/b2c/result', mpesaController.b2cResult)
+router.post('/b2c/timeout', mpesaController.b2cTimeOut)
+router.post('/c2b/validation', mpesaController.c2bValidation)
+router.post('/c2b/confirmation', mpesaController.c2bConfirmation)
+router.post('/stk/push', mpesaController.stkPush)
 module.exports = router
