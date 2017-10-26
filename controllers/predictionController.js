@@ -91,7 +91,7 @@ exports.getPredictionBySlug = async (req, res, next) => {
   })
   // Get specific predictions bought
   orders.forEach((order) => {
-    for (var i = 0; i < order.items.length; i++) {
+    for (let i = 0; i < order.items.length; i+=1) {
       userOrder.push(order.items[i])
     }
   })
@@ -103,11 +103,7 @@ exports.getPredictionBySlug = async (req, res, next) => {
   const prediction = await Prediction.findOne({ slug: req.params.slug }).populate('author reviews')
   // Check if user has purchased prediction
   const purchased = orderId.includes(prediction._id.toString())
-  if (!purchased) {
-    res.redirect('/user/orders')
-  } else {
-    res.render('prediction', { prediction, title: 'Prediction' })
-  }
+  res.render('prediction', { prediction, title: 'Prediction', purchased });
 }
 
 exports.getUserPredictions = async (req, res) => {

@@ -10,10 +10,7 @@ block content
     h3= title
     .ui.stackable.three.column.grid.doubling
       each prediction in predictions
-        if user && !(user.id === prediction.author.id)
-          +predictionCard(prediction)
-        else if !user
-          +predictionCard(prediction)
+        +predictionCard(prediction)
     .zoom
       a#zoomBtn.zoom-fab.zoom-btn-large(href='/add')
         i.icon.add

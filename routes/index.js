@@ -17,7 +17,7 @@ router.post('/add', catchErrors(predictionController.createPrediction))
 /* USER PREDICTION ROUTES */
 router.get('/user/games', authController.isLoggedIn, catchErrors(predictionController.getUserPredictions))
 
-router.get('/predictions/:slug', catchErrors(predictionController.getPredictionBySlug))
+router.get('/prediction/:slug', catchErrors(predictionController.getPredictionBySlug))
 
 /* USER CONTROLLER */
 router.get('/phone', authController.isPhoneVerified, userController.authenticatePhone)

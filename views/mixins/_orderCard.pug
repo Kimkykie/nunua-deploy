@@ -9,7 +9,7 @@ mixin orderCard(order = {})
           - const isRated = ratedString.includes(order.item._id.toString())
           .rate_div
             if !isRated
-              a.ui.button.basic.purple.rate_btn(href=`/predictions/${order.item.slug}`) LEAVE A REVIEW
+              a.ui.button.basic.purple.rate_btn(href=`/prediction/${order.item.slug}`) LEAVE A REVIEW
             else
               p REVIEWED
         if order.item.author.avatar

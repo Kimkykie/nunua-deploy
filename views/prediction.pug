@@ -19,26 +19,65 @@ block content
             a(href=`/user/profile/${prediction.author.username}`) #{prediction.author.username}
 
         .content
-          table.ui.celled.table.unstackable
-            thead
-              tr
-                th Date
-                th Time
-                th Home
-                th Away
-                th Prediction
-            tbody
-            for team in prediction.team
-              tr
-                td #{team.date.toISOString().slice(0,10).replace(/-/g,"/")}
-                td #{team.date.toLocaleTimeString([], {timeZone: 'Africa/Nairobi', hour: '2-digit', minute:'2-digit'})}
-                td #{team.home}
-                td #{team.away}
-                td #{team.prediction}
+          form.ui.form.card-form(method="POST" action=`/api/add-to-cart/${prediction._id}`)
+            if session.cart
+              - const bought = session.cart.content.includes(prediction.id) ? 'ui inverted pink' : ''
+              table.ui.celled.table.unstackable(class=bought name='preditable')
+                thead
+                  tr
+                    th Date
+                    th Time
+                    th Home
+                    th Away
+                    if user && purchased ||  user && (user.id === prediction.author.id)
+                      th Prediction
+                tbody
+                for team in prediction.team
+                  tr
+                    td #{team.date.toISOString().slice(0,10).replace(/-/g,"/")}
+                    td #{team.date.toLocaleTimeString([], {timeZone: 'Africa/Nairobi', hour: '2-digit', minute:'2-digit'})}
+                    td #{team.home}
+                    td #{team.away}
+                    if user && purchased ||  user && (user.id === prediction.author.id)
+                      td #{team.prediction}
+              .content.games_control
+                - const boughtClass = session.cart.content.includes(prediction.id) ? 'disabled' : ''
+                span.ui.game_length #{prediction.team.length} games
+                if !user || (user && !(user.id === prediction.author.id) && !purchased)
+                  button.ui.basic.purple.button.right.floated(type='submit' name='buy' class=boughtClass data-index=`${i}`) BUY
+                else if user && purchased
+                  button.ui.button.basic.purple.disabled PURCHASED
 
-        - const ratedString = user.rated.map(obj => obj.toString())
-        - const isRated = ratedString.includes(prediction._id.toString())
-          if !isRated
-            p.rating_heading How accurate were my predictions
-            +reviewForm(prediction)
-            input.ui.basic.purple.button#submit_rating(type="submit" value="Submit Review" form='rate_form')
+            else
+              table.ui.celled.table.unstackable(name='preditable')
+                thead
+                  tr
+                    th Date
+                    th Time
+                    th Home
+                    th Away
+                    if user && purchased ||  user && (user.id === prediction.author.id)
+                      th Prediction
+                tbody
+                for team in prediction.team
+                  tr
+                    td #{team.date.toISOString().slice(0,10).replace(/-/g,"/")}
+                    td #{team.date.toLocaleTimeString([], {timeZone: 'Africa/Nairobi', hour: '2-digit', minute:'2-digit'})}
+                    td #{team.home}
+                    td #{team.away}
+                    if user && purchased ||  user && (user.id === prediction.author.id)
+                      td #{team.prediction}
+              .content.games_control
+                span.ui.game_length #{prediction.team.length} games
+                if !user || (user && !(user.id === prediction.author.id) && !purchased)
+                  button.ui.basic.purple.button.right.floated(type='submit' name='buy' data-index=`${i}`) BUY
+                else if user && purchased
+                  button.ui.button.basic.purple.disabled PURCHASED
+
+        if user
+          - const ratedString = user.rated.map(obj => obj.toString())
+          - const isRated = ratedString.includes(prediction._id.toString())
+            if purchased && !isRated
+              p.rating_heading How accurate were my predictions
+              +reviewForm(prediction)
+              input.ui.basic.purple.button#submit_rating(type="submit" value="Submit Review" form='rate_form')

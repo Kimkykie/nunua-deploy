@@ -14,21 +14,35 @@ mixin userPrediction(prediction = {})
           a(href=`/user/profile/${prediction.author.username}`) #{prediction.author.username}
       .content
         form.ui.form.card-form
-            table.ui.celled.table.unstackable(class=bought name='preditable')
-              thead
-                tr
-                  th Date
-                  th Time
-                  th Home
-                  th Away
-                  if user && user.id.toString() === prediction.author.id.toString()
-                    th Prediction
-              tbody
-              for team in prediction.team
-                tr
-                  td #{team.date.toISOString().slice(0,10).replace(/-/g,"/")}
-                  td #{new Date(team.date).toLocaleTimeString([], {timeZone: 'Africa/Nairobi',hour: '2-digit', minute:'2-digit'})}
-                  td #{team.home}
-                  td #{team.away}
-                  if user && user.id.toString() === prediction.author.id.toString()
-                    td #{team.prediction}
+          table.ui.celled.table.unstackable(class=bought name='preditable')
+            thead
+              tr
+                th Date
+                th Time
+                th Home
+                th Away
+                if user && user.id.toString() === prediction.author.id.toString()
+                  th Prediction
+            tbody
+            for team in prediction.team.slice(0,3)
+              tr
+                td #{team.date.toISOString().slice(0,10).replace(/-/g,"/")}
+                td #{new Date(team.date).toLocaleTimeString([], {timeZone: 'Africa/Nairobi',hour: '2-digit', minute:'2-digit'})}
+                td #{team.home}
+                td #{team.away}
+                if user && user.id.toString() === prediction.author.id.toString()
+                  td #{team.prediction}
+            for team in prediction.team.slice(3)
+             tr.more.show-more
+               td #{team.date.toISOString().slice(0,10).replace(/-/g,"/")}
+               td #{new Date(team.date).toLocaleTimeString([], {timeZone: 'Africa/Nairobi',hour: '2-digit', minute:'2-digit'})}
+               td #{team.home}
+               td #{team.away}
+               if user && user.id.toString() === prediction.author.id.toString()
+                  td #{team.prediction}
+          .content.games_control
+            a.ui.game_length(href=`/prediction/${prediction.slug}`) #{prediction.team.length} games
+            button.ui.basic.purple.button.more-predictions(name='more')
+              span.view-more #{`VIEW `}
+              span.more-less MORE
+
