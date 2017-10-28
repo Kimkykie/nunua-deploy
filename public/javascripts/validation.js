@@ -1,4 +1,4 @@
-$('.ui.form')
+$('#register-form')
   .form({
     fields: {
       username: {
