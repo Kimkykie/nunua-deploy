@@ -9,7 +9,7 @@ const config = {
 firebase.initializeApp(config);
 
 const uiConfig = {
-  signInSuccessUrl: '/login',
+  signInSuccessUrl: '/register',
   signInOptions: [
     {
       // Leave the lines as is for the providers you want to offer your users.

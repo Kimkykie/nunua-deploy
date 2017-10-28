@@ -20,8 +20,8 @@ router.get('/user/games', authController.isLoggedIn, catchErrors(predictionContr
 router.get('/prediction/:slug', catchErrors(predictionController.getPredictionBySlug))
 
 /* USER CONTROLLER */
-router.get('/phone', authController.isPhoneVerified, userController.authenticatePhone)
-router.get('/register', userController.registerForm)
+router.get('/auth', authController.isPhoneVerified, userController.authenticatePhone)
+router.get('/register', authController.isRegistered, userController.registerForm)
 
 // Login
 router.get('/login', userController.loginForm)
@@ -33,8 +33,9 @@ router.post('/login', authController.login)
 router.post('/register',
   userController.validateRegister,
   userController.register,
-  userController.authenticatePhone
+  authController.login
 )
+
 router.get('/logout', authController.logout)
 
 router.get('/user/account', authController.isLoggedIn, userController.account)

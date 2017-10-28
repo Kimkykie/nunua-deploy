@@ -51,7 +51,7 @@ html
             div.menu_login
               a.ui.button.fluid.basic.purple(href='/login') Log In
             div.menu_login
-              a.ui.button.fluid.basic.purple(href='/register') Sign Up
+              a.ui.button.fluid.basic.purple(href='/auth') Sign Up
             //- i.sign.out.left.icon
 
       .ui.menu.top.fixed.borderless#fixed-menu
@@ -81,6 +81,6 @@ html
         block content
 
     block scripts
-      script(src=`https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_KEY}&libraries=places`)
       script(src="/javascripts/layout.js")
+      script(src="/javascripts/validation.js")
       script(src="/dist/App.bundle.js")

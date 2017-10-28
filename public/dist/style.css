@@ -246,6 +246,8 @@ h3 {
   box-shadow: linear-gradient(90deg, #A544B3 0%, #B4319C 20%, #CD1478 60%, #D21274 85%, #e82c75 95%); }
   #register-container #register-form .button {
     font-size: 1em; }
+  #register-container #register-form .ui.checkbox label {
+    font-size: 1.5em; }
 
 .hidden {
   display: none !important; }
