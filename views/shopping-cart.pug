@@ -14,19 +14,19 @@ block content
 			.ui.middle.aligned.divided.list
 				each prediction in predictions
 					form.form.ui.cart-item(method="POST" action=`/api/remove-from-cart/${prediction.item._id}`)
-						.ui.cards
-							.ui.card.fluid
-								.content
-									.right.floated.meta
-										button.ui.button.icon.right.floated(type='submit')
-											i.icon.remove
-									if prediction.item.author.avatar
-										img.ui.avatar.image(src=`/uploads/${prediction.item.author.avatar}`)
-										span #{prediction.item.author.username}
-									else
-										img.ui.avatar.image(src=prediction.item.author.gravatar+ '&d=wavatar')
-										span #{prediction.item.author.username}
-								table.ui.three.column.table.celled.unstackable
+						.ui.card.fluid
+							.content
+								.right.floated.meta
+									button.ui.button.icon.right.floated(type='submit')
+										i.icon.remove
+								if prediction.item.author.avatar
+									img.ui.avatar.image(src=`/uploads/${prediction.item.author.avatar}`)
+									span #{prediction.item.author.username}
+								else
+									img.ui.avatar.image(src=prediction.item.author.gravatar+ '&d=wavatar')
+									span #{prediction.item.author.username}
+							.content
+								table.ui.table.celled.unstackable
 									thead
 										tr
 											th Date
@@ -40,9 +40,9 @@ block content
 											td #{new Date(team.date).toLocaleTimeString([], {timeZone: 'Africa/Nairobi',hour: '2-digit', minute:'2-digit'})}
 											td #{team.home}
 											td #{team.away}
-								.content.cart_item_info
-									div= `${prediction.item.team.length} Predictions`
-									div.cart_item_price= `KES ${prediction.item.price}`
+							.content.cart_item_info
+								div= `${prediction.item.team.length} Predictions`
+								div.cart_item_price= `KES ${prediction.item.price}`
 
 		else
 			.ui.piled.segment
