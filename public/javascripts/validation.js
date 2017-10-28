@@ -1,4 +1,4 @@
-$('#register-form')
+$('.validate-form')
   .form({
     fields: {
       username: {

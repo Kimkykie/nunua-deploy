@@ -2,7 +2,7 @@ extends layout
 
 block content
   .ui.container#register-container
-    form.ui.form.segment#register-form(action='/register' method='POST')
+    form.ui.form.segment#register-form.validate-form(action='/register' method='POST')
       h3 Register
       .field.required
         label Username
