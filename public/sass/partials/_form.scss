@@ -1,5 +1,5 @@
 #register-container {
-  #register-form {
+  #register-form && #login-form {
     font-size: 1em;
     box-shadow: $grad;
     .button{
