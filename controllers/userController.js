@@ -34,6 +34,10 @@ exports.loginForm = (req, res) => {
   res.render('login', { title: 'Login' })
 }
 
+exports.forgotPassword = (req, res) => {
+  res.render('forgot', {title: 'Reset Password'})
+}
+
 exports.validateRegister = (req, res, next) => {
   req.sanitizeBody('username')
   req.checkBody('username', 'You must supply a name!').notEmpty()
@@ -73,17 +77,11 @@ exports.account = (req, res, next) => {
 }
 
 exports.updateAccount = async (req, res) => {
-  const updates = {
-    username: req.body.username,
-    email: req.body.email,
-    avatar: req.body.avatar
-  }
-
   const user = await User.findOneAndUpdate(
     { _id: req.user._id },
-    { $set: updates },
+    req.body,
     { new: true, runValidators: true, context: 'query' }
-  )
+  ).exec()
   req.flash('success', 'Profile updated')
   res.redirect(`/user/profile/${req.body.username}`)
 }

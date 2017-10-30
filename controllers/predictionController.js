@@ -37,10 +37,10 @@ exports.createPrediction = async (req, res) => {
       }
     }
     await prediction.save()
-    req.flash('success', 'Succesfully created prediction')
+    req.flash('success', 'Successfully created prediction')
     res.redirect('/user/games')
   } else {
-    req.flash('error', 'You must enter 5 or more')
+    req.flash('error', 'You must enter 5 or more predictions')
     res.render('addPrediction', { title: 'Add Prediction', body: req.body, flashes: req.flash() })
   }
   console.log(predictionarr)

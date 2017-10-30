@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  .ui.container#register-container
+    form.ui.segment.form#register-form(method='POST')
+      h3 Reset Your Password
+      .field
+        label Password
+        .ui.left.labeled.icon.input
+          input(type='password' name='password')
+          |
+          i.icon.lock
+      .field
+        label Confirm Password
+        .ui.left.labeled.icon.input
+          input(type='password' name='password-confirm')
+          |
+          i.icon.lock
+      input.ui.button.fluid.basic.purple(type='submit' value='Reset Password') 

@@ -249,6 +249,12 @@ h3 {
   #register-container #register-form .ui.checkbox label {
     font-size: 1.5em; }
 
+.forgot {
+  text-align: center;
+  margin-top: 1em; }
+  .forgot a {
+    color: #A544B3; }
+
 .hidden {
   display: none !important; }
 

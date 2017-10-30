@@ -20,7 +20,7 @@ $('.validate-form')
         rules: [{
           type: 'regExp',
           value: /^(?:254)?(7(?:(?:[0-9][0-9])|(?:0[0-8])|(4[0-1]))[0-9]{6})$/,
-          prompt: 'Your phone number should be in the form 254712345678'
+          prompt: 'Phone number format should be 254712345678'
         }],
       },
       password: {

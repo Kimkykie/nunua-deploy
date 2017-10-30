@@ -43,6 +43,13 @@ router.post('/user/account/:id',
   userController.upload,
   catchErrors(userController.resize),
   catchErrors(userController.updateAccount))
+router.get('/account/forgot', userController.forgotPassword)
+router.post('/account/forgot', catchErrors(authController.forgot))
+router.get('/account/reset/:token', catchErrors(authController.reset))
+router.post('/account/reset/:token',
+  authController.confirmedPasswords,
+  catchErrors(authController.updatePassword)
+)
 
 // Shopping Cart
 router.get('/shopping-cart', cartController.getShoppingCart)

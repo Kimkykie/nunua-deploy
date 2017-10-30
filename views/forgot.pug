@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  .ui.container#register-container
+    form.ui.segment.form#register-form(action='/account/forgot' method='POST')
+      h3 I forgot my password!
+      .field
+        label Email
+        .ui.left.labeled.icon.input
+          input(type='email' name='email')
+          |
+          i.icon.mail
+      input.ui.button.fluid.basic.purple(type='submit' value='Send Reset Link') 

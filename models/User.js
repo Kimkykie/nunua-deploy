@@ -44,7 +44,9 @@ const userSchema = new Schema({
   ],
   following: [
     { type: mongoose.Schema.ObjectId, ref: 'User' }
-  ]
+  ],
+  resetPasswordToken: String,
+  resetPasswordExpires: Date
 }, {
   toObject: {
     virtuals: true
