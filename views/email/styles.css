@@ -57,7 +57,7 @@ table {
 ------------------------------------- */
 .main {
   background: #fff;
-  border-top:20px solid  #d62395;
+  border-top:20px solid  #D21274;
   width: 100%; }
 
 .wrapper {
@@ -84,7 +84,7 @@ h1,
 h2,
 h3,
 h4 {
-  color: #000000;
+  color: #2a2a2a;
   font-family: sans-serif;
   font-weight: 400;
   line-height: 1.4;
@@ -112,7 +112,7 @@ ol {
     margin-left: 5px; }
 
 a {
-  color: #d62395;
+  color: #D21274;
   text-decoration: underline; }
 
 /* -------------------------------------
@@ -131,10 +131,10 @@ a {
     text-align: center; }
   .btn a {
     background-color: #ffffff;
-    border: solid 1px #d62395;
+    border: solid 1px #D21274;
     border-radius: 5px;
     box-sizing: border-box;
-    color:  #d62395;
+    color:  #D21274;
     cursor: pointer;
     display: inline-block;
     font-size: 14px;
@@ -145,13 +145,13 @@ a {
     text-transform: capitalize; }
 
 .btn-primary table td {
-  background-color:  #d62395; }
+  background-color:  #D21274; }
 
 .btn-primary a {
-  background-color:  #d62395;
-  border-color:  #d62395;
-  color: #3a3a3a; }
-
+  background-color:  #D21274;
+  border-color:  #D21274;
+  color: #ffffff;
+}
 /* -------------------------------------
     OTHER STYLES THAT MIGHT BE USEFUL
 ------------------------------------- */

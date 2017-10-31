@@ -16,7 +16,7 @@ html
 
   body
     block header
-      .ui.sidebar.vertical.menu.left#sidebar-menu
+      .ui.sidebar.vertical.menu.left.mobile.only.grid#sidebar-menu
         if user
           if user.avatar
             .item.user__avatar
@@ -55,7 +55,7 @@ html
             //- i.sign.out.left.icon
 
       .ui.menu.top.fixed.borderless#fixed-menu
-        a.item#toggle
+        a.item.computer.hidden#toggle
           i.sidebar.icon
         a.item.centered#logo(href='/') Nunuatips
         .right.menu

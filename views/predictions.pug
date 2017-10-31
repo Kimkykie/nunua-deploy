@@ -2,6 +2,7 @@ extends layout
 
 include mixins/_predictionCard
 include mixins/_searchForm
+include mixins/_pagination
 
 block content
   .ui.container
@@ -14,3 +15,4 @@ block content
     .zoom
       a#zoomBtn.zoom-fab.zoom-btn-large(href='/add')
         i.icon.add
+    +pagination(page, pages, count)

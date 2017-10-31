@@ -1,0 +1,8 @@
+mixin pagination(page, pages, count)
+  .pagination
+    .pagination__prev
+      if page > 1
+        a(href=`/predictions/page/${page - 1}`) Prev
+    .pagination__next
+      if page < pages
+        a(href=`/predictions/page/${parseFloat(page) + 1}`) Next

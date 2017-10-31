@@ -11,7 +11,9 @@ const { catchErrors } = require('../handlers/errorHandlers')
 
 /* PREDICTION CONTROLLER */
 router.get('/', catchErrors(predictionController.getPredictions))
+router.get('/page/:page', catchErrors(predictionController.getPredictions))
 router.get('/predictions', catchErrors(predictionController.getPredictions))
+router.get('/predictions/page/:page', catchErrors(predictionController.getPredictions))
 router.get('/add', authController.isLoggedIn, predictionController.addPrediction)
 router.post('/add', catchErrors(predictionController.createPrediction))
 /* USER PREDICTION ROUTES */

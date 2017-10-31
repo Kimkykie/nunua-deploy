@@ -70,9 +70,25 @@ exports.getPredictions = async (req, res) => {
   userOrder.forEach((order) => {
     orderId.push(order.item._id)
   })
+  // Pagination
+  const page = req.params.page || 1
+  const limit = 10
+  const skip = (page * limit) - limit
   // 1. Query database for list of all stores
-  const predictions = await Prediction.find().sort([['_id', -1]]).populate('author')
-  res.render('predictions', { title: 'Predictions', predictions, user: req.user, orders: orderId })
+  const predictions = await Prediction
+    .find()
+    .skip(skip)
+    .limit(limit)
+    .sort({ created: 'desc' })
+    .populate('author')
+  const count = await Prediction.count()
+  const pages = Math.ceil(count / limit)
+  if (!predictions.length && skip) {
+    req.flash('info', `Hey you asked for page ${page}. But that doesn't exist. You are on page ${pages}`)
+    res.redirect(`/predictions/page/${pages}`)
+    return
+  }
+  res.render('predictions', { title: 'Predictions', predictions, user: req.user, orders: orderId, page, pages, count })
 }
 
 exports.getPredictionBySlug = async (req, res, next) => {
@@ -91,7 +107,7 @@ exports.getPredictionBySlug = async (req, res, next) => {
   })
   // Get specific predictions bought
   orders.forEach((order) => {
-    for (let i = 0; i < order.items.length; i+=1) {
+    for (let i = 0; i < order.items.length; i += 1) {
       userOrder.push(order.items[i])
     }
   })
@@ -103,7 +119,7 @@ exports.getPredictionBySlug = async (req, res, next) => {
   const prediction = await Prediction.findOne({ slug: req.params.slug }).populate('author reviews')
   // Check if user has purchased prediction
   const purchased = orderId.includes(prediction._id.toString())
-  res.render('prediction', { prediction, title: 'Prediction', purchased });
+  res.render('prediction', { prediction, title: 'Prediction', purchased })
 }
 
 exports.getUserPredictions = async (req, res) => {
