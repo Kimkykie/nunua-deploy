@@ -8,7 +8,6 @@ block content
   .ui.container
     .user__search
       +searchForm()
-    h3= title
     .ui.stackable.three.column.grid.doubling
       each prediction in predictions
         +predictionCard(prediction)

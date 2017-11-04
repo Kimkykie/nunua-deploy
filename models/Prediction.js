@@ -35,7 +35,8 @@ const predictionSchema = new mongoose.Schema({
   slug: String,
   team: [ teamSchema ],
   price: {
-    type: Number
+    type: Number,
+    default: 20
   }
 }, {
   toJSON: { virtuals: true },

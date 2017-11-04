@@ -16,7 +16,7 @@ html
 
   body
     block header
-      .ui.sidebar.vertical.menu.left.mobile.only.grid#sidebar-menu
+      .ui.sidebar.vertical.menu.left.mobile.tablet.only#sidebar-menu
         if user
           if user.avatar
             .item.user__avatar
@@ -55,9 +55,25 @@ html
             //- i.sign.out.left.icon
 
       .ui.menu.top.fixed.borderless#fixed-menu
-        a.item.computer.hidden#toggle
+        a.item.mobile.tablet.only#toggle
           i.sidebar.icon
         a.item.centered#logo(href='/') Nunuatips
+        .ui.tabular.labeled.icon.menu.computer.large.monitor.only.borderless#second_menu
+          a.item.home(href='/')
+            i.home.icon
+            | Home
+          a.item.account(href='/user/account')
+            i.user.icon
+            | Account
+          a.item.games(href='/user/games')
+            i.gamepad.icon
+            | My Games
+          a.item.orders(href='/user/orders')
+            i.soccer.icon
+            | Purchases
+          a.item.help(href='/help')
+            i.help.icon
+            | Help and Feedback
         .right.menu
           a.ui.item.cart-icon(href='/shopping-cart')
             i.shop.outline.icon
@@ -65,7 +81,30 @@ html
               .ui.grey.circular.large.label.cart-length #{session.cart.content.length}
             else
               .ui.grey.circular.large.label.cart-length 0
-
+          .ui.item.dropdown.simple.profile_user_icon.computer.large.monitor.only
+            if user
+              if user.avatar
+                .item.user_avatar
+                  img.ui.avatar.image(src=`/uploads/${user.avatar}`, alt=user.username)
+                  p.username=user.username
+              else
+                .item.user_avatar
+                  img.ui.avatar.image(src=user.gravatar + '&d=wavatar')
+                  p.username=user.username
+            else
+              i.user.icon
+            .menu
+              if user
+                .item
+                  a(href=`/user/profile/${user.username}`) Profile
+                .item
+                  a(href='/logout') Logout
+              else
+                
+                .item
+                  a(href='/auth') Register
+                .item
+                  a(href='/login') Login
       .pusher
         block messages
           if locals.flashes
@@ -74,9 +113,9 @@ html
                 - const categories = Object.keys(locals.flashes)
                   each category in categories
                     each message in flashes[category]
-                        .flash(class=`flash--${category}`)
-                          p.flash__text!= message
-                          button.flash__remove(onClick="this.parentElement.remove()") &times;
+                      .flash(class=`flash--${category}`)
+                        p.flash__text!= message
+                        button.flash__remove(onClick="this.parentElement.remove()") &times;
 
         block content
 

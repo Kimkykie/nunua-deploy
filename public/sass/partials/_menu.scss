@@ -1,22 +1,65 @@
 #fixed-menu {
   background: $grad;
-  .icon {
+  #toggle{
     color: $white;
     font-size: 2.5rem !important;
   }
-
   .ui.item{
     display: flex;
     flex-direction: column;
     color: $white;
+    .icon {
+      color: $white;
+      font-size: 2.5rem !important;
+    }
   }
-
   .cart-icon{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+  }
+  .profile_user_icon{
+    justify-content: center;
+    .user_avatar{
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      position: relative;
+      top: -0.2em;
+      .ui.avatar{
+        width: 3rem;
+        height: 3rem;
+      }
+      p{
+        color: $white;
+        font-size: 1.3rem;
+      }
+    }
+    .icon{
+      font-size: 3rem !important;
+      position: relative;
+      top: -0.25em;
+    }
+    .menu{
+      .item{
+        font-size: 1.5rem !important; 
+      }
+    }
   }
   #logo{
-    font-size: 2rem !important;
+    font-size: 2.5rem !important;
+  }
+}
+
+#second_menu{
+  border-bottom: none;
+  padding-left: 5em;
+  .item{
+    color: $white;
+    font-size: 1.5rem !important;
+  }
+  .active{
+    color: $black !important;
   }
 }
 

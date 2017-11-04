@@ -1,17 +1,4 @@
 $(document).ready(() => {
-  $(".rating").rating()
-  // Toggle the sidebar to show and hide
-  $('#toggle').click(() => {
-    $('.ui.sidebar').sidebar('toggle')
-  })
-  $('.ui.modal')
-  .modal('attach events', '.edit_profile_btn', 'show')
-  // Sidebar transitions
-  if ($('.ui.left.sidebar').hasClass('hidden')) {
-    $('.ui.left.sidebar').show()
-  } else {
-    $('.ui.left.sidebar').hide()
-  }
   // Action to show extra prediction in cards
   $('.more-predictions').on('click', function (e) {
     e.preventDefault()

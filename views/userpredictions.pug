@@ -4,9 +4,9 @@ include mixins/_userPrediction
 
 block content
   if predictions.length >=1
-    h3= title
+    h3.mobile.tablet.only= title
     .ui.container
-      .ui.stackable.three.column.grid
+      .ui.stackable.three.column.grid.doubling
         each prediction in predictions
           +userPrediction(prediction)
       .zoom

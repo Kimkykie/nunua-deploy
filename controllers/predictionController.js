@@ -21,8 +21,7 @@ exports.createPrediction = async (req, res) => {
   // Only push data to model if more than 5
   if (homearr.length >= 5 && awayarr.length >= 5 && predictionarr.length >= 5) {
     const prediction = new Prediction({
-      author: req.user._id,
-      price: 10
+      author: req.user._id
     })
 
     for (let i = 0; i < req.body.home.length; i += 1) {
@@ -34,6 +33,13 @@ exports.createPrediction = async (req, res) => {
           prediction: req.body.prediction[i],
           date: req.body.date[i]
         })
+      }
+      // If predictions length are more than 10 games add 1 to default price for each game
+      if (req.body.home.length > 10) {
+        prediction.price = 20
+        for (let i = 10; i < req.body.home.length; i += 1) {
+          prediction.price += 1
+        }
       }
     }
     await prediction.save()
@@ -125,5 +131,5 @@ exports.getPredictionBySlug = async (req, res, next) => {
 exports.getUserPredictions = async (req, res) => {
   // 1. Query database for list of all stores
   const predictions = await Prediction.find({ author: req.user }).sort([['_id', -1]]).populate('author')
-  res.render('userpredictions', { title: 'My Predictions', predictions })
+  res.render('userpredictions', { title: 'My Games', predictions })
 }

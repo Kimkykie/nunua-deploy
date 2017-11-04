@@ -3,7 +3,7 @@ extends layout
 include mixins/_orderCard
 
 block content
-	h3= title
+	h3.mobile.tablet.only= title
 	.ui.container
 		.ui.stackable.two.column.grid
 			if orders

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Cart = require('../models/Cart')
-
+const User = mongoose.model('User')
 const Prediction = mongoose.model('Prediction')
 const Order = mongoose.model('Order')
 
@@ -15,7 +15,6 @@ exports.addToCart = async (req, res, next) => {
   cart.content.push(predictionId)
   req.session.cart = cart
   res.json(req.session.cart)
-  console.log(req.session.cart)
 }
 
 // Shopping cart route
@@ -27,7 +26,7 @@ exports.getShoppingCart = (req, res, next) => {
   res.render('shopping-cart', { title: 'Shopping Cart', predictions: cart.generateArray(), totalPrice: cart.totalPrice })
 }
 
-// Route to remove prediction from cart
+// Remove prediction from cart
 exports.removeFromCart = (req, res, next) => {
   const predictionId = req.params.id
   const cart = new Cart(req.session.cart ? req.session.cart : {})
@@ -40,6 +39,7 @@ exports.removeFromCart = (req, res, next) => {
   res.json(req.session.cart)
 }
 
+// Get the Checkout Page
 exports.getCheckout = (req, res, next) => {
   if (!req.session.cart || req.session.cart.totalQuantity <= 0) {
     req.flash('error', 'You have no items to checkout')
@@ -49,22 +49,46 @@ exports.getCheckout = (req, res, next) => {
   res.render('checkout', { title: 'Checkout', total: cart.totalPrice, predictions: cart.generateArray() })
 }
 
+// Save Order, Increase analyst balance and deduct user's balance
 exports.saveOrder = async (req, res, next) => {
+  // If user has no items in cart
   if (req.session.cart.totalQuantity <= 0) {
     req.flash('error', 'You have no items to checkout')
     return res.redirect('/shopping-cart')
   }
+  //  Save Order
   const cart = new Cart(req.session.cart)
   const order = new Order({
     user: req.user,
     cart
   })
-  await order.save((err, result) => {
-    if (err) {
-      req.flash('error', 'Error processing your order')
-    }
-    req.flash('success', 'Succesfully bought product')
-    req.session.cart = null
-    res.redirect('/')
+  // Check user's balance and deduct totalprice
+  const user = await User.findById(req.user._id)
+  if (user.balance >= cart.totalPrice) {
+    await user.update({$inc: { balance: -cart.totalPrice }})
+  } else {
+    req.flash('error', 'Sorry! Your balance is low')
+    res.redirect('/shopping-cart')
+    return
+  }
+  // update individual analyst's balance
+  const authOrder = cart.generateArray()
+  await authOrder.forEach((item) => {
+    User.findByIdAndUpdate(item.item.author._id,
+      {$inc: {
+        balance: item.price
+      }},
+      {new: true},
+      function (err) {
+        if (err) throw Error
+        order.save((err, result) => {
+          if (err) {
+            req.flash('error', 'Error processing your order')
+          }
+          req.flash('success', 'Succesfully bought product')
+          req.session.cart = null
+          res.redirect('/')
+        })
+      })
   })
 }

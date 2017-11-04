@@ -1,6 +1,7 @@
 import '../sass/style.scss'
 
 import { $, $$ } from './modules/bling'
+import './semanticplugs.js'
 
 import cartUpdate from './modules/cart'
 import removeCart from './modules/removecart'

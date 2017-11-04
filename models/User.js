@@ -28,12 +28,10 @@ const userSchema = new Schema({
     type: Number,
     required: 'Please supply a phone number',
     trim: true
-    // validate: {
-    //   validator: function (v) {
-    //     return /d{12}/.test(v)
-    //   },
-    //   message: '{VALUE} is not a valid 12 digit number!'
-    // }
+  },
+  balance: {
+    type: Number,
+    default: 0
   },
   avatar: String,
   rated: [

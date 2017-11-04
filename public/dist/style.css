@@ -171,7 +171,7 @@ h3 {
 
 #fixed-menu {
   background: linear-gradient(90deg, #A544B3 0%, #B4319C 20%, #CD1478 60%, #D21274 85%, #e82c75 95%); }
-  #fixed-menu .icon {
+  #fixed-menu #toggle {
     color: #f6f6f6;
     font-size: 2.5rem !important; }
   #fixed-menu .ui.item {
@@ -180,13 +180,50 @@ h3 {
     -ms-flex-direction: column;
         flex-direction: column;
     color: #f6f6f6; }
+    #fixed-menu .ui.item .icon {
+      color: #f6f6f6;
+      font-size: 2.5rem !important; }
   #fixed-menu .cart-icon {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
-        flex-direction: column; }
+        flex-direction: column;
+    -ms-flex-pack: center;
+        justify-content: center; }
+  #fixed-menu .profile_user_icon {
+    -ms-flex-pack: center;
+        justify-content: center; }
+    #fixed-menu .profile_user_icon .user_avatar {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+          flex-direction: column;
+      padding: 0;
+      position: relative;
+      top: -0.2em; }
+      #fixed-menu .profile_user_icon .user_avatar .ui.avatar {
+        width: 3rem;
+        height: 3rem; }
+      #fixed-menu .profile_user_icon .user_avatar p {
+        color: #f6f6f6;
+        font-size: 1.3rem; }
+    #fixed-menu .profile_user_icon .icon {
+      font-size: 3rem !important;
+      position: relative;
+      top: -0.25em; }
+    #fixed-menu .profile_user_icon .menu .item {
+      font-size: 1.5rem !important; }
   #fixed-menu #logo {
-    font-size: 2rem !important; }
+    font-size: 2.5rem !important; }
+
+#second_menu {
+  border-bottom: none;
+  padding-left: 5em; }
+  #second_menu .item {
+    color: #f6f6f6;
+    font-size: 1.5rem !important; }
+  #second_menu .active {
+    color: #303030 !important; }
 
 #sidebar-menu {
   background: white; }
@@ -524,7 +561,8 @@ table.ui .show-more {
   -ms-flex-align: center;
       align-items: center;
   -ms-flex-pack: center;
-      justify-content: center; }
+      justify-content: center;
+  margin-bottom: 2em; }
 
 .search__result {
   padding: 10px;
@@ -656,5 +694,55 @@ table.ui .show-more {
     .pagination__prev a:before {
       margin-right: 1rem;
       content: '\2190'; }
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+  [class*="mobile hidden"],
+  [class*="tablet only"]:not(.mobile),
+  [class*="computer only"]:not(.mobile),
+  [class*="large monitor only"]:not(.mobile),
+  [class*="widescreen monitor only"]:not(.mobile),
+  [class*="or lower hidden"] {
+    display: none !important; } }
+
+/* Tablet / iPad Portrait */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  [class*="mobile only"]:not(.tablet),
+  [class*="tablet hidden"],
+  [class*="computer only"]:not(.tablet),
+  [class*="large monitor only"]:not(.tablet),
+  [class*="widescreen monitor only"]:not(.tablet),
+  [class*="or lower hidden"]:not(.mobile) {
+    display: none !important; } }
+
+/* Computer / Desktop / iPad Landscape */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  [class*="mobile only"]:not(.computer),
+  [class*="tablet only"]:not(.computer),
+  [class*="computer hidden"],
+  [class*="large monitor only"]:not(.computer),
+  [class*="widescreen monitor only"]:not(.computer),
+  [class*="or lower hidden"]:not(.tablet):not(.mobile) {
+    display: none !important; } }
+
+/* Large Monitor */
+@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+  [class*="mobile only"]:not([class*="large monitor"]),
+  [class*="tablet only"]:not([class*="large monitor"]),
+  [class*="computer only"]:not([class*="large monitor"]),
+  [class*="large monitor hidden"],
+  [class*="widescreen monitor only"]:not([class*="large monitor"]),
+  [class*="or lower hidden"]:not(.computer):not(.tablet):not(.mobile) {
+    display: none !important; } }
+
+/* Widescreen Monitor */
+@media only screen and (min-width: 1920px) {
+  [class*="mobile only"]:not([class*="widescreen monitor"]),
+  [class*="tablet only"]:not([class*="widescreen monitor"]),
+  [class*="computer only"]:not([class*="widescreen monitor"]),
+  [class*="large monitor only"]:not([class*="widescreen monitor"]),
+  [class*="widescreen monitor hidden"],
+  [class*="widescreen monitor or lower hidden"] {
+    display: none !important; } }
 
 /*# sourceMappingURL=style.css.map*/
