@@ -61,9 +61,8 @@ mixin predictionCard(prediction = {})
             - const boughtClass = session.cart.content.includes(prediction.id) ? 'disabled' : ''
               .content.games_control
                 a.ui.game_length(href=`/prediction/${prediction.slug}`) #{prediction.team.length} games
-                button.ui.basic.purple.button.more-predictions(name='more')
-                  span.view-more #{`VIEW `}
-                  span.more-less MORE
+                a.ui.basic.purple.button.more-predictions(name='more')
+                  span.view-more VIEW MORE
                 if user && orders.includes(prediction._id.toString())
                   button.ui.button.purple(class='disabled') BOUGHT
                 else if user && (user.id === prediction.author.id)
@@ -74,9 +73,8 @@ mixin predictionCard(prediction = {})
           else
             .content.games_control
               a.ui.game_length(href=`/prediction/${prediction.slug}`) #{prediction.team.length} games
-              button.ui.basic.purple.button.more-predictions
-                span.view-more #{`VIEW `}
-                span.more-less MORE
+              a.ui.basic.purple.button.more-predictions
+                span.view-more VIEW MORE
               if user && orders.includes(prediction._id.toString())
                 button.ui.button.purple(class='disabled') BOUGHT
               else if user && (user.id === prediction.author.id)

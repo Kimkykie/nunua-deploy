@@ -1,6 +1,6 @@
 mixin predictionFields()
   .five.fields
-    .field.five.fluid.wide
+    .field.five.fluid.wide.required
       label Date
       |
       .ui.calendar.date-picker
@@ -8,21 +8,21 @@ mixin predictionFields()
           input(type='text', placeholder='Date', name='date[]')
           |
           i.calendar.icon
-    .field.five.fluid.wide
+    .field.five.fluid.wide.required
       label Home
       |
       .ui.left.labeled.icon.input
         input(type='text', placeholder='Home Team', name='home[]')
         |
         i.soccer.icon
-    .field.five.fluid.wide
+    .field.five.fluid.wide.required
       label Away
       |
       .ui.left.labeled.icon.input
         input(type='text', placeholder='Away Team', name='away[]')
         |
         i.soccer.icon
-    .field.stackable.eight.wide.mobile
+    .field.stackable.eight.wide.mobile.required
       label Prediction
       |
       .ui.dropdown.prediction_input

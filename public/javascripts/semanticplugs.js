@@ -4,14 +4,7 @@ $(document).ready(() => {
   $('#toggle').click(() => {
     $('.ui.sidebar').sidebar('toggle')
   })
-  $('.ui.modal')
-  .modal('attach events', '.edit_profile_btn', 'show')
-  // Sidebar transitions
-  if ($('.ui.left.sidebar').hasClass('hidden')) {
-    $('.ui.left.sidebar').show()
-  } else {
-    $('.ui.left.sidebar').hide()
-  }
+  $('.ui.modal').modal('attach events', '.edit_profile_btn', 'show')
   // Dropdown
   $('.ui.dropdown').dropdown()
 
@@ -19,19 +12,19 @@ $(document).ready(() => {
 
   switch (window.location.pathname) {
     case '/':
-      $('.home').addClass('active')
+      document.querySelector('.home').classList.add('active')
       break
     case '/user/account':
-      $('.account').addClass('active')
+      document.querySelector('.account').classList.add('active')
       break
     case '/user/games':
-      $('.games').addClass('active')
+      document.querySelector('.games').classList.add('active')
       break
     case '/user/orders':
-      $('.orders').addClass('active')
+      document.querySelector('.orders').classList.add('active')
       break
     case '/help':
-      $('.help').addClass('active')
+      document.querySelector('.help').classList.add('active')
       break
     default:
       break

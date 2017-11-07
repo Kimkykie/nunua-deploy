@@ -2,7 +2,7 @@ extends layout
 
 block content
   .ui.container#register-container
-    form.ui.segment.form#register-form(method='POST')
+    form.ui.segment.form#register-form.reset-form(method='POST')
       h3 Reset Your Password
       .field
         label Password
@@ -16,4 +16,6 @@ block content
           input(type='password' name='password-confirm')
           |
           i.icon.lock
-      input.ui.button.fluid.basic.purple(type='submit' value='Reset Password') 
+      input.ui.button.fluid.basic.purple(type='submit' value='Reset Password')
+      .ui.error.message
+        .header We noticed some issues

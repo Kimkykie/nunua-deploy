@@ -173,7 +173,7 @@ h3 {
   background: linear-gradient(90deg, #A544B3 0%, #B4319C 20%, #CD1478 60%, #D21274 85%, #e82c75 95%); }
   #fixed-menu #toggle {
     color: #f6f6f6;
-    font-size: 2.5rem !important; }
+    font-size: 2.3rem !important; }
   #fixed-menu .ui.item {
     display: -ms-flexbox;
     display: flex;
@@ -218,10 +218,10 @@ h3 {
 
 #second_menu {
   border-bottom: none;
-  padding-left: 5em; }
+  padding-left: 10%; }
   #second_menu .item {
     color: #f6f6f6;
-    font-size: 1.5rem !important; }
+    font-size: 1.3rem !important; }
   #second_menu .active {
     color: #303030 !important; }
 

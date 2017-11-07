@@ -87,7 +87,8 @@ exports.saveOrder = async (req, res, next) => {
           }
           req.flash('success', 'Succesfully bought product')
           req.session.cart = null
-          res.redirect('/')
+          res.redirect('/user/orders')
+          return
         })
       })
   })

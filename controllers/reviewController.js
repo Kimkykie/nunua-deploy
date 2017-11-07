@@ -14,6 +14,6 @@ exports.addReview = async (req, res) => {
   req.body.reviewer = user
   const newReview = new Review(req.body)
   await newReview.save()
-  req.flash('success', 'Review Saved!')
+  req.flash('success', 'Thank You! Review was succesfully saved!')
   res.redirect('back')
 }

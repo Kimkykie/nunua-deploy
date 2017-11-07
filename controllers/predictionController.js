@@ -78,7 +78,7 @@ exports.getPredictions = async (req, res) => {
   })
   // Pagination
   const page = req.params.page || 1
-  const limit = 10
+  const limit = 9
   const skip = (page * limit) - limit
   // 1. Query database for list of all stores
   const predictions = await Prediction

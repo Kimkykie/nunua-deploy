@@ -42,7 +42,6 @@ mixin userPrediction(prediction = {})
                   td #{team.prediction}
           .content.games_control
             a.ui.game_length(href=`/prediction/${prediction.slug}`) #{prediction.team.length} games
-            button.ui.basic.purple.button.more-predictions(name='more')
-              span.view-more #{`VIEW `}
-              span.more-less MORE
+            a.ui.basic.purple.button.more-predictions(name='more')
+              span.view-more VIEW MORE
 

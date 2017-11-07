@@ -2,7 +2,7 @@
   background: $grad;
   #toggle{
     color: $white;
-    font-size: 2.5rem !important;
+    font-size: 2.3rem !important;
   }
   .ui.item{
     display: flex;
@@ -53,10 +53,10 @@
 
 #second_menu{
   border-bottom: none;
-  padding-left: 5em;
+  padding-left: 10%;
   .item{
     color: $white;
-    font-size: 1.5rem !important;
+    font-size: 1.3rem !important;
   }
   .active{
     color: $black !important;

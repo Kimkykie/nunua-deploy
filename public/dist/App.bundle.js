@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 34);
+/******/ 	return __webpack_require__(__webpack_require__.s = 35);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -406,7 +406,7 @@ exports.$$ = $$;
 "use strict";
 
 
-module.exports = __webpack_require__(16);
+module.exports = __webpack_require__(17);
 
 /***/ }),
 /* 3 */
@@ -416,7 +416,7 @@ module.exports = __webpack_require__(16);
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(30);
+var normalizeHeaderName = __webpack_require__(31);
 
 var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 var DEFAULT_CONTENT_TYPE = {
@@ -511,12 +511,12 @@ module.exports = defaults;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(22);
-var buildURL = __webpack_require__(25);
-var parseHeaders = __webpack_require__(31);
-var isURLSameOrigin = __webpack_require__(29);
+var settle = __webpack_require__(23);
+var buildURL = __webpack_require__(26);
+var parseHeaders = __webpack_require__(32);
+var isURLSameOrigin = __webpack_require__(30);
 var createError = __webpack_require__(7);
-var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(24);
+var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(25);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -609,7 +609,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(27);
+      var cookies = __webpack_require__(28);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ? cookies.read(config.xsrfCookieName) : undefined;
@@ -726,7 +726,7 @@ module.exports = function isCancel(value) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(21);
+var enhanceError = __webpack_require__(22);
 
 /**
  * Create an Error with the specified message, config, error code, and response.
@@ -1062,12 +1062,43 @@ exports.default = removeCart;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+function toggle() {
+  var content = this.parentElement;
+  var card = content.parentElement;
+  var more = card.querySelectorAll('.more');
+  var viewMore = card.querySelector('.view-more');
+
+  for (var i = 0; i <= more.length - 1; i++) {
+    if (more[i].classList.contains('show-more')) {
+      viewMore.innerText = 'LESS';
+      more[i].style.visibilty = 'visible';
+      more[i].classList.remove('show-more');
+    } else {
+      viewMore.innerText = ' VIEW MORE';
+      more[i].style.visibilty = 'hidden';
+      more[i].classList.add('show-more');
+    }
+  }
+}
+
+exports.default = toggle;
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _axios = __webpack_require__(2);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _dompurify = __webpack_require__(33);
+var _dompurify = __webpack_require__(34);
 
 var _dompurify2 = _interopRequireDefault(_dompurify);
 
@@ -1135,7 +1166,7 @@ function typeAhead(search) {
 exports.default = typeAhead;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1148,12 +1179,6 @@ $(document).ready(function () {
     $('.ui.sidebar').sidebar('toggle');
   });
   $('.ui.modal').modal('attach events', '.edit_profile_btn', 'show');
-  // Sidebar transitions
-  if ($('.ui.left.sidebar').hasClass('hidden')) {
-    $('.ui.left.sidebar').show();
-  } else {
-    $('.ui.left.sidebar').hide();
-  }
   // Dropdown
   $('.ui.dropdown').dropdown();
 
@@ -1161,19 +1186,19 @@ $(document).ready(function () {
 
   switch (window.location.pathname) {
     case '/':
-      $('.home').addClass('active');
+      document.querySelector('.home').classList.add('active');
       break;
     case '/user/account':
-      $('.account').addClass('active');
+      document.querySelector('.account').classList.add('active');
       break;
     case '/user/games':
-      $('.games').addClass('active');
+      document.querySelector('.games').classList.add('active');
       break;
     case '/user/orders':
-      $('.orders').addClass('active');
+      document.querySelector('.orders').classList.add('active');
       break;
     case '/help':
-      $('.help').addClass('active');
+      document.querySelector('.help').classList.add('active');
       break;
     default:
       break;
@@ -1181,13 +1206,13 @@ $(document).ready(function () {
 });
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1195,7 +1220,7 @@ $(document).ready(function () {
 
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(8);
-var Axios = __webpack_require__(18);
+var Axios = __webpack_require__(19);
 var defaults = __webpack_require__(3);
 
 /**
@@ -1230,14 +1255,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(5);
-axios.CancelToken = __webpack_require__(17);
+axios.CancelToken = __webpack_require__(18);
 axios.isCancel = __webpack_require__(6);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(32);
+axios.spread = __webpack_require__(33);
 
 module.exports = axios;
 
@@ -1245,7 +1270,7 @@ module.exports = axios;
 module.exports.default = axios;
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1308,7 +1333,7 @@ CancelToken.source = function source() {
 module.exports = CancelToken;
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1316,10 +1341,10 @@ module.exports = CancelToken;
 
 var defaults = __webpack_require__(3);
 var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(19);
-var dispatchRequest = __webpack_require__(20);
-var isAbsoluteURL = __webpack_require__(28);
-var combineURLs = __webpack_require__(26);
+var InterceptorManager = __webpack_require__(20);
+var dispatchRequest = __webpack_require__(21);
+var isAbsoluteURL = __webpack_require__(29);
+var combineURLs = __webpack_require__(27);
 
 /**
  * Create a new instance of Axios
@@ -1399,7 +1424,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = Axios;
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1457,14 +1482,14 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 module.exports = InterceptorManager;
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var transformData = __webpack_require__(23);
+var transformData = __webpack_require__(24);
 var isCancel = __webpack_require__(6);
 var defaults = __webpack_require__(3);
 
@@ -1523,7 +1548,7 @@ module.exports = function dispatchRequest(config) {
 };
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1549,7 +1574,7 @@ module.exports = function enhanceError(error, config, code, response) {
 };
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1575,7 +1600,7 @@ module.exports = function settle(resolve, reject, response) {
 };
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1601,7 +1626,7 @@ module.exports = function transformData(data, headers, fns) {
 };
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1642,7 +1667,7 @@ function btoa(input) {
 module.exports = btoa;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1709,7 +1734,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 };
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1728,7 +1753,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 };
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1787,7 +1812,7 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1809,7 +1834,7 @@ module.exports = function isAbsoluteURL(url) {
 };
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1878,7 +1903,7 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1896,7 +1921,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 };
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1941,7 +1966,7 @@ module.exports = function parseHeaders(headers) {
 };
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1975,7 +2000,7 @@ module.exports = function spread(callback) {
 };
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2788,17 +2813,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(15);
+__webpack_require__(16);
 
 var _bling = __webpack_require__(1);
 
-__webpack_require__(14);
+__webpack_require__(15);
 
 var _cart = __webpack_require__(10);
 
@@ -2812,21 +2837,71 @@ var _follow = __webpack_require__(11);
 
 var _follow2 = _interopRequireDefault(_follow);
 
-var _typeAhead = __webpack_require__(13);
+var _typeAhead = __webpack_require__(14);
 
 var _typeAhead2 = _interopRequireDefault(_typeAhead);
+
+var _toggle = __webpack_require__(13);
+
+var _toggle2 = _interopRequireDefault(_toggle);
+
+var _addprediction = __webpack_require__(42);
+
+var _addprediction2 = _interopRequireDefault(_addprediction);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var cardForms = (0, _bling.$$)('.card-form');
 var cartItems = (0, _bling.$$)('.cart-item');
 var followForm = (0, _bling.$$)('.follow-form');
+var toggleButton = (0, _bling.$$)('.more-predictions');
+var addButton = (0, _bling.$$)('#addFields');
 
 cardForms.on('submit', _cart2.default);
 cartItems.on('submit', _removecart2.default);
 followForm.on('submit', _follow2.default);
-
+toggleButton.on('click', _toggle2.default);
+addButton.on('click', _addprediction2.default);
 (0, _typeAhead2.default)((0, _bling.$)('.search'));
+
+/***/ }),
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _dompurify = __webpack_require__(34);
+
+var _dompurify2 = _interopRequireDefault(_dompurify);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function addFields(e) {
+  e.preventDefault();
+  var fieldWrapper = document.querySelector('#fields');
+  var fieldHtml = '<div class="five fields">\n       <div class="five wide fluid field required">\n         <label>Date</label>\n         <div class=\'ui calendar date-picker\'>\n            <div class="ui left labeled icon input">\n                <input type="text" placeholder="Date" name="date[]"> <i class="calendar icon"></i>\n            </div>\n         </div>\n       </div>\n       <div class="five wide fluid field required">\n         <label>Home Team</label>\n         <div class="ui left labeled icon input">\n             <input type="text" placeholder="Home Team" name="home[]"> <i class="soccer icon"></i>\n         </div>\n     </div>\n     <div class="five wide fluid field required">\n         <label>Away Team</label>\n         <div class="ui left labeled icon input">\n             <input type="text" placeholder="Away Team" name="away[]"> <i class="soccer icon"></i></div>\n     </div>\n     <div class="field stackable eight wide mobile required">\n     <label>Prediction</label>\n     <div class="ui dropdown prediction_input">\n       <input type="hidden" name="prediction[]"/>\n       <div class="default text">Prediction</div>\n       <div class="menu">\n         <div class="header">Categories</div>\n         <div class="item"><i class="dropdown icon"></i><span class="text">3-Way</span>\n           <div class="menu">\n             <div data-value="3-Way 1-Home Win" class="item">3-Way 1-Home Win</div>\n             <div data-value="3-Way X-Draw" class="item">3-Way X-Draw</div>\n             <div data-value="3-Way 2-Away Win" class="item">3-Way 2-Away Win</div>\n           </div>\n         </div>\n         <div class="item"><i class="dropdown icon"></i><span class="text">Double Chance</span>\n           <div class="menu">\n             <div data-value="Double Chance 1X - Home/Draw" class="item">Double Chance 1X - Home/Draw</div>\n             <div data-value="Double Chance 12 - Home/Away" class="item">Double Chance 12 - Home/Away</div>\n             <div data-value="Double Chance X2 - Draw/Away" class="item">Double Chance X2 - Draw/Away</div>\n           </div>\n         </div>\n         <div class="item"><i class="dropdown icon"></i><span class="text">Over 2.5/ Under</span>\n           <div class="menu">\n             <div data-value="Over 2.5" class="item">Over 2.5</div>\n             <div data-value="Under 2.5" class="item">Under 2.5</div>\n           </div>\n         </div>\n         <div class="item"><i class="dropdown icon"></i><span class="text">Both teams to score</span>\n           <div class="menu">\n             <div data-value="Both teams to score - Yes" class="item">Both teams to score - Yes</div>\n             <div data-value="Both teams to score - No" class="item">Both teams to score - No</div>\n           </div>\n         </div>\n         <div class="item"><i class="dropdown icon"></i><span class="text">3-Way First Half</span>\n           <div class="menu">\n             <div data-value="3-Way First Half - 1" class="item">3-Way First Half - 1</div>\n             <div data-value="3-Way First Half - X" class="item">3-Way First Half - X</div>\n             <div data-value="3-Way First Half - 2" class="item">3-Way First Half - 2</div>\n           </div>\n         </div>\n         <div class="divider"></div>\n         <div class="item"><i class="dropdown icon"></i><span class="text">Double Chance First Half</span>\n           <div class="menu">\n             <div data-value="Double Chance First Half - 1X" class="item">Double Chance First Half - 1X</div>\n             <div data-value="Double Chance First Half - 12" class="item">Double Chance First Half - 12</div>\n             <div data-value="Double Chance First Half - X2" class="item">Double Chance First Half - X2</div>\n           </div>\n         </div>\n         <div class="item"><i class="dropdown icon"></i><span class="text">Over 1.5 First Half</span>\n           <div class="menu">\n             <div data-value="Over 1.5 First Half - Over" class="item">Over 1.5 First Half - Over</div>\n             <div data-value="Over 1.5 First Half - Under" class="item">Over 1.5 First Half - Under</div>\n           </div>\n         </div>\n         <div class="item"><i class="dropdown icon"></i><span class="text">Over 2.5 First Half</span>\n           <div class="menu">\n             <div data-value="Over 2.5 First Half - Over" class="item">Over 2.5 First Half - Over</div>\n             <div data-value="Over 2.5 First Half - Under" class="item">Over 2.5 First Half - Under</div>\n           </div>\n         </div>\n         <div class="item"><i class="dropdown icon"></i><span class="text">Both teams to score</span>\n           <div class="menu">\n             <div data-value="Both teams to score HT - Yes" class="item">Both teams to score HT - Yes</div>\n             <div data-value="Both teams to score HT - No" class="item">Both teams to score HT - No</div>\n           </div>\n         </div>\n         <div class="item"><i class="dropdown icon"></i><span class="text">Half time/Full time</span>\n           <div class="menu">\n             <div data-value="Half time/Full time 1/1" class="item">Half time/Full time 1/1</div>\n             <div data-value="Half time/Full time 1/X" class="item">Half time/Full time 1/X</div>\n             <div data-value="Half time/Full time 1/2" class="item">Half time/Full time 1/2</div>\n             <div data-value="Half time/Full time X/1" class="item">Half time/Full time X/1</div>\n             <div data-value="Half time/Full time X/X" class="item">Half time/Full time X/X</div>\n             <div data-value="Half time/Full time X/2" class="item">Half time/Full time X/2</div>\n             <div data-value="Half time/Full time 2/1" class="item">Half time/Full time 2/1</div>\n             <div data-value="Half time/Full time 2/X" class="item">Half time/Full time 2/X</div>\n             <div data-value="Half time/Full time 2/2" class="item">Half time/Full time 2/2</div>\n           </div>\n         </div>\n       </div>\n     </div>\n   </div>\n  </div>\n  <hr class="add_divider"/>\n  ';
+  fieldWrapper.insertAdjacentHTML('beforeend', _dompurify2.default.sanitize(fieldHtml));
+  $('.ui.dropdown').dropdown({
+    on: 'click' });
+  var today = new Date();
+  $('.ui.calendar').calendar({
+    minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+    maxDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() + 14)
+  });
+}
+
+exports.default = addFields;
 
 /***/ })
 /******/ ]);
