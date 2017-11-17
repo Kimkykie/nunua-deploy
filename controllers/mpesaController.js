@@ -1,4 +1,7 @@
 const prettyjson = require('prettyjson')
+const mongoose = require('mongoose')
+
+const User = mongoose.model('User')
 const options = {
   noColor: true
 }
@@ -38,9 +41,10 @@ exports.b2cTimeOut = (req, res) => {
 }
 
 //  C2B VALIDATION
-exports.c2bValidation = (req, res) => {
+exports.c2bValidation = async (req, res) => {
   console.log('-----------C2B VALIDATION REQUEST-----------')
-  console.log(req.body)
+  const user = await User.findOne({phone: `+${req.body.source}`})
+  console.log(user)
   console.log('-----------------------')
 }
 
