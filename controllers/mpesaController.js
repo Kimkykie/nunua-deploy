@@ -44,7 +44,13 @@ exports.b2cTimeOut = (req, res) => {
 exports.c2bValidation = async (req, res) => {
   console.log('-----------C2B VALIDATION REQUEST-----------')
   const phoneNumber =  parseInt((req.body.source).replace('+', ''))
-  const user = await User.findOne({phone: phoneNumber})
+  const cashUpdate = parseInt((req.body.value).replace('KES ', ''))
+  const user = await User.findOneAndUpdate({phone: phoneNumber},
+    {$inc: {
+      balance: cashUpdate
+    }},
+    {new: true}
+  )
   console.log(user)
   console.log('-----------------------')
 }
