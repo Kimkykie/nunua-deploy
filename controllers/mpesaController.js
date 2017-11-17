@@ -40,16 +40,8 @@ exports.b2cTimeOut = (req, res) => {
 //  C2B VALIDATION
 exports.c2bValidation = (req, res) => {
   console.log('-----------C2B VALIDATION REQUEST-----------')
-  console.log(prettyjson.render(req.body, options))
+  console.log(req.body)
   console.log('-----------------------')
-
-  let message = {
-    'ResultCode': 0,
-    'ResultDesc': 'Success',
-    'ThirdPartyTransID': '1234567890'
-  }
-
-  res.json(message)
 }
 
 // C2B CONFIRMATION
