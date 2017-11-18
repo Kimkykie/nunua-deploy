@@ -25,6 +25,7 @@ require('./models/Prediction')
 require('./models/Cart')
 require('./models/Order')
 require('./models/Review')
+require('./models/Payment')
 
 // Start our app!
 const app = require('./app')
