@@ -78,18 +78,16 @@ exports.saveOrder = async (req, res, next) => {
       {$inc: {
         balance: item.price
       }},
-      {new: true},
-      function (err) {
-        if (err) throw Error
-        order.save((err, result) => {
-          if (err) {
-            req.flash('error', 'Error processing your order')
-          }
-          req.flash('success', 'Succesfully bought product')
-          req.session.cart = null
-          res.redirect('/user/orders')
-          return
-        })
-      })
+      {new: true})
+  })
+  // Save order
+  await order.save((err, result) => {
+    if (err) {
+      req.flash('error', 'Error processing your order')
+    } else {
+      req.flash('success', 'Succesfully bought product')
+      req.session.cart = null
+      return res.redirect('/user/orders')
+    }
   })
 }

@@ -22,7 +22,7 @@ const uiConfig = {
     },
   ],
   // Terms of service url.
-  tosUrl: 'https://hulu.com',
+  tosUrl: 'https://nunuatips.com/terms',
 };
 
 const ui = new firebaseui.auth.AuthUI(firebase.auth());
