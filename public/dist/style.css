@@ -745,4 +745,21 @@ table.ui .show-more {
   [class*="widescreen monitor or lower hidden"] {
     display: none !important; } }
 
+#share-buttons {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center; }
+
+#share-buttons i {
+  width: 35px;
+  font-size: 1.3em;
+  padding: 5px;
+  border: 0;
+  box-shadow: 0; }
+
 /*# sourceMappingURL=style.css.map*/
