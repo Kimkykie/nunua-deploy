@@ -311,7 +311,8 @@ h3 {
 
 td {
   padding-left: 2px !important;
-  padding-right: 4px !important; }
+  padding-right: 4px !important;
+  text-transform: uppercase; }
 
 @media only screen and (min-width: 1224px) {
   #register-form {
@@ -336,9 +337,24 @@ table.ui .show-more {
       align-items: center;
   -ms-flex-pack: justify;
       justify-content: space-between; }
-  .card-form .games_control .game_length {
-    font-size: 1.5rem;
-    color: #a333c8; }
+
+.card-form .price_control {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: end;
+      justify-content: flex-end; }
+  .card-form .price_control .game_price {
+    color: #303030;
+    margin-right: 0.6em;
+    font-size: 1.24em; }
+
+.game_length {
+  font-size: 1.5rem;
+  color: #a333c8; }
 
 .zoom {
   position: fixed;
@@ -753,13 +769,25 @@ table.ui .show-more {
   -ms-flex-align: center;
       align-items: center;
   -ms-flex-pack: center;
-      justify-content: center; }
+      justify-content: center;
+  padding-bottom: 1em; }
 
 #share-buttons i {
   width: 35px;
-  font-size: 1.3em;
-  padding: 5px;
+  font-size: 1.6em;
+  padding-right: 1.8em;
   border: 0;
   box-shadow: 0; }
+
+.container {
+  margin-top: 2em; }
+  .container h2 {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline; }
+  .container img {
+    width: 40em;
+    height: 40em; }
 
 /*# sourceMappingURL=style.css.map*/

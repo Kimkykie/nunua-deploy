@@ -6,6 +6,7 @@ const authController = require('../controllers/authController')
 const cartController = require('../controllers/cartController')
 const reviewController = require('../controllers/reviewController')
 const mpesaController = require('../controllers/mpesaController')
+const feedBackController = require('../controllers/feedBackController')
 
 const { catchErrors } = require('../handlers/errorHandlers')
 
@@ -77,4 +78,7 @@ router.get('/api/search', catchErrors(userController.searchUsers))
 
 // MPESA
 router.post('/c2b/validation', mpesaController.c2bValidation)
+
+//  FEEDBACK
+router.get('/help', feedBackController.help)
 module.exports = router

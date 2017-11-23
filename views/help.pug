@@ -1,0 +1,146 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css', integrity='sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb', crossorigin='anonymous')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js', integrity='sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh', crossorigin='anonymous')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js', integrity='sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ', crossorigin='anonymous')
+  .container
+    h2= title
+    p.d-flex.justify-content-center Hello, these are the few questions you may currently be having about the website:
+    #accordion(role='tablist')
+      .card
+        #headingOne.card-header(role='tab')
+          h5.mb-0
+            a(data-toggle='collapse', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
+              | What is Nunuatips?
+        #collapseOne.collapse.show(role='tabpanel', aria-labelledby='headingOne', data-parent='#accordion')
+          .card-body
+            p This is a web platform where any football fan can buy football predictions of upcoming matches/games, which are posted by your fellow nunuatips users.
+            p The platform also allows you to post your own match predictions which may be similarly be bought by nunuatips users.
+      .card
+        #headingTwo.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
+              | Who can buy or sell the match predictions?
+        #collapseTwo.collapse(role='tabpanel', aria-labelledby='headingTwo', data-parent='#accordion')
+          .card-body
+            p Anyone who has signed up (registered) on nunuatips will be able to BOTH buy and/or sell match predictions. There are therefore no special requirements/conditions needed to be able to sell your predictions (You just sign up and start posting predictions).
+            p You must however sign up with a phone number registered on mpesa (who are our only mobile money partners for now at least) to be able to deposit & withdraw money on nunuatips.
+      .card
+        #headingThree.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseThree', aria-expanded='false', aria-controls='collapseThree')
+              | How do I buy match predictions?
+        #collapseThree.collapse(role='tabpanel', aria-labelledby='headingThree', data-parent='#accordion')
+          .card-body
+            ul.list-group
+              li.list-group-item
+                p
+                  span 1. First make sure you are logged into the website. If you do not have a nunuatips account, you must
+                  span 
+                    a(href='/auth') Sign Up 
+                  span first.
+                img.img-fluid.mx-auto.d-block(src='/images/auth.jpg')
+              li.list-group-item
+                p 2. Click on buy on the predictions you want to purchase: you can click on multiple prediction cards at the same time.
+                img.img-fluid.mx-auto.d-block(src='/images/buy.jpg')
+                p They will be added onto your Shopping Cart
+                img.img-fluid.mx-auto.d-block(src='/images/cart.jpg')
+              li.list-group-item
+                p 3. Click on the Shopping Cart button to checkout. You can add or remove any prediction cards you want from the cart.
+                img.img-fluid.mx-auto.d-block(src='/images/cart.jpg')
+                p 
+                  span Make sure you have enough balance in your account by confirming from 
+                  a(href='/account') My account 
+                  span page.
+                img.img-fluid.mx-auto.d-block(src='/images/account.jpg')
+                p If not, you should deposit enough funds for the purchase via mpesa paybill 964595 account number > nunuatips. 
+                p (Note that you must deposit with the same phone number you registered nunuatips with.)
+              li.list-group-item
+                p 4. Proceed to checkout.
+                img.img-fluid.mx-auto.d-block(src='/images/checkout.jpg')
+              li.list-group-item
+                p 5. View the match predictions you have bought under purchases page.
+                img.img-fluid.mx-auto.d-block(src='/images/purchases.jpg')     
+      .card
+        #headingFour.card-header(role='tab')
+          h5.mb-0
+            a(data-toggle='collapse', href='#collapseFour', aria-expanded='true', aria-controls='collapseFour')
+              | How much do the predictions cost?
+        #collapseFour.collapse.show(role='tabpanel', aria-labelledby='headingFour', data-parent='#accordion')
+          .card-body
+            p To follow our goal of transparency, nunuatips has fixed the buying price at Ksh.20 for each prediction card containing 5-10 matches. The price then increases by Ksh.2 for each extra game past the 10 games point. i.e. 15 games would cost you Ksh.30: 16 games go for Ksh.32         
+      .card
+        #headingFive.card-header(role='tab')
+          h5.mb-0
+            a(data-toggle='collapse', href='#collapseFive', aria-expanded='true', aria-controls='collapseFive')
+              | How do I sell match prediction?                         
+        #collapseFive.collapse.show(role='tabpanel', aria-labelledby='headingFive', data-parent='#accordion')
+          .card-body
+            p Unlike other websites, there are no requirements for you to post/sell match predictions: anyone who has signed up on the site can post predictions. To sell a prediction:
+            ul.list-group
+              li.list-group-item
+                p 1. Make sure that you are logged into the website first.
+              li.list-group-item
+                p 2. Click here to add your predictions
+                img.img-fluid.mx-auto.d-block(src='/images/addbtn.jpg')
+                img.img-fluid.mx-auto.d-block(src='/images/addpred.jpg')
+                p Make sure you enter the right date, time & correct spellings of the football teams: to avoid confusion among buyers & ensure they fully understand your predictions.
+                p Note that prediction card must contain a minimum of five different matches: therefore make sure you do not repeat the same games or post non-existent/already played matches. This leads to dissatisfaction in your buyers thus they give you lower ratings.
+              li.list-group-item
+                p
+                  span 3.	Check posted prediction cards under 
+                  a(href='/user/games') My games.
+                img.img-fluid.mx-auto.d-block(src='/images/mygames.jpg')
+                p 
+                  span The predictions will also appear in your 
+                  a(href='/user/profile') Profile 
+                  span page.
+                img.img-fluid.mx-auto.d-block(src='/images/profile.jpg')
+      .card
+        #headingSix.card-header(role='tab')
+          h5.mb-0
+            a(data-toggle='collapse', href='#collapseSix', aria-expanded='true', aria-controls='collapseSix')
+              | As a Seller, how much do I get for every prediction card purchased? 
+        #collapseSix.collapse.show(role='tabpanel', aria-labelledby='headingSix', data-parent='#accordion')
+          .card-body
+            p The seller will get 60% while nunuatips only get 40% of the selling price/amount. The nunuatips account of the seller is credited with that net amount immediately after a prediction card is bought. 
+            p You can then withdraw this income to your mpesa account of the same number you registered with on the website. (Note that standard mpesa charges will apply)
+      .card
+        #headingSeven.card-header(role='tab')
+          h5.mb-0
+            a(data-toggle='collapse', href='#collapseSeven', aria-expanded='true', aria-controls='collapseSeven')
+              | What determines a sellers rating?
+        #collapseSeven.collapse.show(role='tabpanel', aria-labelledby='headingSeven', data-parent='#accordion')
+          .card-body
+            p The seller gets his rating from the average of how his buyers have been reviewing his predictions ever since he started posting them on nunuatips. This means therefore that the ratings of any seller may keep on changing)
+      .card
+        #headingEight.card-header(role='tab')
+          h5.mb-0
+            a(data-toggle='collapse', href='#collapseEight', aria-expanded='true', aria-controls='collapseEight')
+              | Who can rate a seller’s predictions?
+        #collapseEight.collapse.show(role='tabpanel', aria-labelledby='headingEight', data-parent='#accordion')
+          .card-body
+            p You will only be able to rate the predictions you have already bought. As a buyer, you will rate those predictions based majorly on their accuracy: i.e. how many match predictions were accurate.
+      .card
+        #headingNine.card-header(role='tab')
+          h5.mb-0
+            a(data-toggle='collapse', href='#collapseNine', aria-expanded='true', aria-controls='collapseNine')
+              | How do I rate? 
+        #collapseNine.collapse.show(role='tabpanel', aria-labelledby='headingNine', data-parent='#accordion')
+          .card-body
+            ul.list-group
+              li.list-group-item
+                p 1. Click on purchases
+                img.img-fluid.mx-auto.d-block(src='/images/purchases.jpg')
+              li.list-group-item
+                p 2. Click on Leave a Review 
+                img.img-fluid.mx-auto.d-block(src='/images/leaveareview.jpg')
+              li.list-group-item
+                p 3. Rate and Submit 
+                img.img-fluid.mx-auto.d-block(src='/images/rate.jpg')
+              li.list-group-item
+                p You can also share your prediction to your favorite platforms for other users to purchase 
+                img.img-fluid.mx-auto.d-block(src='/images/rate.jpg')
+    div 
+      p Was this helpful? If you have any other questions, you can send us your feedback here, we would love to hear from you.            

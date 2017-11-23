@@ -2027,6 +2027,9 @@ $(document).ready(function () {
   $('.ui.modal').modal('attach events', '.edit_profile_btn', 'show');
   // Dropdown
   $('.ui.dropdown').dropdown();
+  $('.accordion').accordion({
+    collapsible: true
+  });
 
   // Active Menu
 

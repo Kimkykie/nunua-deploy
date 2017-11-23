@@ -114,7 +114,7 @@ exports.getUserOrders = async (req, res, next) => {
       cart = new Cart(order.cart)
       order.items = cart.generateArray()
     })
-    res.render('myorders', { title: 'My Orders', orders })
+    res.render('myorders', { title: 'Purchases', orders })
   }).sort({'_id': -1})
 }
 

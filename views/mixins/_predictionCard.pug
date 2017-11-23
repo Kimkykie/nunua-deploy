@@ -61,6 +61,7 @@ mixin predictionCard(prediction = {})
             - const boughtClass = session.cart.content.includes(prediction.id) ? 'disabled' : ''
               .content.games_control
                 a.ui.game_length(href=`/prediction/${prediction.slug}`) #{prediction.team.length} games
+                  i.icon.mail.forward
                 a.ui.basic.purple.button.more-predictions(name='more')
                   span.view-more VIEW MORE
                 if user && orders.includes(prediction._id.toString())
@@ -69,10 +70,13 @@ mixin predictionCard(prediction = {})
                   button.ui.button.hidden.disabled
                 else
                   button.ui.basic.purple.button.right.floated(type='submit' name='buy' data-index=`${i}` class=boughtClass) BUY
+              .content.price_control
+                a.ui.game_price KES #{prediction.price}
 
           else
             .content.games_control
-              a.ui.game_length(href=`/prediction/${prediction.slug}`) #{prediction.team.length} games
+              a.ui.game_length(href=`/prediction/${prediction.slug}`) #{prediction.team.length} games 
+                i.icon.mail.forward
               a.ui.basic.purple.button.more-predictions
                 span.view-more VIEW MORE
               if user && orders.includes(prediction._id.toString())
@@ -81,3 +85,5 @@ mixin predictionCard(prediction = {})
                   button.ui.button.hidden.disabled
               else
                 button.ui.basic.purple.button.right.floated(type='submit' name='buy' data-index=`${i}`) BUY
+            .content.price_control
+                a.ui.game_price KES #{prediction.price} 

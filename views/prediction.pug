@@ -4,7 +4,6 @@ include mixins/_reviewForm
 include mixins/_rating
 
 block content
-  h3= title
   .ui.container
     .column
       .ui.fluid.card.order_card
@@ -88,9 +87,9 @@ block content
       // Twitter
       a(href=`https://twitter.com/share?url=https://nunuatips.club/prediction/${prediction.slug}&text=Check%20out%20this%20prediction%20from%20nunuatips.com%20&hashtags=nunuatips`, target='_blank')
         i.icon.twitter
-      // Google+
-      a(href=`https://plus.google.com/share?url=https://nunuatips.club/prediction/${prediction.slug}`, target='_blank')
-        i.icon.google.plus
+      // Telegram
+      a(href=`https://telegram.me/share/url?url=https://nunuatips.club/prediction/${prediction.slug}`, target='_blank')
+        i.icon.telegram
       // Whatsapp
       a(href=`whatsapp://send?text=Checkout this prediction from nunuatips.com https://nunuatips.club/prediction/${prediction.slug}`, data-action='share/whatsapp/share')
         i.icon.whatsapp
