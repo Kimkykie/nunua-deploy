@@ -25,7 +25,7 @@ const userSchema = new Schema({
   },
 
   phone: {
-    type: Number,
+    type: String,
     required: 'Please supply a phone number',
     trim: true
   },

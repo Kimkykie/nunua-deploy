@@ -20,8 +20,8 @@ $('.validate-form')
         identifier: 'phone',
         rules: [{
           type: 'regExp',
-          value: /^(?:254)?(7(?:(?:[0-9][0-9])|(?:0[0-8])|(4[0-1]))[0-9]{6})$/,
-          prompt: 'Phone number format should be 254712345678'
+          value: /^(0){1}(7(?:(?:[0-9][0-9])|(?:0[0-8])|(4[0-1]))[0-9]{6})$/,
+          prompt: 'Phone number format should be 0712345678'
         }]
       },
       password: {
@@ -106,6 +106,33 @@ $('.reset-form')
         type: 'match[password]',
         prompt: 'Sorry! Password do not match'
       }]
+    }
+  }
+})
+
+// LOGIN
+$('.login-form')
+.form({
+  fields: {
+    phone: {
+      identifier: 'phone',
+      rules: [{
+        type: 'regExp',
+        value: /^(0){1}(7(?:(?:[0-9][0-9])|(?:0[0-8])|(4[0-1]))[0-9]{6})$/,
+        prompt: 'Phone number format should be 0712345678'
+      }]
+    },
+    password: {
+      identifier: 'password',
+      rules: [{
+        type: 'empty',
+        prompt: 'Please enter a password'
+      },
+      {
+        type: 'minLength[8]',
+        prompt: 'Your password must be at least {ruleValue} characters'
+      }
+      ]
     }
   }
 })

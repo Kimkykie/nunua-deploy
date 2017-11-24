@@ -27,7 +27,7 @@ router.get('/auth', authController.isPhoneVerified, userController.authenticateP
 router.get('/register', authController.isRegistered, userController.registerForm)
 
 // Login
-router.get('/login', userController.loginForm)
+router.get('/login', authController.isRegistered, userController.loginForm)
 router.post('/login', authController.login)
 
 // 1. validate

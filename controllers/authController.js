@@ -46,7 +46,7 @@ exports.isPhoneVerified = (req, res, next) => {
 exports.isRegistered = (req, res, next) => {
   // check if user is authenticated
   if (req.isAuthenticated()) {
-    req.flash('error', 'You are already registered!')
+    req.flash('error', 'You are already logged in!')
     res.redirect('/')
   } else {
     next()
