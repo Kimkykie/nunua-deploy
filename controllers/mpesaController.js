@@ -3,7 +3,7 @@ const User = mongoose.model('User')
 const Payment = mongoose.model('Payment')
 //  C2B VALIDATION
 exports.c2bValidation = async (req, res) => {
-  if (req.body.status === 'success') {
+  if (req.body.status === 'Success') {
     const user = await User.findOneAndUpdate({phone: (req.body.source).replace(/^(\+254)+/, '0')},
       {$inc: {
         balance: parseInt((req.body.value).replace('KES ', ''))
@@ -21,7 +21,6 @@ exports.c2bValidation = async (req, res) => {
       status: req.body.status
     })
     await payment.save()
-    console.log(user)
     res.json('Success')
   } else {
     res.json('Error')

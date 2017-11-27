@@ -49,7 +49,6 @@ exports.createPrediction = async (req, res) => {
     req.flash('error', 'You must enter 5 or more predictions')
     res.render('addPrediction', { title: 'Add Prediction', body: req.body, flashes: req.flash() })
   }
-  console.log(predictionarr)
 }
 
 exports.getPredictions = async (req, res) => {
