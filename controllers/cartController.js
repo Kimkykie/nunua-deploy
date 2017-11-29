@@ -72,11 +72,11 @@ exports.saveOrder = async (req, res, next) => {
     return
   }
   // update individual analyst's balance
-  const authOrder = cart.generateArray()
-  await authOrder.forEach((item) => {
-    User.findByIdAndUpdate(item.item.author._id,
+  const authOrder = await cart.generateArray()
+  await authOrder.forEach(async (item) => {
+    await User.findByIdAndUpdate(item.item.author._id,
       {$inc: {
-        balance: item.price
+        balance: (0.6 * item.price)
       }},
       {new: true})
   })

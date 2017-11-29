@@ -98,7 +98,7 @@ exports.resize = async (req, res, next) => {
   req.body.avatar = `${uuid.v4()}.${extension}`
   // resize
   const avatar = await jimp.read(req.file.buffer)
-  await avatar.resize(300, jimp.AUTO)
+  await avatar.resize(256, 256)
   await avatar.write(`./public/uploads/${req.body.avatar}`)
   // Once photo is written keep going
   next()

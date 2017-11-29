@@ -99,16 +99,11 @@ html
               i.user.icon
             .menu
               if user
-                .item
-                  a(href=`/user/profile/${user.username}`) Profile
-                .item
-                  a(href='/logout') Logout
+                a.item(href=`/user/profile/${user.username}`) Profile
+                a.item(href='/logout') Logout
               else
-                
-                .item
-                  a(href='/auth') Register
-                .item
-                  a(href='/login') Login
+                a.item(href='/auth') Register
+                a.item(href='/login') Login
       .pusher
         block messages
           if locals.flashes
