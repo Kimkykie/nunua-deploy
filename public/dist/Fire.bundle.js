@@ -96,7 +96,7 @@ var uiConfig = {
     defaultCountry: 'KE' // Set default country to the United Kingdom (+44).
   }],
   // Terms of service url.
-  tosUrl: 'https://nunuatips.com/terms'
+  tosUrl: 'https://nunuatips.com/terms-and-conditions'
 };
 
 var ui = new firebaseui.auth.AuthUI(firebase.auth());

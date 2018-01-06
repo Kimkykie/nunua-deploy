@@ -2,3 +2,94 @@
   height: 20em !important;
   width: 20em !important;
 }
+
+.balance_div{
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin: 0 auto;
+  .balance_text{
+    flex: 1;
+    font-size: 1.2em;
+    margin-top: 0.2em;
+  }
+
+  .balance_user{
+    flex: 1;
+    font-size: 1.2em;
+    text-align: center;
+    background: $green;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+  }
+}
+
+.withdraw_div{
+  .withdraw_header{
+    font-weight: normal;
+    font-size: 2rem;
+    margin-top: 1em;
+  }
+  #withdraw_form{
+    width: 80%;
+    margin: 0 auto;
+    font-size: 1em;
+    .withdraw_btn{
+      display: block;
+      width: 50%;
+      margin: 0 auto;
+      font-size: 0.8em;
+    }
+  }
+}
+
+.pending_div{
+  width: 80% !important;
+  margin: auto !important;
+  margin-top: 1em !important;
+  text-align: center;
+}
+
+.deposit_div{
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  .deposit_header{
+    font-weight: normal;
+    font-size: 2rem;
+    margin-top: 1em;
+  }
+  .saficon{
+    width: 5em;
+    height: 2em;
+  }
+  .deposit_instructions{
+    padding-left: 0.5em;
+  }
+  .deposit_paybill{
+    font-weight: 600;
+  }
+}
+@media only screen and (min-width : 992px) {
+ .balance_div{
+  width: 50%;
+  .balance_text{
+    font-size: 1.5em;
+  }
+  .balance_user{
+    margin-left: -12em;
+  }
+ }
+ .withdraw_div{
+   #withdraw_form{
+     width: 60%;
+   }
+ }
+ .pending_div{
+   width: 60% !important;
+ }
+ .deposit_div{
+   width: 60%;
+ }
+}

@@ -1,0 +1,47 @@
+#help-container{
+		margin-top: 2em;
+		h2{
+			text-transform: uppercase;
+			text-align: center;
+			font-weight: bold;
+			text-decoration: underline;
+		}
+		img{
+			width: 30em;
+			height: 40em;
+		}
+    .card{
+			border-radius: 0;
+      a{
+        font-size: 1.3em;
+      }
+    .card-body{
+      div{
+        font-size: 12px;
+      }
+      a{
+        font-size: 12px;
+			}
+			img{
+				margin-top: 1rem;
+			}
+    }
+  }
+}
+#terms-container{
+	margin-top: 2em;
+	.card{
+		border-radius: 0;
+		a{
+			font-size: 1.3em;
+		}
+	.card-body{
+		div{
+			font-size: 12px;
+		}
+		a{
+			font-size: 12px;
+		}
+	}
+}
+}

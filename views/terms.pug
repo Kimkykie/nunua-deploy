@@ -1,0 +1,232 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css', integrity='sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb', crossorigin='anonymous')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js', integrity='sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh', crossorigin='anonymous')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js', integrity='sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ', crossorigin='anonymous')
+  .container#terms-container
+    h2= title
+    #accordion(role='tablist')
+      .card
+        #headingOne.card-header(role='tab')
+          h5.mb-0
+            a(data-toggle='collapse', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
+              | Introduction
+        #collapseOne.collapse.show(role='tabpanel', aria-labelledby='headingOne', data-parent='#accordion')
+          .card-body
+            div Welcome to the nunuatips.com Terms & Conditions. These Terms & Conditions and our Privacy Policy govern your use of the nunuatips.com website (nunuatips, Website, Site, we or us).Please read the Terms & conditions carefully before you start to use the Site. By using the Site, opening an account or by clicking to accept or agree to the Terms of Service when this option is made available to you, you accept and agree to be bound and abide by these Terms of Service and our Privacy Policy, found here, incorporated herein by reference. If you do not want to agree to these Terms of Service or the Privacy Policy, you must not access or use the Site.
+            div You must understand that nunuatips is NOT a betting/gambling website. It is only a marketplace for the buying and selling of football predictions.
+            div We may update this Agreement or the Privacy Policy at any time, without notification to you, and you should review this Agreement and the Privacy Policy from time to time by accessing the Site. Your continued use of the Site and/or the Services shall be deemed irrevocable acceptance of any such revisions.  You should periodically check the "Last Updated" date at the top of this document to familiarize yourself with the most recent version of this Agreement.
+      .card
+        #headingTwo.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
+              | Intellectual Property Rights
+        #collapseTwo.collapse(role='tabpanel', aria-labelledby='headingTwo', data-parent='#accordion')
+          .card-body
+            div All right, title, interest and ownership and intellectual property rights in and to the nunuatips.com trademarks and the Site, including but not limited to its "look and feel" (e.g., text, graphics, images, logos, buttons, icons and the placement and layout thereof), images, data, content, software and other media, material or information, other than user Content, are and will remain the property of Muchaba Technologies or its software or content supplier.
+      .card
+        #headingThree.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseThree', aria-expanded='false', aria-controls='collapseThree')
+              | Eligibility
+        #collapseThree.collapse(role='tabpanel', aria-labelledby='headingThree', data-parent='#accordion')
+          .card-body
+            div This Site is offered and available to users who are 18 years of age or older. If you are under 18 you may not use this Site or the nunuatips services. By using this Site, you represent and warrant that you are of legal age to form a binding contract with the Company and meet all of the foregoing eligibility requirements. If you do not meet all of these requirements, you must not access or use the Site
+      .card
+        #headingFour.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseFour', aria-expanded='false', aria-controls='collapseFour')
+              | Termination of Access to the Site
+        #collapseFour.collapse(role='tabpanel', aria-labelledby='headingFour', data-parent='#accordion')
+          .card-body
+            div Tnunuatips.com reserves the right, in its sole discretion, to change, suspend or discontinue any aspect of the Site at any time, including the availability of any Site feature, database, or content. nunuatips.com may also impose limits on certain features and services or restrict your access to parts or all of the Site without notice or liability.
+      .card
+        #headingFive.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseFive', aria-expanded='false', aria-controls='collapseFive')
+              | Member Account, Password and Security
+        #collapseFive.collapse(role='tabpanel', aria-labelledby='headingFive', data-parent='#accordion')
+          .card-body
+            div You need to register to use features and functionality of the Site. As part of the registration process, you will need to select a username and password, and provide us with certain registration information including email address & mobile phone number. The registration information must be accurate, and you may not:
+              ol
+                li Select or create an username for another person.
+                li Use a username of another person without such person's authorization.
+                li Use a username that nunuatips  in its sole discretion, deems offensive.
+            div nunuatips.com reserves the right to remove or reclaim any usernames at any time and for any reason, including but not limited to claims by a third party that a username violates such third party’s rights.
+            div You agree to accept responsibility for all use of your account and for maintaining the confidentiality of your password. You agree to take responsibility for any usage or activity under your password, whether or not you have authorized such usage or activity. You agree to notify nunuatips.com of any known or suspected unauthorized use of your account, or any known or suspected breach of security, including loss, theft, or unauthorized disclosure of your password. nunuatips.com is not liable for any loss that you may suffer through the use of your password by others.
+            div By providing us with your email address, you agree to receive all required notices electronically, to that email address. It is your responsibility to update or change your email address, as appropriate.
+            div It must be noted that as of now our only mobile money providers (Partners) are MPESA and despite the fact you can use phone numbers other than Safaricom to create an account, you will not be able to either buy or sell predictions.
+
+      .card
+        #headingSix.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseSix', aria-expanded='false', aria-controls='collapseSix')
+              | Privacy Policy
+        #collapseSix.collapse(role='tabpanel', aria-labelledby='headingSix', data-parent='#accordion')
+          .card-body
+            div Our privacy policy, which sets out how we will use your information, can be found at Privacy Policy 
+            div By using this Website, you consent to the processing described therein and warrant that all data provided by you is accurate.
+      .card
+        #headingSeven.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseSeven', aria-expanded='false', aria-controls='collapseSeven')
+              | Limited License
+        #collapseSeven.collapse(role='tabpanel', aria-labelledby='headingSeven', data-parent='#accordion')
+          .card-body
+            div You may use the information on this Site for your own personal, non-commercial informational or entertainment purposes only.
+            div
+              ul
+                li Any commercial use of the Site is prohibited.
+                li You may not publish, reproduce or broadcast in any way whatsoever all or part of the content displayed on the Site, whether in editorial, graphic or pictorial form, without our prior written permission.
+
+      .card
+        #headingEight.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseEight', aria-expanded='false', aria-controls='collapseEight')
+              | Deposits, transfers and withdrawals
+        #collapseEight.collapse(role='tabpanel', aria-labelledby='headingEight', data-parent='#accordion')
+          .card-body
+            div You can only deposit or withdraw money from the Site if you have a functioning Mpesa account. All deposits are to be made on PAYBILL NUMBER 964595, Account Number NUNUATIPS. You are solely responsible for making deposits to the right paybill number. For all deposits, the Number of the depositor must be identical to the mobile phone number registered on the Company account receiving the funds i.e. the registered account.
+            div Any charges levied by the Mobile Operators payment gateways (MPesa) will be deducted from the player's account. You should only deposit money in your account for the purposes of you using such money to buy a prediction on our platforms. We shall be entitled to suspend or close your account if we reasonably consider or have reason to believe that you are depositing money without any intention to buy predictions.
+            div You can at any time log into your account and view a statement showing all purchase transactions made within the last 30 Calendar days. Should you notice any mistakes you should immediately notify the Company. Such anomaly once confirmed, will be rectified by the company in the shortest time possible at no cost to you.
+            div You can withdraw money from your nunuatips account at any time and the standard cost charged by our Mobile Money Gateway (Mpesa) will definitely apply and deducted from the User’s account. All withdrawal requests cannot be processed after the expiry of fifteen minutes from the withdrawal request made. All valid withdrawals will be made to the payment account from which the deposits were validly made. Withdrawal payments can only be made in the name of and to the registered account holder. There is no set maximum withdrawal amount per day.
+            div The price for each prediction containing 5-10 games is set by nunuatips at a fixed price of Ksh.20. the price for each extra game past the 10 game mark is Ksh.2 each. nunuatips is the only party who can set this price. The seller cannot impose any extra price on a buyer. All transactions must take place within the website and not elsewhere.
+            div If we incur any charge-backs, reversals or other charges in respect of your account, we reserve the right to charge you for the relevant amounts incurred.
+      .card
+        #headingNine.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseNine', aria-expanded='false', aria-controls='collapseNine')
+              | Seller Basics
+        #collapseNine.collapse(role='tabpanel', aria-labelledby='headingNine', data-parent='#accordion')
+          .card-body
+            div Each prediction card must contain a minimum of five separate matches. You must also not repeat the same matches in the same prediction. You are in charge of the accuracy of information such as the time and date the games are taking place.
+            div Each prediction you sell and to a willing buyer, credits your account with a net revenue of 60% of the total amount.
+            div nunuatips credits sellers with the net revenue immediately after their prediction is bought.
+            div Sellers may withdraw their revenues using one of nunuatips withdrawal options (mpesa)
+      .card
+        #headingTen.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseTen', aria-expanded='false', aria-controls='collapseTen')
+              | Withdrawing Revenues
+        #collapseTen.collapse(role='tabpanel', aria-labelledby='headingTen', data-parent='#accordion')
+          .card-body
+            div To withdraw your revenues, you must have an account with at least one of nunuatips’ withdrawal providers (mpesa) nunuatips credits the seller’s nunuatips account immediately a purchaseof their prediction is made.
+            div Sellers can make a withdrawal request at any time.
+            div Sellers can request their revenues respecting the minimum and maximum thresholds imposed by nunuatips.
+            div Your nunuatips profile can be associated with only one account from each nunuatips withdrawal providers (mpesa). A withdrawal provider account can be associated with only one nunuatips profile.
+            div Withdrawal fees vary depending on the withdrawal provider / method. Withdrawal fees are paid by the seller.
+            div Withdrawals are final and cannot be undone. We will not be able to refund or change this process once it has begun. The seller  is in charge for the withdrawal provider account validity. nunuatips is not responsible for errors or suspensions of your withdrawal account or provider.
+            div Please, communicate to the nunuatips Support Team of any changes you make to your withdrawal account.
+      .card
+        #headingEleven.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseEleven', aria-expanded='false', aria-controls='collapseEleven')
+              | Seller Ratings
+        #collapseEleven.collapse(role='tabpanel', aria-labelledby='headingEleven', data-parent='#accordion')
+          .card-body
+            div The seller's rating is calculated based on a number of factors key among them being the reviews made by the buyers; a seller is rated based on the accuracy of his previous predictions. Other factors may include lack or presence of errors in the spellings of teams, accuracy of match dates and time which may confuse buyers if they are false/wrong.
+            div Sellers who invest in self-promotion which may include but not limited to sharing links to their predictions on social media and other messaging platforms may achieve greater customer satisfaction. In connection to this (sharing links to predictions on other platforms), a buyer is allowed to share the same link on the same platforms (social media & other messaging platforms as it helps the seller get more buyers.
+
+      .card
+        #headingTwelve.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseTwelve', aria-expanded='false', aria-controls='collapseTwelve')
+              | In connection with your use of the Site, when you sell a prediction you agree to:
+        #collapseTwelve.collapse(role='tabpanel', aria-labelledby='headingTwelve', data-parent='#accordion')
+          .card-body
+            div You must post actual/real matches that are going to take place in a future period( meaning you cannot post a game that has already happened or is more than a week into the future. You may not publish a prediction that infringes the intellectual property rights of a third party.
+            div You may not publish a prediction, that is fraudulent, stolen or an unlawful item.
+            div You may not resell predictions previously bought by you on the Site as a Buyer.
+            div You are fully responsible for the spellings of the football teams; the site does not use autocorrect and you must properly spell the teams to help the buyer understand the predictions better.
+      .card
+        #headingThirteen.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseThirteen', aria-expanded='false', aria-controls='collapseThirteen')
+              | In connection with your use of the Site, when you buy a prediction you agree to:
+        #collapseThirteen.collapse(role='tabpanel', aria-labelledby='headingThirteen', data-parent='#accordion')
+          .card-body
+            div By using the Site, you are participating in a willing buyer, willing seller transaction and you are fully aware of the nature of the transaction and hence participate at your own will (voluntarily). You are purchasing predictions  from a third party, nunuatips.com does not guarantee the number of predictions that any seller will publish in future periods .nunuatips does not also guarantee that those predictions will also come true and therefore we are not accountable for any financial or other form of loss caused by the use of those predictions.
+            div You understand, acknowledge and agree that seller’s past performance cannot be an indication of possible future results.
+            div Buyers have the freedom but not obligation to rate a seller based on the accuracy of his past predictions among other factors as stated above. A buyer can however only rate the predictions which he has previously bought.
+      .card
+        #headingFourteen.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseFourteen', aria-expanded='false', aria-controls='collapseFourteen')
+              | Limitation of Liability
+        #collapseFourteen.collapse(role='tabpanel', aria-labelledby='headingFourteen', data-parent='#accordion')
+          .card-body
+            div In no event shall nunuatips.com or its suppliers and sellers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption,) arising out of the use or inability to use the information on nunuatips.com website, even if nunuatips.com or a nunuatips.com authorized representative has been notified orally or in writing of the possibility of such damage.
+      .card
+        #headingFifteen.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseFifteen', aria-expanded='false', aria-controls='collapseFifteen')
+              | Disclaimer of Warranties
+        #collapseFifteen.collapse(role='tabpanel', aria-labelledby='headingFifteen', data-parent='#accordion')
+          .card-body
+            div You understand and agree that your use of nunuatips.com is entirely at your own risk and that our services are provided "As Is" and "As Available". nunuatips.com does not make any express or implied warranties, endorsements or representations whatsoever as to the operation of the nunuatips.com website, information, content, materials, or products. This shall include, but not be limited to, implied warranties of merchantability and fitness for a particular purpose and non-infringement, and warranties that access to or use of the service will be uninterrupted or error-free or that defects in the service will be corrected.
+            div Any information appearing on this Website are not meant in any way to be a source of professional advice or recommendations to in any way gamble, place bets or wager.
+            div The information presented in this Website is intended to be for your educational and entertainment purposes only.
+              ul
+                li We are not presenting you with a business opportunity.
+                li We are not making any claims as to income you may earn.
+                li We are not presenting you with an opportunity to get rich.
+            div All the information on this Website is published in good faith and for general information purpose only. We do not make any warranties about the completeness, reliability and accuracy of this information. Any action you take upon the information on our website is strictly at your own risk, and we will not be liable for any losses and damages in connection with the use of our website.
+      .card
+        #headingSixteen.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseSixteen', aria-expanded='false', aria-controls='collapseSixteen')
+              | Indemnification
+        #collapseSixteen.collapse(role='tabpanel', aria-labelledby='headingSixteen', data-parent='#accordion')
+          .card-body
+            div You agree to indemnify and hold nunuatips.com, its subsidiaries, affiliates, officers and employees, and service providers harmless from any claim or demand, including reasonable attorneys' fees, made by any third-party due to or arising out of your use of the Site, the violation of this Agreement by you, or the infringement by you, or other User of the Site using your computer, of any intellectual property or other right of any person or entity. Even though prohibited, people may provide information that is offensive, false, harmful, or deceptive. nunuatips.com assumes no responsibility or liability whatsoever for such content or actions.
+      .card
+        #headingSeventeen.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseSeventeen', aria-expanded='false', aria-controls='collapseSeventeen')
+              | Severability
+        #collapseSeventeen.collapse(role='tabpanel', aria-labelledby='headingSeventeen', data-parent='#accordion')
+          .card-body
+            div If any provision of this Terms of Use shall be deemed unlawful, void, or for any reason unenforceable, then that provision shall be deemed severable from these terms and conditions and shall not affect the validity and enforceability of any remaining provisions
+      .card
+        #headingEighteen.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseEighteen', aria-expanded='false', aria-controls='collapseEighteen')
+              | Waiver
+        #collapseEighteen.collapse(role='tabpanel', aria-labelledby='headingEighteen', data-parent='#accordion')
+          .card-body
+            div If you breach these Terms of Use and we take no action, we will still be entitled to use our rights and remedies in any other situation where you breach these conditions.
+      .card
+        #headingNinteen.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseNinteen', aria-expanded='false', aria-controls='collapseNinteen')
+              | Digital Goods & Services - No Refund Policy
+        #collapseNinteen.collapse(role='tabpanel', aria-labelledby='headingNinteen', data-parent='#accordion')
+          .card-body
+            div All sales are final. Since nunuatips.com is offering non-tangible, irrevocable, digital goods and services, we do NOT issue refunds, which you are responsible for understanding.
+            div nunuatips.com will not refund any monies that you prepay as a Buyer. Any monies from your Prepaid Balance must be used to pay for Products you buy on the Site.
+      .card
+        #headingTwenty.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseTwenty', aria-expanded='false', aria-controls='collapseTwenty')
+              | Prohibited Conduct
+        #collapseTwenty.collapse(role='tabpanel', aria-labelledby='headingTwenty', data-parent='#accordion')
+          .card-body
+            div You agree not to upload, post, send e-mail, transmit or otherwise distribute any material that contains software viruses or any other computer code, files or programs designed to interrupt, destroy or limit the functionality of any computer software or hardware or telecommunications equipment.
+            div Any fraudulent, abusive or otherwise illegal activity is grounds for termination of your right to use the service or access to the Site.
+      .card
+          #headingTwentyOne.card-header(role='tab')
+            h5.mb-0
+              a.collapsed(data-toggle='collapse', href='#collapseTwentyOne', aria-expanded='false', aria-controls='collapseTwentyOne')
+                | Complaints, Disputes, Governing Law and Jurisdiction.
+          #collapseTwentyOne.collapse(role='tabpanel', aria-labelledby='headingTwentyOne', data-parent='#accordion')
+            .card-body
+              div Should there be any claim or dispute arising from a past or current transaction, please Contact Us.  These Terms and Conditions and any dispute or claim arising out of or in connection with it or its subject matter, shall be governed and construed in accordance with the laws of Kenya regardless of the player's country of domicile..
+      .card
+          #headingTwentyTwo.card-header(role='tab')
+            h5.mb-0
+              a.collapsed(data-toggle='collapse', href='#collapseTwentyTwo', aria-expanded='false', aria-controls='collapseTwentyTwo')
+                | Contacting Us
+          #collapseTwentyTwo.collapse(role='tabpanel', aria-labelledby='headingTwentyTwo', data-parent='#accordion')
+            .card-body
+              div If you have any questions regarding our Terms & Conditions you may contact us.

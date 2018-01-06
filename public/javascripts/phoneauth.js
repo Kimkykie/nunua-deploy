@@ -22,7 +22,7 @@ const uiConfig = {
     },
   ],
   // Terms of service url.
-  tosUrl: 'https://nunuatips.com/terms',
+  tosUrl: 'https://nunuatips.com/terms-and-conditions',
 };
 
 const ui = new firebaseui.auth.AuthUI(firebase.auth());

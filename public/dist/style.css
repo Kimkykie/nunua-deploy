@@ -590,6 +590,79 @@ table.ui .show-more {
   height: 20em !important;
   width: 20em !important; }
 
+.balance_div {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  width: 80%;
+  margin: 0 auto; }
+  .balance_div .balance_text {
+    -ms-flex: 1;
+        flex: 1;
+    font-size: 1.2em;
+    margin-top: 0.2em; }
+  .balance_div .balance_user {
+    -ms-flex: 1;
+        flex: 1;
+    font-size: 1.2em;
+    text-align: center;
+    background: #93FF00;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
+    padding-top: 0.2em;
+    padding-bottom: 0.2em; }
+
+.withdraw_div .withdraw_header {
+  font-weight: normal;
+  font-size: 2rem;
+  margin-top: 1em; }
+
+.withdraw_div #withdraw_form {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 1em; }
+  .withdraw_div #withdraw_form .withdraw_btn {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    font-size: 0.8em; }
+
+.pending_div {
+  width: 80% !important;
+  margin: auto !important;
+  margin-top: 1em !important;
+  text-align: center; }
+
+.deposit_div {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 5px; }
+  .deposit_div .deposit_header {
+    font-weight: normal;
+    font-size: 2rem;
+    margin-top: 1em; }
+  .deposit_div .saficon {
+    width: 5em;
+    height: 2em; }
+  .deposit_div .deposit_instructions {
+    padding-left: 0.5em; }
+  .deposit_div .deposit_paybill {
+    font-weight: 600; }
+
+@media only screen and (min-width: 992px) {
+  .balance_div {
+    width: 50%; }
+    .balance_div .balance_text {
+      font-size: 1.5em; }
+    .balance_div .balance_user {
+      margin-left: -12em; }
+  .withdraw_div #withdraw_form {
+    width: 60%; }
+  .pending_div {
+    width: 60% !important; }
+  .deposit_div {
+    width: 60%; } }
+
 .search__results {
   width: 80% !important;
   background: white;
@@ -813,15 +886,36 @@ table.ui .show-more {
   border: 0;
   box-shadow: 0; }
 
-.container {
+#help-container {
   margin-top: 2em; }
-  .container h2 {
+  #help-container h2 {
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;
     text-decoration: underline; }
-  .container img {
-    width: 40em;
+  #help-container img {
+    width: 30em;
     height: 40em; }
+  #help-container .card {
+    border-radius: 0; }
+    #help-container .card a {
+      font-size: 1.3em; }
+    #help-container .card .card-body div {
+      font-size: 12px; }
+    #help-container .card .card-body a {
+      font-size: 12px; }
+    #help-container .card .card-body img {
+      margin-top: 1rem; }
+
+#terms-container {
+  margin-top: 2em; }
+  #terms-container .card {
+    border-radius: 0; }
+    #terms-container .card a {
+      font-size: 1.3em; }
+    #terms-container .card .card-body div {
+      font-size: 12px; }
+    #terms-container .card .card-body a {
+      font-size: 12px; }
 
 /*# sourceMappingURL=style.css.map*/

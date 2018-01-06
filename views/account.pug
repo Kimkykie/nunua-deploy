@@ -1,31 +1,44 @@
 extends layout
 
 block content
-	.ui.container
-		h3 EDIT YOUR ACCOUNT
-		p #{`BALANCE: ${user.balance}`}
-		form.ui.form.segment#register-form(action='/account' method='POST' enctype='multipart/form-data')
-			if user.avatar
-				img.ui.bordered.image.small.centered.circular.user__prof(src=`/uploads/${user.avatar}`, alt=user.username)
-			else
-				img.ui.bordered.image.small.centered.circular.user__prof(src=user.gravatar + '&d=wavatar')
-			.field.required
-				label Avatar
-				|
-				.ui.left.labeled.input
-					input(type='file' name='avatar' id='avatar' accept='image/gif, image/png, image/jpeg')
-			.field.required
-				label Username
+	.balance_div
+		div.balance_text BALANCE:
+		div.balance_user #{`KSHS. ${user.balance}`}
+	.withdraw_div
+		h3.withdraw_header REQUEST WITHDRAWAL
+		form.ui.form.segment#withdraw_form(action='/login' method='POST')
+			.field
+				label Phone
 				|
 				.ui.left.labeled.icon.input
-					input(type='text', value=user.username, name='username')
+					input(type='text', placeholder=user.phone, readonly="", disabled="", name='phone')
 					|
-					i.user.icon
-			.field.required
-				label Email
+					i.phone.icon
+			.field
+				label Amount
 				|
 				.ui.left.labeled.icon.input
-					input(type='email', value=user.email, name='email')
+					input(type='text', placeholder='Amount to withdraw', name='amount')
 					|
-					i.email.icon
-			button.ui.button.fluid(type='submit') UPDATE ACCOUNT
+					i.money.icon
+			button.ui.button.purple.withdraw_btn(type='submit') WITHDRAW
+	.pending_div.ui.raised.segments
+		p PENDING WITHDRAWALS
+	.deposit_div
+		h3.deposit_header How to deposit Funds
+		hr
+		img.saficon(src="/images/icons/safcom.png", alt="Safaricom icon")
+		p.deposit_paybill Paybill Number: 964595
+		.ui.ordered.list.deposit_instructions
+			.item Go to Mpesa Menu
+			.item Select Lipa na Mpesa
+			.item Click on Paybill
+			.item Enter Business Number as 964595
+			.item Enter Account Number as NUNUATIPS
+			.item Enter the amount you want to transfer to your nunuatips account
+			.item Enter your Mpesa pin to confirm your request
+			.item You will shortly receive an SMS from MPESA to confirm the transaction
+
+
+
+
