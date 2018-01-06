@@ -4,6 +4,20 @@ block content
 	.balance_div
 		div.balance_text BALANCE:
 		div.balance_user #{`KSHS. ${user.balance}`}
+	.deposit_div
+		h3.deposit_header How to deposit Funds
+		hr
+		img.saficon(src="/images/icons/safcom.png", alt="Safaricom icon")
+		p.deposit_paybill Paybill Number: 964595
+		.ui.ordered.list.deposit_instructions
+			.item Go to Mpesa Menu
+			.item Select Lipa na Mpesa
+			.item Click on Paybill
+			.item Enter Business Number as 964595
+			.item Enter Account Number as NUNUATIPS
+			.item Enter the amount you want to transfer to your nunuatips account
+			.item Enter your Mpesa pin to confirm your request
+			.item You will shortly receive an SMS from MPESA to confirm the transaction
 	.withdraw_div
 		h3.withdraw_header REQUEST WITHDRAWAL
 		form.ui.form.segment#withdraw_form(action='/login' method='POST')
@@ -24,20 +38,7 @@ block content
 			button.ui.button.purple.withdraw_btn(type='submit') WITHDRAW
 	.pending_div.ui.raised.segments
 		p PENDING WITHDRAWALS
-	.deposit_div
-		h3.deposit_header How to deposit Funds
-		hr
-		img.saficon(src="/images/icons/safcom.png", alt="Safaricom icon")
-		p.deposit_paybill Paybill Number: 964595
-		.ui.ordered.list.deposit_instructions
-			.item Go to Mpesa Menu
-			.item Select Lipa na Mpesa
-			.item Click on Paybill
-			.item Enter Business Number as 964595
-			.item Enter Account Number as NUNUATIPS
-			.item Enter the amount you want to transfer to your nunuatips account
-			.item Enter your Mpesa pin to confirm your request
-			.item You will shortly receive an SMS from MPESA to confirm the transaction
+
 
 
 

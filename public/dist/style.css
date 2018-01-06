@@ -631,7 +631,8 @@ table.ui .show-more {
   width: 80% !important;
   margin: auto !important;
   margin-top: 1em !important;
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 1em !important; }
 
 .deposit_div {
   width: 80%;
