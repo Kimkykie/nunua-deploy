@@ -1,0 +1,28 @@
+ .site{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.ui.footer.segment {
+  flex: 1;
+  background: $black;
+}
+
+footer{
+  color: $white;
+  text-align: center;
+  font-size: 1.2rem !important;
+  a{
+    color: $purpler;
+  }
+}
+.sidebar_copyright{
+  background: $black !important;
+  color: $white !important;
+  position: fixed !important;
+  bottom: 0px;
+  a{
+    color: $purpler;
+  }
+}

@@ -18,7 +18,7 @@ html
     script(src='/semantic/out/semantic.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui-calendar/0.0.8/calendar.min.js')
 
-  body
+  body.site
     block header
       .ui.sidebar.vertical.menu.left.mobile.tablet.only#sidebar-menu
         if user
@@ -45,8 +45,6 @@ html
             //- i.user.left.icon
           a.item(href='/user/orders') Purchases
             //- i.user.left.icon
-          a.item(href='/user/settings') Settings
-            //- i.settings.left.icon
           a.item(href='/help') Help
             //- i.help.circle.left.icon
           if user
@@ -57,6 +55,13 @@ html
             div.menu_login
               a.ui.button.fluid.basic.purple(href='/auth') Sign Up
             //- i.sign.out.left.icon
+          .ui.basic.segment.sidebar_copyright
+            .ui.container
+              span Copyright &copy 2018. Muchaba Technologies
+              div
+                span= `All Rights Reserved. See Our `
+                span
+                  a(href='/terms-and-conditions') Terms &amp Conditions and Privacy Policy
 
       .ui.menu.top.fixed.borderless#fixed-menu
         a.item.mobile.tablet.only#toggle
@@ -117,7 +122,15 @@ html
                         button.flash__remove(onClick="this.parentElement.remove()") &times;
 
         block content
-
+    block footer
+      footer.computer.large.monitor.only
+        .ui.footer.basic.segment
+          .ui.container
+            span Copyright &copy 2018. Muchaba Technologies
+            div
+              span= `All Rights Reserved. See Our `
+              span
+                a(href='/terms-and-conditions') Terms &amp Conditions and Privacy Policy
     block scripts
       script(src="/javascripts/validation.js")
       script(src="/dist/App.bundle.js")
