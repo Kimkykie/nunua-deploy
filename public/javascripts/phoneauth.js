@@ -15,7 +15,7 @@ const uiConfig = {
       // Leave the lines as is for the providers you want to offer your users.
       provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
       recaptchaParameters: {
-        size: 'normal', // 'invisible' or 'compact'
+        size: 'invisible', // 'invisible' or 'compact'
         badge: 'bottomleft' // ' bottomright' or 'inline' applies to invisible.
       },
       defaultCountry: 'KE' // Set default country to the United Kingdom (+44).
