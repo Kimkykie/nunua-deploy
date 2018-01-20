@@ -934,25 +934,6 @@ table.ui .show-more {
     #terms-container .card .card-body a {
       font-size: 12px; }
 
-.site {
-  display: -ms-flexbox;
-  display: flex;
-  min-height: 100vh;
-  -ms-flex-direction: column;
-      flex-direction: column; }
-
-.ui.footer.segment {
-  -ms-flex: 1;
-      flex: 1;
-  background: #303030; }
-
-footer {
-  color: #f6f6f6;
-  text-align: center;
-  font-size: 1.2rem !important; }
-  footer a {
-    color: #a333c8; }
-
 .sidebar_copyright {
   background: #303030 !important;
   color: #f6f6f6 !important;
@@ -960,5 +941,23 @@ footer {
   bottom: 0px; }
   .sidebar_copyright a {
     color: #a333c8; }
+
+@media only screen and (min-width: 1024px) {
+  .site {
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 100vh;
+    -ms-flex-direction: column;
+        flex-direction: column; }
+  .ui.footer.segment {
+    -ms-flex: 1;
+        flex: 1;
+    background: #303030; }
+  footer {
+    color: #f6f6f6;
+    text-align: center;
+    font-size: 1.2rem !important; }
+    footer a {
+      color: #a333c8; } }
 
 /*# sourceMappingURL=style.css.map*/
