@@ -10,6 +10,13 @@
         font-size: 1.5em;
       }
     }
+    .terms_link{
+      color: blueviolet;
+      font-weight: bolder;
+    }
+    .terms_link:hover{
+      text-decoration: underline;
+    }
   }
 }
 

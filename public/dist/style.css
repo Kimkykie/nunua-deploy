@@ -285,6 +285,11 @@ h3 {
     font-size: 1em; }
   #register-container #register-form .ui.checkbox label {
     font-size: 1.5em; }
+  #register-container #register-form .terms_link {
+    color: blueviolet;
+    font-weight: bolder; }
+  #register-container #register-form .terms_link:hover {
+    text-decoration: underline; }
 
 .forgot {
   text-align: center;

@@ -6,43 +6,47 @@ block content
       h3 Register
       .field.required
         label Username
-        |     
+        |
         .ui.left.labeled.icon.input
           input(type='text', placeholder='Username', name='username')
-          |       
+          |
           i.user.icon
       .field.required
         label Email
-        |     
+        |
         .ui.left.labeled.icon.input
           input(type='email', placeholder='Email', name='email')
-          |       
+          |
           i.mail.icon
       .field.required
         label Phone
-        |     
+        |
         .ui.left.labeled.icon.input
-          input(type='text', placeholder='07121345678', name='phone')
-          |       
+          input(type='text', name='phone' id='phone', readonly="", disabled="")
+          |
           i.phone.icon
       .field.required
         label Password
-        |     
+        |
         .ui.left.labeled.icon.input
           input(type='password', name='password')
-          |       
+          |
           i.lock.icon
       .field.required
         label Confirm password
-        |     
+        |
         .ui.left.labeled.icon.input
           input(type='password', name='password-confirm')
-          |       
+          |
           i.lock.icon
       .inline.field
         .ui.checkbox
           input(type='checkbox', name='terms')
-          label I agree to the terms and conditions  
+          label
+            a.terms_link(href='/terms-and-conditions' target='_blank') I agree to the terms and conditions
       button.ui.purple.button.fluid(type='submit') REGISTER
       .ui.error.message
         .header We noticed some issues
+    script.
+      const phoneInput = document.getElementById('phone');
+      phoneInput.value = localStorage.getItem('phone');

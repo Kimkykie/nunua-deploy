@@ -4,9 +4,9 @@ const config = {
   databaseURL: 'https://nunua-bet.firebaseio.com',
   projectId: 'nunua-bet',
   storageBucket: 'nunua-bet.appspot.com',
-  messagingSenderId: '515605342765',
-};
-firebase.initializeApp(config);
+  messagingSenderId: '515605342765'
+}
+firebase.initializeApp(config)
 
 const uiConfig = {
   signInSuccessUrl: '/register',
@@ -16,14 +16,30 @@ const uiConfig = {
       provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
       recaptchaParameters: {
         size: 'normal', // 'invisible' or 'compact'
-        badge: 'bottomleft', // ' bottomright' or 'inline' applies to invisible.
+        badge: 'bottomleft' // ' bottomright' or 'inline' applies to invisible.
       },
-      defaultCountry: 'KE', // Set default country to the United Kingdom (+44).
-    },
+      defaultCountry: 'KE' // Set default country to the United Kingdom (+44).
+    }
   ],
   // Terms of service url.
-  tosUrl: 'https://nunuatips.com/terms-and-conditions',
-};
+  tosUrl: 'https://nunuatips.com/terms-and-conditions'
+}
 
-const ui = new firebaseui.auth.AuthUI(firebase.auth());
-ui.start('#firebaseui-auth-container', uiConfig);
+const ui = new firebaseui.auth.AuthUI(firebase.auth())
+ui.start('#firebaseui-auth-container', uiConfig)
+
+let initApp = function () {
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      // User is verified
+      let phoneNumber = user.phoneNumber
+      localStorage.setItem('phone', phoneNumber.replace(/^(\+254)+/, '0'))
+    }
+  }, function (error) {
+    console.log(error)
+  })
+}
+
+window.addEventListener('load', function () {
+  initApp()
+})

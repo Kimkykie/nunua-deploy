@@ -102,6 +102,22 @@ var uiConfig = {
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 ui.start('#firebaseui-auth-container', uiConfig);
 
+var initApp = function initApp() {
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      // User is verified
+      var phoneNumber = user.phoneNumber;
+      localStorage.setItem('phone', phoneNumber.replace(/^(\+254)+/, '0'));
+    }
+  }, function (error) {
+    console.log(error);
+  });
+};
+
+window.addEventListener('load', function () {
+  initApp();
+});
+
 /***/ })
 
 /******/ });
