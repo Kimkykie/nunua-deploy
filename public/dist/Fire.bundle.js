@@ -107,7 +107,7 @@ var initApp = function initApp() {
     if (user) {
       // User is verified
       var phoneNumber = user.phoneNumber;
-      localStorage.setItem('phone', phoneNumber.replace(/^(\+254)+/, '0'));
+      sessionStorage.setItem('phone', phoneNumber.replace(/^(\+254)+/, '0'));
     }
   }, function (error) {
     console.log(error);

@@ -33,7 +33,7 @@ let initApp = function () {
     if (user) {
       // User is verified
       let phoneNumber = user.phoneNumber
-      localStorage.setItem('phone', phoneNumber.replace(/^(\+254)+/, '0'))
+      sessionStorage.setItem('phone', phoneNumber.replace(/^(\+254)+/, '0'))
     }
   }, function (error) {
     console.log(error)
