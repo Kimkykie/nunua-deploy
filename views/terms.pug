@@ -6,6 +6,7 @@ block content
   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js', integrity='sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ', crossorigin='anonymous')
   .container#terms-container
     h2= title
+    p.last_updated Last Updated: January 2018
     #accordion(role='tablist')
       .card
         #headingOne.card-header(role='tab')
@@ -14,7 +15,11 @@ block content
               | Introduction
         #collapseOne.collapse.show(role='tabpanel', aria-labelledby='headingOne', data-parent='#accordion')
           .card-body
-            div Welcome to the nunuatips.com Terms & Conditions. These Terms & Conditions and our Privacy Policy govern your use of the nunuatips.com website (nunuatips, Website, Site, we or us).Please read the Terms & conditions carefully before you start to use the Site. By using the Site, opening an account or by clicking to accept or agree to the Terms of Service when this option is made available to you, you accept and agree to be bound and abide by these Terms of Service and our Privacy Policy, found here, incorporated herein by reference. If you do not want to agree to these Terms of Service or the Privacy Policy, you must not access or use the Site.
+            div
+              span Welcome to the nunuatips.com Terms & Conditions. These Terms & Conditions and our 
+              span
+                a(href='/privacy-policy') Privacy Policy 
+              span govern your use of the nunuatips.com website (nunuatips, Website, Site, we or us).Please read the Terms & conditions carefully before you start to use the Site. By using the Site, opening an account or by clicking to accept or agree to the Terms of Service when this option is made available to you, you accept and agree to be bound and abide by these Terms of Service and our Privacy Policy, found here, incorporated herein by reference. If you do not want to agree to these Terms of Service or the Privacy Policy, you must not access or use the Site.
             div You must understand that nunuatips is NOT a betting/gambling website. It is only a marketplace for the buying and selling of football predictions.
             div We may update this Agreement or the Privacy Policy at any time, without notification to you, and you should review this Agreement and the Privacy Policy from time to time by accessing the Site. Your continued use of the Site and/or the Services shall be deemed irrevocable acceptance of any such revisions.  You should periodically check the "Last Updated" date at the top of this document to familiarize yourself with the most recent version of this Agreement.
       .card
@@ -40,7 +45,7 @@ block content
               | Termination of Access to the Site
         #collapseFour.collapse(role='tabpanel', aria-labelledby='headingFour', data-parent='#accordion')
           .card-body
-            div Tnunuatips.com reserves the right, in its sole discretion, to change, suspend or discontinue any aspect of the Site at any time, including the availability of any Site feature, database, or content. nunuatips.com may also impose limits on certain features and services or restrict your access to parts or all of the Site without notice or liability.
+            div nunuatips.com reserves the right, in its sole discretion, to change, suspend or discontinue any aspect of the Site at any time, including the availability of any Site feature, database, or content. nunuatips.com may also impose limits on certain features and services or restrict your access to parts or all of the Site without notice or liability.
       .card
         #headingFive.card-header(role='tab')
           h5.mb-0
@@ -65,7 +70,10 @@ block content
               | Privacy Policy
         #collapseSix.collapse(role='tabpanel', aria-labelledby='headingSix', data-parent='#accordion')
           .card-body
-            div Our privacy policy, which sets out how we will use your information, can be found at Privacy Policy 
+            div
+              span Our privacy policy, which sets out how we will use your information, can be found at 
+              span
+                a(href='/privacy-policy') Privacy Policy. 
             div By using this Website, you consent to the processing described therein and warrant that all data provided by you is accurate.
       .card
         #headingSeven.card-header(role='tab')

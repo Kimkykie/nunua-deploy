@@ -1,8 +1,12 @@
 #help-container{
 		margin-top: 2em;
+		.help_clause{
+			font-size: 12px;
+		}
 		h2{
 			text-transform: uppercase;
 			text-align: center;
+			font-family: 'Panama';
 			font-weight: bold;
 			text-decoration: underline;
 		}
@@ -30,6 +34,21 @@
 }
 #terms-container{
 	margin-top: 2em;
+	margin-bottom: 2em;
+	.privacy_clause{
+		font-size: 12px;
+		margin-bottom: 1em;
+	}
+	.last_updated{
+		font-family: 'Panama';
+	}
+	h2{
+		text-transform: uppercase;
+		font-family: 'Panama';
+		text-align: center;
+		font-weight: bold;
+		text-decoration: underline;
+	}
 	.card{
 		border-radius: 0;
 		a{

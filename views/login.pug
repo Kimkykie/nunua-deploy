@@ -3,7 +3,18 @@ extends layout
 include mixins/_loginForm
 
 block content
-  .ui.container#register-container
+  .ui.container#register-container.login_container
     +loginForm()
-  
-    
+
+  footer.mobile.tablet.only.sidebar_copyright
+    .ui.footer.basic.segment
+      .ui.container
+        span Copyright &copy 2018. Muchaba Technologies
+        div
+          span= `All Rights Reserved. See Our `
+          span
+            a(href='/terms-and-conditions')= `Terms `
+          span &amp
+          span
+            a(href='/privacy-policy')= ` Privacy Policy`
+

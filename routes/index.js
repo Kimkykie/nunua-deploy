@@ -82,4 +82,5 @@ router.post('/c2b/validation', mpesaController.c2bValidation)
 //  FEEDBACK
 router.get('/help', feedBackController.help)
 router.get('/terms-and-conditions', feedBackController.terms)
+router.get('/privacy-policy', feedBackController.privacy)
 module.exports = router

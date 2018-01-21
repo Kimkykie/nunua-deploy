@@ -1,0 +1,107 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css', integrity='sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb', crossorigin='anonymous')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js', integrity='sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh', crossorigin='anonymous')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js', integrity='sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ', crossorigin='anonymous')
+  .container#terms-container
+    h2= title
+    p.last_updated Last Updated: January 2018
+    div.privacy_clause Your privacy is important to us. To better protect your privacy we provide this notice explaining our online information practices and the choices you can make about the way your information is collected and used.
+    #accordion(role='tablist')
+      .card
+        #headingOne.card-header(role='tab')
+          h5.mb-0
+            a(data-toggle='collapse', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
+              | Log Files
+        #collapseOne.collapse.show(role='tabpanel', aria-labelledby='headingOne', data-parent='#accordion')
+          .card-body
+            div Like many other web sites, our site makes use of log files. The information inside the log files includes internet protocol (IP) addresses, type of browser, Internet Service Provider (ISP), date/time stamp, referring/exit pages, and number of clicks to analyze trends, administer the site, track user’s movement around the site, and gather demographic information. IP addresses and other such information are not linked to any information that is personally identifiable.
+      .card
+        #headingTwo.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
+              | Collection of Personal Information
+        #collapseTwo.collapse(role='tabpanel', aria-labelledby='headingTwo', data-parent='#accordion')
+          .card-body
+            div We collect information from you when you register on our site or place an order. When ordering or registering on our site, as appropriate, you may be asked to enter your: name, e-mail address or mailing address. You may, however, visit our site anonymously.
+            div We do not sell, trade, or otherwise transfer to outside parties your personally identifiable information. We may also release your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others rights, property, or safety.
+      .card
+        #headingThree.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseThree', aria-expanded='false', aria-controls='collapseThree')
+              | Reviewing/Changing Personal Information
+        #collapseThree.collapse(role='tabpanel', aria-labelledby='headingThree', data-parent='#accordion')
+          .card-body
+            div You can review and edit any of the Personal Information you have provided through this web site at any time by logging into your nunuatips account then clicking on ‘Edit Profile'.
+      .card
+        #headingFour.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseFour', aria-expanded='false', aria-controls='collapseFour')
+              | Our Site and Children
+        #collapseFour.collapse(role='tabpanel', aria-labelledby='headingFour', data-parent='#accordion')
+          .card-body
+            div We do not knowingly collect personal data from children. We ask users to confirm that they are at least 18 years old before creating accounts with us.
+      .card
+        #headingFive.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseFive', aria-expanded='false', aria-controls='collapseFive')
+              | What do we use your information for?
+        #collapseFive.collapse(role='tabpanel', aria-labelledby='headingFive', data-parent='#accordion')
+          .card-body
+            div Any of the information we collect from you may be used in one of the following ways:
+              ol
+                li To personalize your experience (your information helps us to better respond to your individual needs)
+                li To improve our website (we continually strive to improve our website offerings based on the information and feedback we receive from you)
+                li To improve customer service (your information helps us to more effectively respond to your customer service requests and support needs)
+                li To process transactions
+            div Your information, whether public or private, will not be sold, exchanged, transferred, or given to any other company for any reason whatsoever, without your consent, other than for the express purpose of delivering the purchased product or service requested.
+      .card
+        #headingSix.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseSix', aria-expanded='false', aria-controls='collapseSix')
+              | Links to other websites
+        #collapseSix.collapse(role='tabpanel', aria-labelledby='headingSix', data-parent='#accordion')
+          .card-body
+            div Our website may contain links to other websites of interest. However, once you have used these links to leave our site, you should note that we do not have any control over that other website. Therefore, we cannot be responsible for the protection and privacy of any information which you provide whilst visiting such sites and such sites are not governed by this privacy statement. You should exercise caution and look at the privacy statement applicable to the website in question.
+      .card
+        #headingSeven.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseSeven', aria-expanded='false', aria-controls='collapseSeven')
+              | Cookies
+        #collapseSeven.collapse(role='tabpanel', aria-labelledby='headingSeven', data-parent='#accordion')
+          .card-body
+            div Our site does use cookies to store information about visitor’s preferences, record user-specific information on which pages the user access or visit, customize Web page content based on visitors browser type or other information that the visitor sends via their browser.
+      .card
+        #headingEight.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseEight', aria-expanded='false', aria-controls='collapseEight')
+              | Security
+        #collapseEight.collapse(role='tabpanel', aria-labelledby='headingEight', data-parent='#accordion')
+          .card-body
+            div We implement a variety of security measures to maintain the safety of your personal information when you desposit money via our mobile money partner (mpesa), purchase a prediction or access your personal information.
+            div We do not store any critical financial information on our servers.
+      .card
+        #headingNine.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseNine', aria-expanded='false', aria-controls='collapseNine')
+              | Your Consent
+        #collapseNine.collapse(role='tabpanel', aria-labelledby='headingNine', data-parent='#accordion')
+          .card-body
+            div By using our site, you consent to our web site privacy policy.
+      .card
+        #headingTen.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseTen', aria-expanded='false', aria-controls='collapseTen')
+              | Changes to our Privacy Policy
+        #collapseTen.collapse(role='tabpanel', aria-labelledby='headingTen', data-parent='#accordion')
+          .card-body
+            div From time to time, we may update this privacy notice. We will notify you about material changes in the way we treat personally identifiable information by placing a notice on our site. We encourage you to periodically check back and review this policy so that you always will know what information we collect, how we use it, and to whom we disclose it. Your continued use of the Site Name Web Site following the posting of any changes to these terms shall mean that you have accepted those changes.
+      .card
+        #headingEleven.card-header(role='tab')
+          h5.mb-0
+            a.collapsed(data-toggle='collapse', href='#collapseEleven', aria-expanded='false', aria-controls='collapseEleven')
+              | Contacting Us
+        #collapseEleven.collapse(role='tabpanel', aria-labelledby='headingEleven', data-parent='#accordion')
+          .card-body
+            div If there are any questions regarding this Privacy Policy you may contact us.

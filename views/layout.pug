@@ -55,13 +55,6 @@ html
             div.menu_login
               a.ui.button.fluid.basic.purple(href='/auth') Sign Up
             //- i.sign.out.left.icon
-          .ui.basic.segment.sidebar_copyright
-            .ui.container
-              span Copyright &copy 2018. Muchaba Technologies
-              div
-                span= `All Rights Reserved. See Our `
-                span
-                  a(href='/terms-and-conditions') Terms &amp Conditions and Privacy Policy
 
       .ui.menu.top.fixed.borderless#fixed-menu
         a.item.mobile.tablet.only#toggle
@@ -130,7 +123,10 @@ html
             div
               span= `All Rights Reserved. See Our `
               span
-                a(href='/terms-and-conditions') Terms &amp Conditions and Privacy Policy
+                a(href='/terms-and-conditions')= `Terms `
+              span &amp
+              span
+                a(href='/privacy-policy')= ` Privacy Policy`
     block scripts
       script(src="/javascripts/validation.js")
       script(src="/dist/App.bundle.js")

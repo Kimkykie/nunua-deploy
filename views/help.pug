@@ -6,7 +6,7 @@ block content
   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js', integrity='sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ', crossorigin='anonymous')
   .container#help-container
     h2= title
-    p.d-flex.justify-content-center Hello, these are the few questions you may currently be having about the website:
+    div.help_clause Hello, these are the few questions you may currently be having about the website:
     #accordion(role='tablist')
       .card
         #headingOne.card-header(role='tab')
@@ -142,5 +142,4 @@ block content
               li.list-group-item
                 div You can also share your prediction to your favorite platforms for other users to purchase
                   img.img-fluid.mx-auto.d-block(src='/images/rate.jpg')
-    div
-      p Was this helpful? If you have any other questions, you can send us your feedback here, we would love to hear from you.
+    div.help_clause  Was this helpful? If you have any other questions, you can send us your feedback here, we would love to hear from you.
