@@ -20,15 +20,15 @@ block content
 			.item You will shortly receive an SMS from MPESA to confirm the transaction
 	.withdraw_div
 		h3.withdraw_header REQUEST WITHDRAWAL
-		form.ui.form.segment#withdraw_form(action='/login' method='POST')
-			.field
+		form.ui.form.segment#withdraw_form(action=`/mpesa/withdrawal/request/${user._id}` method='POST')
+			.field.required
 				label Phone
 				|
 				.ui.left.labeled.icon.input
-					input(type='text', id='phone', placeholder=user.phone, readonly="", disabled="", name='phone')
+					input(type='text', id='phone', value=user.phone, readonly="", name='phone')
 					|
 					i.phone.icon
-			.field
+			.field.required
 				label Amount
 				|
 				.ui.left.labeled.icon.input
@@ -36,8 +36,20 @@ block content
 					|
 					i.money.icon
 			button.ui.button.purple.withdraw_btn(type='submit') WITHDRAW
+			.ui.error.message
+				.header We noticed some issues
 	.pending_div.ui.raised.segments
-		p PENDING WITHDRAWALS
+		p.withdraw_header WITHDRAWALS
+		.withdrawal_data.data_header
+			p Date
+			p Amount
+		each payment in payments
+			- if(payment.category === "MobileB2C")
+					-const date = (new Date( parseInt(payment._id.toString().substring(0,8), 16 ) * 1000 )).toISOString().slice(0,10).replace(/-/g,"/")
+					.withdrawal_data
+						p=date
+						p=payment.value.replace('.0000', '')
+
 
 
 

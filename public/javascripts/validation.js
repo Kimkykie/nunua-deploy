@@ -136,3 +136,18 @@ $('.login-form')
     }
   }
 })
+
+// WITHDRAWAL
+$('#withdraw_form')
+.form({
+  fields: {
+    amount: {
+      identifier: 'amount',
+      rules: [{
+        type: 'empty',
+        prompt: 'Please enter an amount to withdraw'
+      }
+      ]
+    }
+  }
+})

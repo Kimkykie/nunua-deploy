@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const User = mongoose.model('User')
 const Cart = require('../models/Cart')
 const Prediction = mongoose.model('Prediction')
-
+const Payment = mongoose.model('Payment')
 const Order = mongoose.model('Order')
 
 const promisify = require('es6-promisify')
@@ -72,8 +72,9 @@ exports.register = async (req, res, next) => {
   next()
 }
 
-exports.account = (req, res, next) => {
-  res.render('account', { title: 'Account Settings' })
+exports.account = async (req, res, next) => {
+  const payments = await Payment.find({user: req.user})
+  res.render('account', { title: 'Account Settings', payments })
 }
 
 exports.updateAccount = async (req, res) => {

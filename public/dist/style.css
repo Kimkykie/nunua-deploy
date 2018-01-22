@@ -648,6 +648,24 @@ table.ui .show-more {
   margin-top: 1em !important;
   text-align: center;
   margin-bottom: 1em !important; }
+  .pending_div .withdraw_header {
+    font-size: 1.2em;
+    font-family: Panama; }
+  .pending_div .data_header {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: underline; }
+  .pending_div .withdrawal_data {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-align: start;
+        align-items: flex-start;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap; }
+    .pending_div .withdrawal_data p {
+      width: 50%; }
 
 .deposit_div {
   width: 80%;
@@ -950,13 +968,16 @@ table.ui .show-more {
       font-size: 12px; }
 
 .login_container {
-  min-height: 100vh; }
+  min-height: 100%;
+  margin-bottom: -50px; }
+
+.push {
+  height: 50px; }
 
 .sidebar_copyright {
   width: 100%;
-  text-align: center;
-  position: fixed !important;
-  bottom: 0px; }
+  height: 50px;
+  text-align: center; }
   .sidebar_copyright a {
     color: #a333c8; }
 

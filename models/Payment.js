@@ -5,7 +5,7 @@ const paymentSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId, ref: 'User'
   },
-  category:{
+  category: {
     type: String
   },
   transactionId: {
