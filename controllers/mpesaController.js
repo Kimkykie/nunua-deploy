@@ -40,7 +40,7 @@ exports.b2cValidation = async(req, res) => {
   if ((req.body.phone === req.user.phone) && (req.body.amount !== '') && (req.user.balance > req.body.amount)) {
     const useropts = {
       'username': 'kimkiragu',
-      'productName': 'NUNUATIPs',
+      'productName': 'nunuapay',
       'recipients': [
         {
           'name': req.user.username,

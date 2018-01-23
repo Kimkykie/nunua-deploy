@@ -78,7 +78,7 @@ router.get('/api/search', catchErrors(userController.searchUsers))
 
 // MPESA
 router.post('/c2b/validation', mpesaController.c2bValidation)
-router.post('/mpesa/withdrawal/request/:id', mpesaController.b2cValidation)
+router.post('/mpesa/withdrawal/request', mpesaController.b2cValidation)
 //  FEEDBACK
 router.get('/help', feedBackController.help)
 router.get('/terms-and-conditions', feedBackController.terms)

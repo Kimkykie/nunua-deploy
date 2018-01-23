@@ -20,7 +20,7 @@ block content
 			.item You will shortly receive an SMS from MPESA to confirm the transaction
 	.withdraw_div
 		h3.withdraw_header REQUEST WITHDRAWAL
-		form.ui.form.segment#withdraw_form(action=`/mpesa/withdrawal/request/${user._id}` method='POST')
+		form.ui.form.segment#withdraw_form(action=`/mpesa/withdrawal/request` method='POST')
 			.field.required
 				label Phone
 				|

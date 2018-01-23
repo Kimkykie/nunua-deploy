@@ -21,7 +21,11 @@ const userSchema = new Schema({
 
   username: {
     type: String,
-    required: 'Please supply a name'
+    unique: true,
+    required: 'Please supply a name',
+    validate: [
+      validator.isLength({min: 0, max: 10}), 'Invaid Username'
+    ]
   },
 
   phone: {
