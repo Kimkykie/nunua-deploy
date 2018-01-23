@@ -41,6 +41,7 @@ exports.forgotPassword = (req, res) => {
 exports.validateRegister = (req, res, next) => {
   req.sanitizeBody('username')
   req.checkBody('username', 'You must supply a name!').notEmpty()
+  req.checkBody('username', 'Oops! Username should be between 3-15 characters').isLength({min: 3, max: 15})
   req.checkBody('email', 'Email not valid!').isEmail()
   req.sanitizeBody('phone')
   req.checkBody('phone', 'You must supply a phone number!').notEmpty()

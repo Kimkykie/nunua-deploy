@@ -22,14 +22,12 @@ const userSchema = new Schema({
   username: {
     type: String,
     unique: true,
-    required: 'Please supply a name',
-    validate: [
-      validator.isLength({min: 0, max: 10}), 'Invaid Username'
-    ]
+    required: 'Please supply a name'
   },
 
   phone: {
     type: String,
+    unique: true,
     required: 'Please supply a phone number',
     trim: true
   },
@@ -61,6 +59,10 @@ const userSchema = new Schema({
 userSchema.index({
   username: 'text'
 })
+
+userSchema.path('username').validate(function (v) {
+  return v.length <= 15
+}, 'Sorry! Maximum username length is 15.')
 
 userSchema.virtual('gravatar').get(function () {
   const hash = md5(this.email)

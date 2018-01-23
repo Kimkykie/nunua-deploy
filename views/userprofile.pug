@@ -50,3 +50,11 @@ block content
 		.ui.stackable.three.column.grid.doubling
 			- for( var i = 0; i < predictions.length; i++)
 				+userPrediction(predictions[i])
+	script.
+		document.getElementById("avatar").onchange = function () {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+			document.getElementById("user__prof").src = e.target.result;
+		}
+		reader.readAsDataURL(this.files[0]);
+		}
