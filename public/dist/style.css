@@ -665,7 +665,8 @@ table.ui .show-more {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap; }
     .pending_div .withdrawal_data p {
-      width: 50%; }
+      width: 30%;
+      font-size: 10px; }
 
 .deposit_div {
   width: 80%;
@@ -968,15 +969,18 @@ table.ui .show-more {
       font-size: 12px; }
 
 .login_container {
-  min-height: 100%;
-  margin-bottom: -50px; }
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  min-height: 80vh; }
 
-.push {
-  height: 50px; }
+.login-form {
+  -ms-flex: 1;
+      flex: 1; }
 
 .sidebar_copyright {
   width: 100%;
-  height: 50px;
   text-align: center; }
   .sidebar_copyright a {
     color: #a333c8; }

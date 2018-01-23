@@ -43,12 +43,13 @@ block content
 		.withdrawal_data.data_header
 			p Date
 			p Amount
+			p Status
 		each payment in payments
-			- if(payment.category === "MobileB2C")
-					-const date = (new Date( parseInt(payment._id.toString().substring(0,8), 16 ) * 1000 )).toISOString().slice(0,10).replace(/-/g,"/")
-					.withdrawal_data
-						p=date
-						p=payment.value.replace('.0000', '')
+			-const date = (new Date( parseInt(payment._id.toString().substring(0,8), 16 ) * 1000 )).toISOString().slice(0,10).replace(/-/g,"/")
+			.withdrawal_data
+				p=date
+				p=payment.value.replace('.0000', '')
+				p Successful
 
 
 

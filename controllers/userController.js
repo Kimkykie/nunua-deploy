@@ -74,7 +74,10 @@ exports.register = async (req, res, next) => {
 }
 
 exports.account = async (req, res, next) => {
-  const payments = await Payment.find({user: req.user})
+  const payments = await Payment
+    .find({user: req.user, category: 'MobileB2C'})
+    .sort({ '_id': -1 })
+    .limit(5)
   res.render('account', { title: 'Account Settings', payments })
 }
 
