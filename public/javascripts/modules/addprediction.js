@@ -117,6 +117,35 @@ function addFields (e) {
     minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
     maxDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() + 14)
   })
+  $('.add-prediction-form')
+  .form({
+    fields: {
+      date: {
+        identifier: 'date[]',
+        rules: [{
+          type: 'empty'
+        }]
+      },
+      home: {
+        identifier: 'home[]',
+        rules: [{
+          type: 'empty'
+        }]
+      },
+      away: {
+        identifier: 'away[]',
+        rules: [{
+          type: 'empty'
+        }]
+      },
+      prediction: {
+        identifier: 'prediction[]',
+        rules: [{
+          type: 'empty'
+        }]
+      }
+    }
+  })
 }
 
 export default addFields
