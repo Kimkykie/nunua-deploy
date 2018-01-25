@@ -48,7 +48,7 @@ mixin predictionCard(prediction = {})
               for team in prediction.team.slice(0,3)
                 tr
                   td #{team.date.toISOString().slice(0,10).replace(/-/g,"/")}
-                  td #{new Date(team.date).toLocaleTimeString([], {timeZone: 'Africa/Nairobi',hour: '2-digit', minute:'2-digit'})}
+                  td #{new Date(team.date).toLocaleTimeString([], {timeZone: 'Africa/Accra',hour: '2-digit', minute:'2-digit'})}
                   td #{team.home}
                   td #{team.away}
               for team in prediction.team.slice(3)
@@ -75,7 +75,7 @@ mixin predictionCard(prediction = {})
 
           else
             .content.games_control
-              a.ui.game_length(href=`/prediction/${prediction.slug}`) #{prediction.team.length} games 
+              a.ui.game_length(href=`/prediction/${prediction.slug}`) #{prediction.team.length} games
                 i.icon.mail.forward
               a.ui.basic.purple.button.more-predictions
                 span.view-more VIEW MORE
@@ -86,4 +86,4 @@ mixin predictionCard(prediction = {})
               else
                 button.ui.basic.purple.button.right.floated(type='submit' name='buy' data-index=`${i}`) BUY
             .content.price_control
-                a.ui.game_price KES #{prediction.price} 
+                a.ui.game_price KES #{prediction.price}
