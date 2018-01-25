@@ -31,10 +31,10 @@ mixin orderCard(order = {})
           for team in order.item.team
             tr
               td #{team.date.slice(0,10).replace(/-/g,"/")}
-              td #{new Date(team.date).toLocaleTimeString([], {timeZone: 'Africa/Nairobi', hour: '2-digit', minute:'2-digit'})}
+              td #{new Date(team.date).toLocaleTimeString([], {timeZone: 'Africa/Accra', hour: '2-digit', minute:'2-digit'})}
               td #{team.home}
               td #{team.away}
               td #{team.prediction}
       .content.games_control
-        a.ui.game_length(href=`/prediction/${order.item.slug}`) #{order.item.team.length} games 
+        a.ui.game_length(href=`/prediction/${order.item.slug}`) #{order.item.team.length} games
           i.icon.mail.forward

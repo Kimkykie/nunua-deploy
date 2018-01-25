@@ -34,7 +34,7 @@ block content
                 for team in prediction.team
                   tr
                     td #{team.date.toISOString().slice(0,10).replace(/-/g,"/")}
-                    td #{team.date.toLocaleTimeString([], {timeZone: 'Africa/Nairobi', hour: '2-digit', minute:'2-digit'})}
+                    td #{team.date.toLocaleTimeString([], {timeZone: 'Africa/Accra', hour: '2-digit', minute:'2-digit'})}
                     td #{team.home}
                     td #{team.away}
                     if user && purchased ||  user && (user.id === prediction.author.id)
