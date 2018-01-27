@@ -37,7 +37,7 @@ exports.createPrediction = async (req, res) => {
       // If predictions length are more than 10 games add 1 to default price for each game
       if (req.body.home.length > 10) {
         prediction.price = 20
-        for (let i = 10; i < req.body.home.length; i += 1) {
+        for (let i = 11; i < req.body.home.length; i += 1) {
           prediction.price += 2
         }
       }
