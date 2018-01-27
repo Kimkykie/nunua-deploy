@@ -38,7 +38,7 @@ exports.createPrediction = async (req, res) => {
       if (req.body.home.length > 10) {
         prediction.price = 20
         for (let i = 10; i < req.body.home.length; i += 1) {
-          prediction.price += 1
+          prediction.price += 2
         }
       }
     }
