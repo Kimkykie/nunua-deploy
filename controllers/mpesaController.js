@@ -37,7 +37,7 @@ exports.c2bValidation = async (req, res) => {
 // B2C WITHDRAWAL
 
 exports.b2cValidation = async(req, res) => {
-  if ((req.body.phone === req.user.phone) && (req.body.amount !== '') && (req.user.balance > req.body.amount)) {
+  if ((req.body.phone === req.user.phone) && (req.user.balance > 70) && (req.body.amount !== '') && (req.user.balance > req.body.amount)) {
     const useropts = {
       'username': 'kimkiragu',
       'productName': 'nunuapay',
@@ -87,7 +87,8 @@ exports.b2cValidation = async(req, res) => {
         })
       })
       .catch(function (err) {
-        console.log('Encountered an error while making the call: ' + err)
+        req.flash('error', 'Sorry! Couldnt process your withdrawal request.')
+        res.redirect('back')
       })
   } else {
     req.flash('error', 'Sorry! Could not process your withdrawal request.')

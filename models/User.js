@@ -10,7 +10,6 @@ const passportLocalMongoose = require('passport-local-mongoose')
 const userSchema = new Schema({
   email: {
     type: String,
-    unique: true,
     lowercase: true,
     trim: true,
     validate: [
@@ -21,7 +20,6 @@ const userSchema = new Schema({
 
   username: {
     type: String,
-    unique: true,
     trim: true,
     required: 'Please supply a name'
   },
@@ -65,6 +63,7 @@ userSchema.path('username').validate(function (v) {
   return v.length <= 15
 }, 'Sorry! Maximum username length is 15.')
 
+
 userSchema.virtual('gravatar').get(function () {
   const hash = md5(this.email)
   return `https://gravatar.com/avatar/${hash}?s=200`
@@ -80,7 +79,17 @@ function autopopulate (next) {
   this.populate('reviews')
   next()
 }
+const handleE11000 = function (error, res, next) {
+  if (error.name === 'MongoError' && error.code === 11000) {
+    next(new Error('There was a duplicate key error'))
+  } else {
+    next()
+  }
+}
 
+userSchema.post('save', handleE11000)
+userSchema.post('update', handleE11000)
+userSchema.post('findOneAndUpdate', handleE11000)
 userSchema.pre('find', autopopulate)
 userSchema.pre('findOne', autopopulate)
 userSchema.plugin(passportLocalMongoose, { usernameField: 'phone' })

@@ -68,9 +68,16 @@ exports.register = async (req, res, next) => {
     username: req.body.username,
     phone: req.body.phone
   })
-  const register = promisify(User.register, User)
-  await register(user, req.body.password)
-  next()
+  // const register = promisify(User.register, User)
+  // await register(user, req.body.password)
+  await User.register(user, req.body.password, function (err) {
+    if (err) {
+      req.flash('error', 'Username or Email should be unique, Please try another one!')
+      res.redirect('/register')
+    } else {
+      next()
+    }
+  })
 }
 
 exports.account = async (req, res, next) => {
@@ -87,8 +94,16 @@ exports.updateAccount = async (req, res) => {
     req.body,
     { new: true, runValidators: true, context: 'query' }
   ).exec()
-  req.flash('success', 'Profile updated')
-  res.redirect(`/user/profile/${req.body.username}`)
+    .then(function () {
+        req.flash('success', 'Profile updated')
+        res.redirect(`/user/profile/${req.body.username}`)
+    })
+    .catch(function (err) {
+      if (err) {
+        req.flash('error', 'Username or Email should be unique, Please try another one!')
+        res.redirect('back')
+      }
+    })
 }
 
 exports.upload = multer(multerOptions).single('avatar')
