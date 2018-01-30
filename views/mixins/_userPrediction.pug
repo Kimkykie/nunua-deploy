@@ -26,16 +26,16 @@ mixin userPrediction(prediction = {})
             tbody
             for team in prediction.team.slice(0,3)
               tr
-                td #{team.date.toISOString().slice(0,10).replace(/-/g,"/")}
-                td #{new Date(team.date).toLocaleTimeString([], {timeZone: 'Africa/Accra',hour: '2-digit', minute:'2-digit'})}
+                td #{team.date.toISOString().slice(0,10).replace(/-/g,"/") || 0}
+                td #{new Date(team.date).toLocaleTimeString([], {timeZone: 'Africa/Accra',hour: '2-digit', minute:'2-digit'}) || 0}
                 td #{team.home}
                 td #{team.away}
                 if user && user.id.toString() === prediction.author.id.toString()
                   td #{team.prediction}
             for team in prediction.team.slice(3)
              tr.more.show-more
-               td #{team.date.toISOString().slice(0,10).replace(/-/g,"/")}
-               td #{new Date(team.date).toLocaleTimeString([], {timeZone: 'Africa/Accra',hour: '2-digit', minute:'2-digit'})}
+               td #{team.date.toISOString().slice(0,10).replace(/-/g,"/") || 0}
+               td #{new Date(team.date).toLocaleTimeString([], {timeZone: 'Africa/Accra',hour: '2-digit', minute:'2-digit'}) || 0}
                td #{team.home}
                td #{team.away}
                if user && user.id.toString() === prediction.author.id.toString()

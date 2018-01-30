@@ -33,6 +33,9 @@ exports.createPrediction = async (req, res) => {
           prediction: req.body.prediction[i],
           date: req.body.date[i]
         })
+      } else if (req.body.date[i] === null) {
+        req.flash('error', 'Date cannot be empty')
+        return res.redirect('back')
       }
       // If predictions length are more than 10 games add 1 to default price for each game
       if (req.body.home.length > 10) {

@@ -62,7 +62,8 @@ $('.add-prediction-form')
     date: {
       identifier: 'date[]',
       rules: [{
-        type: 'empty'
+        type: 'empty',
+        prompt: 'Please select a date'
       }]
     },
     home: {

@@ -36,8 +36,8 @@ block content
 									tbody
 									for team in prediction.item.team
 										tr
-											td #{team.date.slice(0,10).replace(/-/g,"/")}
-											td #{new Date(team.date).toLocaleTimeString([], {timeZone: 'Africa/Nairobi',hour: '2-digit', minute:'2-digit'})}
+											td #{team.date.slice(0,10).replace(/-/g,"/") || 0}
+											td #{new Date(team.date).toLocaleTimeString([], {timeZone: 'Africa/Nairobi',hour: '2-digit', minute:'2-digit'}) || 0}
 											td #{team.home}
 											td #{team.away}
 							.content.cart_item_info

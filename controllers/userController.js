@@ -92,7 +92,8 @@ exports.updateAccount = async (req, res) => {
     { _id: req.user._id },
     {
       username: req.body.username.replace(/^\s+|\s+$/g, ''),
-      email: req.body.email.replace(/^\s+|\s+$/g, '')
+      email: req.body.email.replace(/^\s+|\s+$/g, ''),
+      avatar: req.body.avatar
     },
     { new: true, runValidators: true, context: 'query' }
   ).exec()
@@ -106,7 +107,6 @@ exports.updateAccount = async (req, res) => {
         res.redirect('back')
       }
     })
-  console.log(req.body)
 }
 
 exports.upload = multer(multerOptions).single('avatar')
@@ -122,6 +122,7 @@ exports.resize = async (req, res, next) => {
   // resize
   const avatar = await jimp.read(req.file.buffer)
   await avatar.resize(800, jimp.AUTO)
+  await avatar.quality(20)
   await avatar.write(`./public/uploads/${req.body.avatar}`)
   // Once photo is written keep going
   next()

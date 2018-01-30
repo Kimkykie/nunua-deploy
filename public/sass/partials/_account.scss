@@ -47,6 +47,11 @@
 .withdraw_info{
   display: flex;
   justify-content: flex-end;
+  margin-right: 1em;
+}
+.withdraw_info:hover{
+  background: none;
+  border: none;
 }
 
 .pending_div{
