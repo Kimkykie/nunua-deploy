@@ -37,7 +37,7 @@ exports.c2bValidation = async (req, res) => {
 // B2C WITHDRAWAL
 
 exports.b2cValidation = async(req, res) => {
-  if ((req.body.phone === req.user.phone) && (req.user.balance > 70) && (req.body.amount !== '') && (req.user.balance > req.body.amount)) {
+  if ((req.body.phone === req.user.phone) && (req.user.balance >= 70) && (req.body.amount !== '') && (req.user.balance > req.body.amount)) {
     const useropts = {
       'username': 'kimkiragu',
       'productName': 'nunuapay',
@@ -47,6 +47,7 @@ exports.b2cValidation = async(req, res) => {
           'phoneNumber': req.user.phone.replace(/^(0)+/, '+254'),
           'currencyCode': 'KES',
           'amount': parseInt(req.body.amount),
+          'providerChannel': 'nunuapay',
           'reason': payments.REASON.SALARY,
           'metadata': {
             'description': 'Withdrawal',
@@ -62,7 +63,7 @@ exports.b2cValidation = async(req, res) => {
             // Find User and update balance
             const user = await User.findOneAndUpdate({phone: (entry.phoneNumber).replace(/^(\+254)+/, '0')},
               {$inc: {
-                balance: -(parseInt((entry.value).replace('KES ', '')))
+                balance: -(parseInt((entry.value).replace('KES ', '')) + 20)
               }},
             {new: true}
           )
@@ -90,6 +91,9 @@ exports.b2cValidation = async(req, res) => {
         req.flash('error', 'Sorry! Couldnt process your withdrawal request.')
         res.redirect('back')
       })
+  } else if (req.user.balance < 70) {
+    req.flash('error', 'Sorry! Your minimum balance to withdraw is KES 50.')
+    res.redirect('back')
   } else {
     req.flash('error', 'Sorry! Could not process your withdrawal request.')
     res.redirect('back')

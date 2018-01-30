@@ -64,12 +64,11 @@ exports.validateRegister = (req, res, next) => {
 
 exports.register = async (req, res, next) => {
   const user = new User({
-    email: req.body.email,
-    username: req.body.username,
-    phone: req.body.phone
+    email: req.body.email.replace(/^\s+|\s+$/g, ''),
+    username: req.body.username.replace(/^\s+|\s+$/g, ''),
+    phone: req.body.phone.replace(/^\s+|\s+$/g, '')
   })
-  // const register = promisify(User.register, User)
-  // await register(user, req.body.password)
+
   await User.register(user, req.body.password, function (err) {
     if (err) {
       req.flash('error', 'Username or Email should be unique, Please try another one!')
@@ -91,12 +90,15 @@ exports.account = async (req, res, next) => {
 exports.updateAccount = async (req, res) => {
   const user = await User.findOneAndUpdate(
     { _id: req.user._id },
-    req.body,
+    {
+      username: req.body.username.replace(/^\s+|\s+$/g, ''),
+      email: req.body.email.replace(/^\s+|\s+$/g, '')
+    },
     { new: true, runValidators: true, context: 'query' }
   ).exec()
     .then(function () {
-        req.flash('success', 'Profile updated')
-        res.redirect(`/user/profile/${req.body.username}`)
+      req.flash('success', 'Profile updated')
+      res.redirect(`/user/profile/${req.body.username.replace(/^\s+|\s+$/g, '')}`)
     })
     .catch(function (err) {
       if (err) {
@@ -104,6 +106,7 @@ exports.updateAccount = async (req, res) => {
         res.redirect('back')
       }
     })
+  console.log(req.body)
 }
 
 exports.upload = multer(multerOptions).single('avatar')

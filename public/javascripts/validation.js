@@ -11,10 +11,12 @@ $('.validate-form')
       },
       email: {
         identifier: 'email',
-        rules: [{
-          type: 'empty',
-          prompt: 'Please enter your email'
-        }]
+        rules: [
+          {
+            type: 'empty',
+            prompt: 'Please enter your email'
+          }
+        ]
       },
       phone: {
         identifier: 'phone',

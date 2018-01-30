@@ -3,6 +3,8 @@ extends layout
 include mixins/_predictionForm
 
 block content
+  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui-calendar/0.0.8/calendar.css')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui-calendar/0.0.8/calendar.min.js')
   .ui.container
     h3.mobile.tablet.only= title
     +predictionForm()
