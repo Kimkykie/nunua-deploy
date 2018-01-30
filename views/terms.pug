@@ -11,7 +11,7 @@ block content
       .card
         #headingOne.card-header(role='tab')
           h5.mb-0
-            a(data-toggle='collapse', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
+            a(data-toggle='collapse', href='#collapseOne', aria-expanded='false', aria-controls='collapseOne')
               | Introduction
         #collapseOne.collapse.show(role='tabpanel', aria-labelledby='headingOne', data-parent='#accordion')
           .card-body
@@ -92,7 +92,7 @@ block content
       .card
         #headingEight.card-header(role='tab')
           h5.mb-0
-            a.collapsed(data-toggle='collapse', href='#collapseEight', aria-expanded='false', aria-controls='collapseEight')
+            a.collapsed(data-toggle='collapse', href='#collapseEight', aria-expanded='true', aria-controls='collapseEight')
               | Deposits, transfers and withdrawals
         #collapseEight.collapse(role='tabpanel', aria-labelledby='headingEight', data-parent='#accordion')
           .card-body
@@ -100,7 +100,8 @@ block content
               You can only deposit or withdraw money from the Site if you have a functioning Mpesa account. All deposits are to be made on #[strong PAYBILL NUMBER 964595, Account Number NUNUATIPS]. You are solely responsible for making deposits to the right paybill number. For all deposits, the Number of the depositor must be identical to the mobile phone number registered on the Company account receiving the funds i.e. the registered account.
             div Any charges levied by the Mobile Operators payment gateways (MPesa) will be deducted from the player's account. You should only deposit money in your account for the purposes of you using such money to buy a prediction on our platforms. We shall be entitled to suspend or close your account if we reasonably consider or have reason to believe that you are depositing money without any intention to buy predictions.
             div You can at any time log into your account and view a statement showing all purchase transactions made within the last 30 Calendar days. Should you notice any mistakes you should immediately notify the Company. Such anomaly once confirmed, will be rectified by the company in the shortest time possible at no cost to you.
-            div You can withdraw money from your nunuatips account at any time and the standard cost charged by our Mobile Money Gateway (Mpesa) will definitely apply and deducted from the User’s account. All withdrawal requests cannot be processed after the expiry of fifteen minutes from the withdrawal request made. All valid withdrawals will be made to the payment account from which the deposits were validly made. Withdrawal payments can only be made in the name of and to the registered account holder. There is no set maximum withdrawal amount per day.
+            div#withdraw #[strong The minimum withdrawal limit is 50 bob. The transaction charge to your nunuatips account for withdrawal amounts between Ksh 50 - Ksh 1000 is Ksh 20 and Ksh 33 for withdrawals between Ksh 1001 - Ksh 70,000. Therefore to make any withdrawal request you must have a minimum account balance of at least Ksh 70.]
+            div You can withdraw money from your nunuatips account at any time and the standard cost charged by our Mobile Money Gateway (Mpesa) will definitely apply and deducted from the User’s account. All withdrawal requests cannot be processed after the expiry of fifteen minutes from the withdrawal request made. All valid withdrawals will be made to the payment account from which the deposits were validly made. Withdrawal payments can only be made in the name of and to the registered account holder.
             div The price for each prediction containing #[strong 5-10 games] is set by nunuatips at a fixed price of #[strong Ksh.20]. the price for each extra game past the 10 game mark is #[strong Ksh.2] each. nunuatips is the only party who can set this price. The seller cannot impose any extra price on a buyer. All transactions must take place within the website and not elsewhere.
             div If we incur any charge-backs, reversals or other charges in respect of your account, we reserve the right to charge you for the relevant amounts incurred.
       .card
@@ -241,3 +242,7 @@ block content
           #collapseTwentyTwo.collapse(role='tabpanel', aria-labelledby='headingTwentyTwo', data-parent='#accordion')
             .card-body
               div If you have any questions regarding our Terms & Conditions you may contact us.
+    script.
+      $(document).ready(function () {
+      location.hash && $(location.hash + '.collapse').collapse('show');
+      });

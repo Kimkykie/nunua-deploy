@@ -642,6 +642,12 @@ table.ui .show-more {
     margin: 0 auto;
     font-size: 0.8em; }
 
+.withdraw_info {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: end;
+      justify-content: flex-end; }
+
 .pending_div {
   width: 80% !important;
   margin: auto !important;
@@ -667,6 +673,10 @@ table.ui .show-more {
     .pending_div .withdrawal_data p {
       width: 30%;
       font-size: 10px; }
+
+.limit_info {
+  font-size: 10px;
+  text-align: center; }
 
 .deposit_div {
   width: 80%;
@@ -696,7 +706,9 @@ table.ui .show-more {
   .pending_div {
     width: 60% !important; }
   .deposit_div {
-    width: 60%; } }
+    width: 60%; }
+  .withdraw_info {
+    margin-right: 12em; } }
 
 .search__results {
   width: 80% !important;

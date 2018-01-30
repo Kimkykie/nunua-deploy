@@ -20,6 +20,8 @@ block content
 			.item You will shortly receive an SMS from MPESA to confirm the transaction
 	.withdraw_div
 		h3.withdraw_header REQUEST WITHDRAWAL
+		a.item.withdraw_info.dropdown-toggle(href='/terms-and-conditions#collapseEight')
+			i.icon.info.circle
 		form.ui.form.segment#withdraw_form(action=`/mpesa/withdrawal/request` method='POST')
 			.field.required
 				label Phone
@@ -32,7 +34,7 @@ block content
 				label Amount
 				|
 				.ui.left.labeled.icon.input
-					input(type='text', placeholder='Amount to withdraw', name='amount')
+					input(type='text', placeholder='Minimum amount 50', name='amount')
 					|
 					i.money.icon
 			button.ui.button.purple.withdraw_btn(type='submit') WITHDRAW
@@ -50,7 +52,7 @@ block content
 				p=date
 				p=payment.value.replace('.0000', '')
 				p Successful
-
+	div.limit_info #[strong N/B:] To make any withdrawal request you must have a minimum account balance of at least Ksh 70.
 
 
 
