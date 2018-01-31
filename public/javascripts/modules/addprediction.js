@@ -109,7 +109,7 @@ function addFields (e) {
   </div>
   <hr class="add_divider"/>
   `
-  fieldWrapper.insertAdjacentHTML('beforeend', dompurify.sanitize(fieldHtml))
+  fieldWrapper.insertAdjacentHTML('beforeend', fieldHtml)
   $('.ui.dropdown').dropdown({
     on: 'click' })
   const today = new Date()

@@ -941,7 +941,8 @@ table.ui .show-more {
 #help-container {
   margin-top: 2em; }
   #help-container .help_clause {
-    font-size: 12px; }
+    font-size: 12px;
+    margin-bottom: 10px; }
   #help-container h2 {
     text-transform: uppercase;
     text-align: center;

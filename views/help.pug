@@ -142,4 +142,17 @@ block content
               li.list-group-item
                 div You can also share your prediction to your favorite platforms for other users to purchase
                   img.img-fluid.mx-auto.d-block(src='/images/rate.jpg')
-    div.help_clause  Was this helpful? If you have any other questions, you can send us your feedback here, we would love to hear from you.
+    div.help_clause
+      span Was this helpful? If you have any other questions, you can send us your feedback here, we would love to hear from you.
+      span
+        a(href='mailto:info@nunuatips.com?Subject=Hello%20Nunuatips' target="_blank")= ` Contact us`
+    #share-buttons
+      // Facebook
+      a(href=`https://web.facebook.com/nunuatips/?ref=page_internal&_rdc=1&_rdr`, target='_blank')
+        i.icon.facebook
+      // Twitter
+      a(href=`https://twitter.com/nunuatips`, target='_blank')
+        i.icon.twitter
+      // Instagram
+      a(href=`https://www.instagram.com/nunuatips/`, target='_blank')
+        i.icon.instagram

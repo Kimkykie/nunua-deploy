@@ -241,7 +241,10 @@ block content
                 | Contacting Us
           #collapseTwentyTwo.collapse(role='tabpanel', aria-labelledby='headingTwentyTwo', data-parent='#accordion')
             .card-body
-              div If you have any questions regarding our Terms & Conditions you may contact us.
+              div
+                span If you have any questions regarding our Terms & Conditions you may 
+                span
+                  a(href='mailto:info@nunuatips.com?Subject=Hello%20Nunuatips' target="_blank")= ` contact us.`
     script.
       $(document).ready(function () {
       location.hash && $(location.hash + '.collapse').collapse('show');
