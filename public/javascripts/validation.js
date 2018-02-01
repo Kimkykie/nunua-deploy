@@ -149,6 +149,11 @@ $('#withdraw_form')
       rules: [{
         type: 'empty',
         prompt: 'Please enter an amount to withdraw'
+      },
+      {
+        type: 'regExp',
+        value: /^0*([1-9]\d{2,}|[5-9]\d)$/,
+        prompt: 'Please enter an amount greater than 50'
       }
       ]
     }

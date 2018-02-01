@@ -47,7 +47,7 @@ exports.b2cValidation = async(req, res) => {
           'phoneNumber': req.user.phone.replace(/^(0)+/, '+254'),
           'currencyCode': 'KES',
           'amount': parseInt(req.body.amount),
-          'providerChannel': 'nunuapay',
+          'providerChannel': '770562',
           'reason': payments.REASON.SALARY,
           'metadata': {
             'description': 'Withdrawal',
@@ -82,7 +82,7 @@ exports.b2cValidation = async(req, res) => {
             req.flash('success', 'Withdrawal request successful.')
             res.redirect('back')
           } else {
-            req.flash('error', 'Sorry! Could not process your withdrawal request.')
+            req.flash('error', 'Sorry! Withdrawal request unsuccesful.')
             res.redirect('back')
           }
         })
@@ -92,7 +92,7 @@ exports.b2cValidation = async(req, res) => {
         res.redirect('back')
       })
   } else if (req.user.balance < 70) {
-    req.flash('error', 'Sorry! Your minimum balance to withdraw is KES 50.')
+    req.flash('error', 'Sorry! Your minimum balance to withdraw is KES 70.')
     res.redirect('back')
   } else {
     req.flash('error', 'Sorry! Could not process your withdrawal request.')
