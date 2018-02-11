@@ -6,7 +6,9 @@ const slug = require('slugs')
 
 const teamSchema = new mongoose.Schema({
   date: {
-    type: Date
+    type: Date,
+    required: true,
+    default: Date.now
   },
   home: {
     type: String,
